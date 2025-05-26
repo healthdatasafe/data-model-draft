@@ -1,0 +1,58 @@
+- streamId: fertility-cycles-charted-estimation
+  eventType: count/generic
+  type: number
+  label: Nb of charted cycles
+  repeatable: none
+- streamId: fertility-cycles-ovulation
+  eventType: activity/plain
+  type: checkbox
+  label: Ovulation Day
+  repeatable: daily
+- streamId: fertility-cycles-start
+  eventType: activity/plain
+  type: checkbox
+  label: New Cycle
+  repeatable: daily
+- streamId: fertility-miscarriages
+  eventType: count/generic
+  type: number
+  label: Nb of miscarriages
+  repeatable: none
+- streamId: fertility-ttc-tta
+  eventType: fertility-intention/ttc-tta
+  label: Trying to conceive / Avoiding pregnancy
+  type: select
+  parseValueToNum: true
+  options:
+    - value: 0
+      label: TTA - Not taking risks.  Would take all available measures to end a
+        pregnancy.
+    - value: 1
+      label: TTA - Not taking risks.  Would strongly consider placing baby for
+        adoption.
+    - value: 2
+      label: TTA - Not taking risks.  Would need some time, maybe counseling.
+        Ultimately keeping the pregnancy.
+    - value: 4
+      label: TTA - Not taking risks.  Currently content with family size but a
+        surprise pregnancy would be welcome.
+    - value: 5
+      label: TTW/TTA - “Loosely TTA” known risks are taken in the fertile window.
+        “OOPS” pregnancy would be welcome.
+    - value: 6
+      label: TTW - Charting only for health/curiosity. Unprotected intercourse happens
+        whenever. Pregnancy very welcome.
+    - value: 7
+      label: TTW/TTC - Pregnancy very welcome (moving up the scale in very near
+        future).
+    - value: 8
+      label: TTC - “Excited to start/grow a family TTC” Intentional intercourse every
+        cycle. Excited to start/grow a family. But would not use any fertility
+        treatments if needed.
+    - value: 9
+      label: TTC - “Highly hopeful TTC” Intentional intercourse every cycle. Would
+        consider some but not all fertility treatments if needed.
+    - value: 10
+      label: TTC - “ Seriously TTC” Intentional intercourse every cycle. Would pursue
+        any/ALL fertility treatments or procedures if needed.
+  repeatable: daily

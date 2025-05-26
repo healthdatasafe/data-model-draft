@@ -2,8 +2,8 @@ id: profile
 name: Profile
 parentId: null
 children:
-  - id: profile-country
-    name: Country
+  - id: profile-address
+    name: Adress
     parentId: profile
   - id: profile-date-of-birth
     name: Date of Birth

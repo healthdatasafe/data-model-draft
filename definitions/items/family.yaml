@@ -1,0 +1,5 @@
+- streamId: family-children
+  eventType: count/generic
+  type: number
+  label: Nb of children
+  repeatable: none
