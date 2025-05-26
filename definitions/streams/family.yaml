@@ -1,0 +1,7 @@
+id: family
+name: Family
+parentId: null
+children:
+  - id: family-children
+    name: Children
+    parentId: family
