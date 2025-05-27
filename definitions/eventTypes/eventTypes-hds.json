@@ -1,0 +1,28 @@
+{
+  "version": "1.0.0",
+  "types": {
+    "vulva-mucus-inspect/v0": {
+      "description": "Cervical Fluid Inspect",
+      "type": "string",
+      "enum": [
+        "dry",
+        "sticky",
+        "creamy",
+        "watery",
+        "egg_white"
+      ]
+    },
+    "contact/country": {
+      "description": "Country",
+      "type": "string"
+    },
+    "contact/name": {
+      "description": "Name",
+      "type": "string"
+    },
+    "contact/surname": {
+      "description": "Surname",
+      "type": "string"
+    }
+  }
+}

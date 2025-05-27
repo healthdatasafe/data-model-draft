@@ -10,6 +10,24 @@ Defines the initial version of stream structures and event types for a common mo
 | Status           | Draft         |
 |                  |               |
 
+### Dev & Roadmap 
+
+Base Logic - metrics, observation, all about patien data 
+
+- [ ] Choose JSON or YAML
+- [ ] Write JsonScheams and validate with [ajv](https://github.com/ajv-validator/ajv)
+- [ ] Experiment **toFhir** & **fromFhir**  logics 
+- [ ] Experiment conversion logic (from one eventType to another wihin an "Item")
+- [ ] Experiment model versioning 
+
+Specific Logic
+
+- [ ] Access ClientData
+  - [ ] Properties for contact informations (type, address, ... ,url)
+  - [ ] Properties for supported interactions
+    - [ ] A `chat stream` when the counter part supports chats
+
+
 ### Function Requirements
 
 #### Description
@@ -38,9 +56,9 @@ Note: all textual descriptions and labels should be translatable. market with a 
   - has at least one eventType
   - has at least one streamId
 - Constraints & checks
-  The eventType(s) will already provide some constraints, such as "number" or "object stucture" based on jsonSchema, this may not be sufficient and could be completed on a per eventType basis.
+  The eventType(s) will already provide some constraints, such as "number" or "object stucture" based on jsonSchema. This may not be sufficient and could be completed on a per eventType basis.
 
-- Encoding in sdandards and variations
+- Encoding in standards and variations
   - Some data may be taken with different variations and context
   - [SNOWMED CT](https://bioportal.bioontology.org/ontologies/SNOMEDCT)
   - [LOINC (BODY WEIGHT)](https://loinc.org/LG34372-9)
@@ -72,7 +90,7 @@ Note: all textual descriptions and labels should be translatable. market with a 
   - provides necessary information to transform the data to the latest version
 
 
-**Exemple Weight**
+**Example Weight**
 ```yaml
 body-weight
   label: 
@@ -147,3 +165,4 @@ body-weight
         code: "[lb_av]"
 
 ```
+

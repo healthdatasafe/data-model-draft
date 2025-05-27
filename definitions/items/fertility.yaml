@@ -19,7 +19,7 @@
   label: Nb of miscarriages
   repeatable: none
 - streamId: fertility-ttc-tta
-  eventType: fertility-intention/ttc-tta
+  eventType: ratio/generic
   label: Trying to conceive / Avoiding pregnancy
   type: select
   parseValueToNum: true
