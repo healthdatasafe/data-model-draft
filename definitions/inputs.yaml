@@ -1,0 +1,3 @@
+number:
+  type: text
+  coerce: number

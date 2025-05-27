@@ -11,7 +11,7 @@
       label: Dry & Sticky
     - value: egg-white
       label: Egg White
-  repeatable: daily
+  repeatable: any
 - streamId: body-vulva-mucus-stretch
   eventType: ratio/generic
   type: select
@@ -23,7 +23,7 @@
       label: Short
     - value: 2
       label: Long
-  repeatable: daily
+  repeatable: any
 - label: Vulva Wetness feeling
   streamId: body-vulva-wetness-feeling
   eventType: ratio/generic
@@ -35,9 +35,9 @@
       label: Wet
     - value: 2
       label: Very wet
-  repeatable: daily
+  repeatable: any
 - streamId: body-weight
   eventType: mass/kg
   type: number
   label: Body Weight (kg)
-  repeatable: daily
+  repeatable: any
