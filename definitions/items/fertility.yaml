@@ -1,28 +1,42 @@
-- streamId: fertility-cycles-charted-estimation
-  eventType: count/generic
-  type: number
+fertility-cycles-charted-count:
+  version: temporary
   label: Nb of charted cycles
-  repeatable: none
-- streamId: fertility-cycles-ovulation
-  eventType: activity/plain
-  type: checkbox
-  label: Ovulation Day
-  repeatable: daily
-- streamId: fertility-cycles-start
-  eventType: activity/plain
-  type: checkbox
-  label: New Cycle
-  repeatable: daily
-- streamId: fertility-miscarriages
+  description: Number of total charted cycles at this date
+  streamId: fertility-cycles-charted-estimation
   eventType: count/generic
   type: number
-  label: Nb of miscarriages
   repeatable: none
-- streamId: fertility-ttc-tta
-  eventType: ratio/generic
+fertility-cycles-ovulation:
+  version: temporary
+  label: Ovulation Day
+  description: Flag this day as an ovulation day
+  streamId: fertility-cycles-ovulation
+  eventType: activity/plain
+  type: checkbox
+  repeatable: daily
+fertility-cycles-start:
+  version: temporary
+  label: New Cycle
+  description: Flag this day as a new cycle start
+  streamId: fertility-cycles-start
+  eventType: activity/plain
+  type: checkbox
+  repeatable: daily
+fertility-miscarriages-count:
+  version: temporary
+  label: Nb of miscarriages
+  description: Number of total miscarriages at this date
+  streamId: fertility-miscarriages
+  eventType: count/generic
+  type: number
+  repeatable: none
+fertility-ttc-tta:
+  version: v1
   label: Trying to conceive / Avoiding pregnancy
+  description: Current fertility intention
+  streamId: fertility-ttc-tta
+  eventType: ratio/generic
   type: select
-  parseValueToNum: true
   options:
     - value: 0
       label: TTA - Not taking risks.  Would take all available measures to end a

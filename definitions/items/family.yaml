@@ -1,5 +1,8 @@
-- streamId: family-children
+family-children-count:
+  version: temporary
+  label: Nb of children
+  description: Numer of children at this date
+  streamId: family-children
   eventType: count/generic
   type: number
-  label: Nb of children
   repeatable: none

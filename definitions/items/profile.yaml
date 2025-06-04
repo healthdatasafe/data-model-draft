@@ -1,24 +1,39 @@
-- streamId: profile-address
+profile-addresscountry:
+  version: temporary
+  label: Country
+  description: Country of living
+  streamId: profile-address
   eventType: contact/country
   type: text
-  label: Country
   repeatable: none
-- streamId: profile-date-of-birth
+profile-date-of-birth:
+  version: v1
+  streamId: profile-date-of-birth
   eventType: date/iso-8601
   type: date
   label: Date of Birth
   repeatable: none
-- streamId: profile-name
+profile-contact-name:
+  version: temporary
+  label: Name
+  description: Name
+  streamId: profile-name
   eventType: contact/name
   type: text
-  label: Name
   repeatable: none
-- streamId: profile-name
+profile-name:
+  version: temporary
+  label: Surname
+  description: Surname
+  streamId: profile-name
   eventType: contact/surname
   type: text
-  label: Surname
   repeatable: none
-- streamId: profile-sex
+profile-sex:
+  version: v1
+  label: Sex
+  description: Biological Sex
+  streamId: profile-sex
   eventType: attributes/biological-sex
   type: select
   options:
@@ -26,5 +41,4 @@
       label: Male
     - value: female
       label: Female
-  label: Sex
   repeatable: none

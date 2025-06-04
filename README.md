@@ -92,53 +92,55 @@ Note: all textual descriptions and labels should be translatable. market with a 
 
 **Example Weight**
 ```yaml
-body-weight
+body-weight:
   label: 
     en: Body Weight
   description:
     en: Body weight of a human being
   streamId: body-weight # the parents structures of streams is given by the default streams structure
-  eventTypes: 
-    - mass/kg
-    - mass/lb
-  variations:
-    default:
-      label: 
-        en: Default
-      description: 
-        en: Measured with an instrument
-      encoding:
-        loinc: 29463-7
-        snowmed: 27113001 # Many other exists
-    self-reported:
-      label: 
-        en: Self reported
-      description: 
-        en: Weight self reported
-      encoding:
-        loinc: 79348-9
-        snowmed: 784399000
-    with-clothes:
-      label:
-        en: Measured with clothes
-      encoding:
-        loinc: 8350-1
-        hl7:
-          extension: # snowmed as no specific code by provide extension
-            - url: http://hl7.org/fhir/us/vitals/StructureDefinition/AssociatedSituationExt
-
+  variations: # Variations of this measure
+  	eventType: # Reserved key for variation by EventType
+  		mass/kg:
+  			label: Kg
+  			hl7fhir:
+  				unit: kg
+        	code: kg
+  		mass/lb:
+  			label: Lbs
+  			hl7fhir:
+          unit: lb
+          code: "[lb_av]"
+    measure-detail: # Free-from key for variation
+      default: # Reserved keywork for default selection when none is provided
+        label: 
+          en: Default
+        description: 
+          en: Measured with an instrument
+        encoding:
+          loinc: 29463-7
+          snowmed: 27113001 # Many other exists
+      self-reported:
+        label: 
+          en: Self reported
+        description: 
+          en: Weight self reported
+        encoding:
+          loinc: 79348-9
+          snowmed: 784399000
+      with-clothes:
+        label:
+          en: Measured with clothes
+        encoding:
+          loinc: 8350-1
+          hl7:
+            extension: # snowmed as no specific code by provide extension
+              - url: http://hl7.org/fhir/us/vitals/StructureDefinition/AssociatedSituationExt
   constraints:
-    mass/kg:
-      number: 
-        min: 0
-    mass/lb:
+    number: 
         min: 0
   conversion: # Conversion are handled by eventTypes, they are bi-drectionnal
     byEventType: true
   display:
-    unit: # Per event Type
-      mass/kg: Kg
-      mass/lb: Lbs
     input:
       type: number
     table:
@@ -156,13 +158,6 @@ body-weight
     valueQuantity:
       value: "{event.content}"
       system: http://unitsofmeasure.org
-    byEventType:
-      mass/kg:
-        unit: kg
-        code: kg
-      mass/lb:
-        unit: lb
-        code: "[lb_av]"
 
 ```
 

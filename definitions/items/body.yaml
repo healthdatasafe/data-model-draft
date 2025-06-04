@@ -1,7 +1,10 @@
-- streamId: body-vulva-mucus-inspect
+body-vulva-mucus-inspect:
+  version: v1
+  label: Cervical Fluid Inspect
+  description: Visual aspect of cervical fluid inspection
+  streamId: body-vulva-mucus-inspect
   eventType: vulva-mucus-inspect/v0
   type: select
-  label: Cervical Fluid Inspect
   options:
     - value: clear
       label: Clear
@@ -12,10 +15,13 @@
     - value: egg-white
       label: Egg White
   repeatable: any
-- streamId: body-vulva-mucus-stretch
+body-vulva-mucus-stretch:
+  version: v1
+  label: Cervical Fluid Stretch
+  description: Manual strech test of cervical fluid
+  streamId: body-vulva-mucus-stretch
   eventType: ratio/generic
   type: select
-  label: Cervical Fluid Stretch
   options:
     - value: 0
       label: No Strech
@@ -24,7 +30,10 @@
     - value: 2
       label: Long
   repeatable: any
-- label: Vulva Wetness feeling
+body-vulva-wetness-feeling:
+  version: v1
+  label: Vulva Wetness feeling
+  description: Vulava wetness feeling 
   streamId: body-vulva-wetness-feeling
   eventType: ratio/generic
   type: select
@@ -36,8 +45,16 @@
     - value: 2
       label: Very wet
   repeatable: any
-- streamId: body-weight
-  eventType: mass/kg
+body-weight:
+  version: temporary
+  label: Body Weight
+  description: Measured body weight
+  streamId: body-weight
   type: number
-  label: Body Weight (kg)
+  variations:
+    eventType: 
+      mass/kg:
+        label: Kg
+      mass/lb:
+        label: Lbs
   repeatable: any
