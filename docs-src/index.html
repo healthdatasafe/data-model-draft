@@ -14,19 +14,38 @@
     <div class="container">
       <h1>Health Data Safe - Data Dictionnary</h1>
       <a href="https://github.com/healthdatasafe/data-model-draft">Github Repo</a>
+      
       <br>
       <hr>
-        <table class="table">
-          <thead>
-            <tr>
-              <th scope="col">Title</th>
-              <th scope="col">Filename</th>
-            </tr>
-          </thead>
-          <tbody>
-            {TABLE_BODY}
-          </tbody>
-        </table>
+      <h3>Files</h3>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col"><b>Title</b></th>
+            <th scope="col"><b>Filename</b></th>
+          </tr>
+        </thead>
+        <tbody>
+          {TABLE_FILES}
+        </tbody>
+      </table>
+      
+      <br>
+      <hr>
+      <h3>Items</h3>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col"><b>Id & Type</b></th>
+            <th scope="col"><b>Description</b></th>
+            <th scope="col"><b>streamId & eventType</b></th>
+            <th scope="col"><b>Variations</b></th>
+          </tr>
+        </thead>
+        <tbody>
+          {TABLE_ITEMS}
+        </tbody>
+      </table>
     </div>
   </body>
 </html>

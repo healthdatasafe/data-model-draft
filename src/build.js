@@ -1,7 +1,10 @@
 const fs = require('fs');
 const path = require('path');
+const YAML = require('yaml');
 
 const basePath = path.resolve(__dirname, '../docs');
+
+const { itemsById } = require('./items');
 
 const sources = [
   require('./schemas/items').toBePublished,
@@ -39,9 +42,20 @@ for (const source of sources) {
 const packFilePath = path.resolve(basePath, 'pack.json');
 fs.writeFileSync(packFilePath, JSON.stringify(pack, null, 2), 'utf-8');
 
-// -- html table
-const htmlTable = htmlTableSrc.map(i => `<tr><td>${i.title}</td><td><a href="${i.link}">${i.linkTxt}</a></tr>`).join('\n');
+// -- html table files
+const htmlTableFiles = htmlTableSrc.map(i => `<tr><td>${i.title}</td><td><a href="${i.link}">${i.linkTxt}</a></tr>`).join('\n');
 
 const indexHtmlSrc = fs.readFileSync(path.resolve(__dirname, '../docs-src/index.html'), 'utf-8');
-const indexHtmlDest = indexHtmlSrc.replace('{TABLE_BODY}', htmlTable);
+const indexHtmlDest1 = indexHtmlSrc.replace('{TABLE_FILES}', htmlTableFiles);
+
+// -- html table items
+const rowsItems = [];
+for (const key of Object.keys(itemsById).sort()) {
+  const i = itemsById[key];
+  const variation = i.variations ? YAML.stringify(i.variations, null, 2) : '';
+  const line = `<tr><td>Id: ${key}<br>Type: ${i.type}</td><td>${i.label.en}<br>${i.description.en}</td><td>streamId: ${i.streamId}<br>eventType: ${i.eventType}</td><td><pre>${variation}</pre></td></tr>`;
+  rowsItems.push(line);
+}
+const indexHtmlDest = indexHtmlDest1.replace('{TABLE_ITEMS}', rowsItems.join('\n'));
+
 fs.writeFileSync(path.resolve(basePath, 'index.html'), indexHtmlDest, 'utf-8');
