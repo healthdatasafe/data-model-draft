@@ -12,7 +12,7 @@ module.exports = {
   getRootOfById
 };
 
-function getRootOfById(id) {
+function getRootOfById (id) {
   if (!streamsById[id]) {
     throw new Error(`Stream with id ${id} not found`);
   }
@@ -27,7 +27,7 @@ function getRootOfById(id) {
 
 for (const file of fs.readdirSync(streamsFilePath)) {
   if (file.endsWith('.yaml')) {
-    const filePath = path.join(streamsFilePath, file);    
+    const filePath = path.join(streamsFilePath, file);
     const fileContent = fs.readFileSync(filePath, 'utf8');
     const root = YAML.parse(fileContent);
     indexStreams(root, null);
@@ -35,9 +35,8 @@ for (const file of fs.readdirSync(streamsFilePath)) {
   }
 }
 
-
-function indexStreams(stream, parentId) {
-  if (streamsById[stream.id] !== undefined) { 
+function indexStreams (stream, parentId) {
+  if (streamsById[stream.id] !== undefined) {
     throw new Error(`Stream with id ${stream.id} already exists, cannot add: ${JSON.stringify(stream)}`);
   }
   stream.parentId = parentId || null;
