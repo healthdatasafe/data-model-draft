@@ -8,9 +8,9 @@ Defines the initial version of stream structures and event types for a common mo
 
 ## Functional Requirements Specifications
 
-| Date             | 27th May 2025 |
+| Date             | 5th June 2025 |
 | ---------------- | ------------- |
-| Document Version | 0.1           |
+| Document Version | 0.2           |
 | Status           | Draft         |
 |                  |               |
 
