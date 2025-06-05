@@ -4,10 +4,10 @@
   "description": "HDS data model",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "lint:change": "eslint $(git diff --name-only HEAD | grep -E '\\.(js|jsx)$' | xargs)"
+    "lint:change": "eslint $(git diff --name-only HEAD | grep -E '\\.(js|jsx)$' | xargs)",
+    "test": "mocha tests --test-reporter=spec"
   },
   "author": "",
   "license": "BSD-3-Clause",
@@ -20,5 +20,8 @@
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-n": "^15.7.0",
     "eslint-plugin-promise": "^6.1.1"
+  },
+  "devDependencies": {
+    "mocha": "^10.7.3"
   }
 }

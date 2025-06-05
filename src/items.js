@@ -91,5 +91,4 @@ function addItem (key, itemSrc) {
     }
     itemsByStreamIdTypeId[streamIdTypeId] = item;
   }
-  console.log('Added: ' + key);
 }
