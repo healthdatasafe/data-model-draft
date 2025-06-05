@@ -2,6 +2,10 @@
 
 Defines the initial version of stream structures and event types for a common model for HDS data points. 
 
+## Usage 
+
+- Files are published on https://model.healthdatasafe.dev
+
 ## Functional Requirements Specifications
 
 | Date             | 27th May 2025 |

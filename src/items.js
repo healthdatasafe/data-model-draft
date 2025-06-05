@@ -12,7 +12,8 @@ const itemsByStreamIdTypeId = {};
 
 module.exports = {
   itemsById,
-  itemsByStreamIdTypeId
+  itemsByStreamIdTypeId,
+  toBePublished
 };
 // Load all YAML files from the streams directory
 
@@ -91,4 +92,15 @@ function addItem (key, itemSrc) {
     }
     itemsByStreamIdTypeId[streamIdTypeId] = item;
   }
+}
+
+function toBePublished () {
+  return [{
+    title: 'Items dictionnary',
+    path: './',
+    filename: 'items.json',
+    type: 'json',
+    content: itemsById,
+    includeInPack: 'items'
+  }];
 }

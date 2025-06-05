@@ -9,7 +9,8 @@ const streamsById = {};
 module.exports = {
   roots,
   streamsById,
-  getRootOfById
+  getRootOfById,
+  toBePublished
 };
 
 function getRootOfById (id) {
@@ -46,4 +47,15 @@ function indexStreams (stream, parentId) {
       indexStreams(child, stream.id);
     }
   }
+}
+
+function toBePublished () {
+  return [{
+    title: 'Streams Tree',
+    path: './',
+    filename: 'streamsTree.json',
+    type: 'json',
+    content: roots,
+    includeInPack: 'streams'
+  }];
 }

@@ -1,0 +1,23 @@
+{
+  "$id": "https://model.datasafe.dev/json-schemas/defs.json",
+  "definitions": {
+    "localized": {
+      "type": "object",
+      "nullable": false,
+      "properties": {
+        "en": {
+          "type": "string"
+        },
+        "fr": {
+          "type": "string"
+        },
+        "es": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "en"
+      ]
+    }
+  }
+}

@@ -1,11 +1,12 @@
 const Ajv = require('ajv');
 
 module.exports = {
-  checkItem
+  checkItem,
+  toBePublished
 };
 
 const defsSchema = {
-  $id: 'https://schemas.datasafe.dev/json-schemas/defs.json',
+  $id: 'https://model.datasafe.dev/json-schemas/defs.json',
   definitions: {
     localized: {
       type: 'object',
@@ -21,7 +22,7 @@ const defsSchema = {
 };
 
 const itemSchema = {
-  $id: 'https://schemas.datasafe.dev/json-schemas/item.json',
+  $id: 'https://model.datasafe.dev/json-schemas/item.json',
   type: 'object',
   nullable: false,
   properties: {
@@ -60,7 +61,7 @@ const itemSchema = {
 };
 
 const ajv = new Ajv({ schemas: [itemSchema, defsSchema] });
-const validateItem = ajv.getSchema('https://schemas.datasafe.dev/json-schemas/item.json');
+const validateItem = ajv.getSchema('https://model.datasafe.dev/json-schemas/item.json');
 
 function checkItem (item) {
   const valid = validateItem(item);
@@ -69,4 +70,22 @@ function checkItem (item) {
     console.log(validateItem.errors);
     throw new Error(validateItem.errors);
   }
+}
+
+function toBePublished () {
+  return [{
+    title: 'Json Schema Item',
+    path: './json-schemas/',
+    filename: 'item.json',
+    type: 'json',
+    content: itemSchema
+  },
+  {
+    title: 'Json Schema Defs',
+    path: './json-schemas/',
+    filename: 'defs.json',
+    type: 'json',
+    content: defsSchema
+  }
+  ];
 }

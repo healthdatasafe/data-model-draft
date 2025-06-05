@@ -1,0 +1,352 @@
+{
+  "body-vulva-mucus-inspect": {
+    "version": "v1",
+    "label": {
+      "en": "Cervical Fluid Inspect"
+    },
+    "description": {
+      "en": "Visual aspect of cervical fluid inspection"
+    },
+    "streamId": "body-vulva-mucus-inspect",
+    "eventType": "vulva-mucus-inspect/v0",
+    "type": "select",
+    "options": [
+      {
+        "value": "clear",
+        "label": {
+          "en": "Clear"
+        }
+      },
+      {
+        "value": "creamy",
+        "label": {
+          "en": "Creamy"
+        }
+      },
+      {
+        "value": "dry-sticky",
+        "label": {
+          "en": "Dry & Sticky"
+        }
+      },
+      {
+        "value": "egg-white",
+        "label": {
+          "en": "Egg White"
+        }
+      }
+    ],
+    "repeatable": "any"
+  },
+  "body-vulva-mucus-stretch": {
+    "version": "v1",
+    "label": {
+      "en": "Cervical Fluid Stretch"
+    },
+    "description": {
+      "en": "Manual strech test of cervical fluid"
+    },
+    "streamId": "body-vulva-mucus-stretch",
+    "eventType": "ratio/generic",
+    "type": "select",
+    "options": [
+      {
+        "value": 0,
+        "label": {
+          "en": "No Strech"
+        }
+      },
+      {
+        "value": 1,
+        "label": {
+          "en": "Short"
+        }
+      },
+      {
+        "value": 2,
+        "label": {
+          "en": "Long"
+        }
+      }
+    ],
+    "repeatable": "any"
+  },
+  "body-vulva-wetness-feeling": {
+    "version": "v1",
+    "label": {
+      "en": "Vulva Wetness feeling"
+    },
+    "description": {
+      "en": "Vulava wetness feeling"
+    },
+    "streamId": "body-vulva-wetness-feeling",
+    "eventType": "ratio/generic",
+    "type": "select",
+    "options": [
+      {
+        "value": 0,
+        "label": {
+          "en": "Dry"
+        }
+      },
+      {
+        "value": 1,
+        "label": {
+          "en": "Wet"
+        }
+      },
+      {
+        "value": 2,
+        "label": {
+          "en": "Very wet"
+        }
+      }
+    ],
+    "repeatable": "any"
+  },
+  "body-weight": {
+    "version": "temporary",
+    "label": {
+      "en": "Body Weight"
+    },
+    "description": {
+      "en": "Measured body weight"
+    },
+    "streamId": "body-weight",
+    "type": "number",
+    "variations": {
+      "eventType": {
+        "mass/kg": {
+          "label": {
+            "en": "Kg"
+          }
+        },
+        "mass/lb": {
+          "label": {
+            "en": "Lbs"
+          }
+        }
+      }
+    },
+    "repeatable": "any"
+  },
+  "family-children-count": {
+    "version": "temporary",
+    "label": {
+      "en": "Nb of children"
+    },
+    "description": {
+      "en": "Numer of children at this date"
+    },
+    "streamId": "family-children",
+    "eventType": "count/generic",
+    "type": "number",
+    "repeatable": "none"
+  },
+  "fertility-cycles-charted-count": {
+    "version": "temporary",
+    "label": {
+      "en": "Nb of charted cycles"
+    },
+    "description": {
+      "en": "Number of total charted cycles at this date"
+    },
+    "streamId": "fertility-cycles-charted-estimation",
+    "eventType": "count/generic",
+    "type": "number",
+    "repeatable": "none"
+  },
+  "fertility-cycles-ovulation": {
+    "version": "temporary",
+    "label": {
+      "en": "Ovulation Day"
+    },
+    "description": {
+      "en": "Flag this day as an ovulation day"
+    },
+    "streamId": "fertility-cycles-ovulation",
+    "eventType": "activity/plain",
+    "type": "checkbox",
+    "repeatable": "daily"
+  },
+  "fertility-cycles-start": {
+    "version": "temporary",
+    "label": {
+      "en": "New Cycle"
+    },
+    "description": {
+      "en": "Flag this day as a new cycle start"
+    },
+    "streamId": "fertility-cycles-start",
+    "eventType": "activity/plain",
+    "type": "checkbox",
+    "repeatable": "daily"
+  },
+  "fertility-miscarriages-count": {
+    "version": "temporary",
+    "label": {
+      "en": "Nb of miscarriages"
+    },
+    "description": {
+      "en": "Number of total miscarriages at this date"
+    },
+    "streamId": "fertility-miscarriages",
+    "eventType": "count/generic",
+    "type": "number",
+    "repeatable": "none"
+  },
+  "fertility-ttc-tta": {
+    "version": "v1",
+    "label": {
+      "en": "Trying to conceive / Avoiding pregnancy"
+    },
+    "description": {
+      "en": "Current fertility intention"
+    },
+    "streamId": "fertility-ttc-tta",
+    "eventType": "ratio/generic",
+    "type": "select",
+    "options": [
+      {
+        "value": 0,
+        "label": {
+          "en": "TTA - Not taking risks.  Would take all available measures to end a pregnancy."
+        }
+      },
+      {
+        "value": 1,
+        "label": {
+          "en": "TTA - Not taking risks.  Would strongly consider placing baby for adoption."
+        }
+      },
+      {
+        "value": 2,
+        "label": {
+          "en": "TTA - Not taking risks.  Would need some time, maybe counseling. Ultimately keeping the pregnancy."
+        }
+      },
+      {
+        "value": 4,
+        "label": {
+          "en": "TTA - Not taking risks.  Currently content with family size but a surprise pregnancy would be welcome."
+        }
+      },
+      {
+        "value": 5,
+        "label": {
+          "en": "TTW/TTA - “Loosely TTA” known risks are taken in the fertile window. “OOPS” pregnancy would be welcome."
+        }
+      },
+      {
+        "value": 6,
+        "label": {
+          "en": "TTW - Charting only for health/curiosity. Unprotected intercourse happens whenever. Pregnancy very welcome."
+        }
+      },
+      {
+        "value": 7,
+        "label": {
+          "en": "TTW/TTC - Pregnancy very welcome (moving up the scale in very near future)."
+        }
+      },
+      {
+        "value": 8,
+        "label": {
+          "en": "TTC - “Excited to start/grow a family TTC” Intentional intercourse every cycle. Excited to start/grow a family. But would not use any fertility treatments if needed."
+        }
+      },
+      {
+        "value": 9,
+        "label": {
+          "en": "TTC - “Highly hopeful TTC” Intentional intercourse every cycle. Would consider some but not all fertility treatments if needed."
+        }
+      },
+      {
+        "value": 10,
+        "label": {
+          "en": "TTC - “ Seriously TTC” Intentional intercourse every cycle. Would pursue any/ALL fertility treatments or procedures if needed."
+        }
+      }
+    ],
+    "repeatable": "daily"
+  },
+  "profile-addresscountry": {
+    "version": "temporary",
+    "label": {
+      "en": "Country"
+    },
+    "description": {
+      "en": "Country of living"
+    },
+    "streamId": "profile-address",
+    "eventType": "contact/country",
+    "type": "text",
+    "repeatable": "none"
+  },
+  "profile-date-of-birth": {
+    "label": {
+      "en": "Date of Birth"
+    },
+    "description": {
+      "en": "Date of birth"
+    },
+    "version": "v1",
+    "streamId": "profile-date-of-birth",
+    "eventType": "date/iso-8601",
+    "type": "date",
+    "repeatable": "none"
+  },
+  "profile-contact-name": {
+    "version": "temporary",
+    "label": {
+      "en": "Name"
+    },
+    "description": {
+      "en": "Name"
+    },
+    "streamId": "profile-name",
+    "eventType": "contact/name",
+    "type": "text",
+    "repeatable": "none"
+  },
+  "profile-name": {
+    "version": "temporary",
+    "label": {
+      "en": "Surname"
+    },
+    "description": {
+      "en": "Surname"
+    },
+    "streamId": "profile-name",
+    "eventType": "contact/surname",
+    "type": "text",
+    "repeatable": "none"
+  },
+  "profile-sex": {
+    "version": "v1",
+    "label": {
+      "en": "Sex"
+    },
+    "description": {
+      "en": "Biological Sex"
+    },
+    "streamId": "profile-sex",
+    "eventType": "attributes/biological-sex",
+    "type": "select",
+    "options": [
+      {
+        "value": "male",
+        "label": {
+          "en": "Male"
+        }
+      },
+      {
+        "value": "female",
+        "label": {
+          "en": "Female"
+        }
+      }
+    ],
+    "repeatable": "none"
+  }
+}
