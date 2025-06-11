@@ -136,7 +136,7 @@
       "en": "Nb of children"
     },
     "description": {
-      "en": "Numer of children at this date"
+      "en": "Number of children at this date"
     },
     "streamId": "family-children",
     "eventType": "count/generic",

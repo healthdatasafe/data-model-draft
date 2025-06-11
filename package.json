@@ -14,15 +14,15 @@
   "license": "BSD-3-Clause",
   "dependencies": {
     "ajv": "^8.17.1",
-    "yaml": "^2.8.0",
+    "yaml": "^2.8.0"
+  },
+  "devDependencies": {
+    "mocha": "^10.7.3",
     "eslint": "^8.57.0",
     "eslint-config-semistandard": "^17.0.0",
     "eslint-config-standard": "^17.1.0",
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-n": "^15.7.0",
     "eslint-plugin-promise": "^6.1.1"
-  },
-  "devDependencies": {
-    "mocha": "^10.7.3"
   }
 }
