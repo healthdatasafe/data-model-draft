@@ -296,7 +296,7 @@
     "type": "date",
     "repeatable": "none"
   },
-  "profile-contact-name": {
+  "profile-name": {
     "version": "temporary",
     "label": {
       "en": "Name"
@@ -309,7 +309,7 @@
     "type": "text",
     "repeatable": "none"
   },
-  "profile-name": {
+  "profile-surname": {
     "version": "temporary",
     "label": {
       "en": "Surname"
