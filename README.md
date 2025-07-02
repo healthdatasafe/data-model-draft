@@ -4,7 +4,7 @@ Defines the initial version of stream structures and event types for a common mo
 
 ## Usage 
 
-- Files are published on https://model.healthdatasafe.dev
+- Files are published on https://model.datasafe.dev
 
 ## Functional Requirements Specifications
 
