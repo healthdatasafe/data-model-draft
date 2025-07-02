@@ -1,6 +1,8 @@
 profile-addresscountry:
   version: temporary
-  label: Country
+  label: 
+    en: Country
+    fr: Pays
   description: Country of living
   streamId: profile-address
   eventType: contact/country
