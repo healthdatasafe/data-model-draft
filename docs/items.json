@@ -107,10 +107,12 @@
   "body-weight": {
     "version": "temporary",
     "label": {
-      "en": "Body Weight"
+      "en": "Body weight",
+      "fr": "Poids corporel"
     },
     "description": {
-      "en": "Measured body weight"
+      "en": "Measured body weight",
+      "fr": "Poids corporel mesuré"
     },
     "streamId": "body-weight",
     "type": "number",
@@ -273,7 +275,8 @@
   "profile-addresscountry": {
     "version": "temporary",
     "label": {
-      "en": "Country"
+      "en": "Country",
+      "fr": "Pays"
     },
     "description": {
       "en": "Country of living"

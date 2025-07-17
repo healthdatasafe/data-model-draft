@@ -47,8 +47,12 @@ body-vulva-wetness-feeling:
   repeatable: any
 body-weight:
   version: temporary
-  label: Body Weight
-  description: Measured body weight
+  label: 
+    en: Body weight
+    fr: Poids corporel
+  description: 
+    en: Measured body weight
+    fr: Poids corporel mesuré
   streamId: body-weight
   type: number
   variations:

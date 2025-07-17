@@ -1,5 +1,5 @@
 {
-  "publicationDate": "2025-06-13T14:32:41.033Z",
+  "publicationDate": "2025-07-17T08:54:13.045Z",
   "streams": [
     {
       "id": "body",
@@ -252,10 +252,12 @@
     "body-weight": {
       "version": "temporary",
       "label": {
-        "en": "Body Weight"
+        "en": "Body weight",
+        "fr": "Poids corporel"
       },
       "description": {
-        "en": "Measured body weight"
+        "en": "Measured body weight",
+        "fr": "Poids corporel mesuré"
       },
       "streamId": "body-weight",
       "type": "number",
@@ -418,7 +420,8 @@
     "profile-addresscountry": {
       "version": "temporary",
       "label": {
-        "en": "Country"
+        "en": "Country",
+        "fr": "Pays"
       },
       "description": {
         "en": "Country of living"
