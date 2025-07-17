@@ -53,7 +53,7 @@ const rowsItems = [];
 for (const key of Object.keys(itemsById).sort()) {
   const i = itemsById[key];
   const variation = i.variations ? YAML.stringify(i.variations, null, 2) : '';
-  const line = `<tr><td>Id: ${key}<br>Type: ${i.type}</td><td>${i.label.en}<br>${i.description.en}</td><td>streamId: ${i.streamId}<br>eventType: ${i.eventType}</td><td><pre>${variation}</pre></td></tr>`;
+  const line = `<tr><td>Id: ${key}<br>Type: ${i.type}</td><td>${i.label.en}<br>${i.description.en}</td><td>streamId: ${i.streamId}<br>eventType(s): ${i.eventTypes || '- variations -'}</td><td><pre>${variation}</pre></td></tr>`;
   rowsItems.push(line);
 }
 const indexHtmlDest = indexHtmlDest1.replace('{TABLE_ITEMS}', rowsItems.join('\n'));
