@@ -1,0 +1,97 @@
+## MUCUS
+
+body-vulva-mucus-inspect:
+  version: v1
+  label: Cervical Fluid Inspect
+  description: Visual aspect of cervical fluid inspection
+  streamId: body-vulva-mucus-inspect
+  eventType: vulva-mucus-inspect/v0
+  type: select
+  options:
+    - value: clear
+      label: Clear
+    - value: creamy
+      label: Creamy
+    - value: dry-sticky
+      label: Dry & Sticky
+    - value: egg-white
+      label: Egg White
+  repeatable: any
+body-vulva-mucus-stretch:
+  version: v1
+  label: Cervical Fluid Stretch
+  description: Manual strech test of cervical fluid. Short can be streched less than 2 cm, long greater than 2cm. 
+  streamId: body-vulva-mucus-stretch
+  eventType: ratio/generic
+  type: select
+  options:
+    - value: 0
+      label: No Strech
+    - value: 1
+      label: Short
+    - value: 2
+      label: Long
+  repeatable: any
+
+## WETNESS
+
+body-vulva-wetness-feeling:
+  version: v1
+  label: Vulva Wetness feeling
+  description: Vulva wetness feeling 
+  streamId: body-vulva-wetness-feeling
+  eventType: ratio/generic
+  type: select
+  options:
+    - value: 0
+      label: Dry
+    - value: 1
+      label: Wet
+    - value: 2
+      label: Very wet
+  repeatable: any
+body-vulva-wetness-wiping:
+  version: v1
+  label: Vulva Wetness when wiping
+  description: Vulva wetness when wiping 
+  streamId: body-vulva-wetness-wiping
+  eventType: ratio/generic
+  type: select
+  options:
+    - value: 0
+      label: Dry
+    - value: 1
+      label: Wet
+    - value: 2
+      label: Very wet
+  repeatable: any
+
+## Bleeding
+body-vulva-bleeding:
+  version: v1
+  label: Bleeding type
+  description: Bleeding type subjective 
+  streamId: body-vulva-bleeding
+  eventType: ratio/generic
+  type: select
+  options:
+    - value: 0
+      label: None
+    - value: 1
+      label: Spotting
+    - value: 2
+      label: Light
+    - value: 3
+      label: Medium
+    - value: 4
+      label: Heavy
+  repeatable: any
+
+body-vulva-bleeding-browndark:
+  version: temporary
+  label: Brown coloration of bleeding
+  description: Brown coloration of bleeding
+  streamId: body-vulva-bleeding-browndark
+  eventType: activity/plain
+  type: checkbox
+  repeatable: daily

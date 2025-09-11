@@ -23,3 +23,8 @@ children:
             name: Vulva Mucus Inspect
           - id: body-vulva-mucus-stretch
             name: Vulva Mucus Stretch
+      - id: body-vulva-bleeding
+        name: Vulva Bleeding
+        children:
+          - id: body-vulva-bleeding-browndark
+            name: Presence of browndark coloration
