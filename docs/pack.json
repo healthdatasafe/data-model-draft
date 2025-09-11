@@ -1,5 +1,5 @@
 {
-  "publicationDate": "2025-07-17T08:54:13.045Z",
+  "publicationDate": "2025-09-11T12:39:27.351Z",
   "streams": [
     {
       "id": "body",
@@ -19,24 +19,27 @@
         {
           "id": "body-vulva",
           "name": "Vulva",
-          "parentId": "body",
           "children": [
             {
               "id": "body-vulva-wetness",
               "name": "Vulva Wetness",
-              "parentId": "body-vulva",
               "children": [
+                {
+                  "id": "body-vulva-wetness-wiping",
+                  "name": "Vulva Wetness when wiping",
+                  "parentId": "body-vulva-wetness"
+                },
                 {
                   "id": "body-vulva-wetness-feeling",
                   "name": "Vulva Wetness Feeling",
                   "parentId": "body-vulva-wetness"
                 }
-              ]
+              ],
+              "parentId": "body-vulva"
             },
             {
               "id": "body-vulva-mucus",
               "name": "Vulva Mucus",
-              "parentId": "body-vulva",
               "children": [
                 {
                   "id": "body-vulva-mucus-inspect",
@@ -48,9 +51,11 @@
                   "name": "Vulva Mucus Stretch",
                   "parentId": "body-vulva-mucus"
                 }
-              ]
+              ],
+              "parentId": "body-vulva"
             }
-          ]
+          ],
+          "parentId": "body"
         }
       ]
     },
@@ -74,7 +79,6 @@
         {
           "id": "fertility-cycles",
           "name": "Cycles",
-          "parentId": "fertility",
           "children": [
             {
               "id": "fertility-cycles-start",
@@ -91,7 +95,8 @@
               "name": "Cycles charted estimation",
               "parentId": "fertility-cycles"
             }
-          ]
+          ],
+          "parentId": "fertility"
         },
         {
           "id": "fertility-miscarriages",
@@ -189,7 +194,7 @@
         "en": "Cervical Fluid Stretch"
       },
       "description": {
-        "en": "Manual strech test of cervical fluid"
+        "en": "Manual strech test of cervical fluid. Short can be streched less than 2 cm, long greater than 2cm."
       },
       "streamId": "body-vulva-mucus-stretch",
       "eventType": "ratio/generic",
@@ -222,9 +227,42 @@
         "en": "Vulva Wetness feeling"
       },
       "description": {
-        "en": "Vulava wetness feeling"
+        "en": "Vulva wetness feeling"
       },
       "streamId": "body-vulva-wetness-feeling",
+      "eventType": "ratio/generic",
+      "type": "select",
+      "options": [
+        {
+          "value": 0,
+          "label": {
+            "en": "Dry"
+          }
+        },
+        {
+          "value": 1,
+          "label": {
+            "en": "Wet"
+          }
+        },
+        {
+          "value": 2,
+          "label": {
+            "en": "Very wet"
+          }
+        }
+      ],
+      "repeatable": "any"
+    },
+    "body-vulva-wetness-wiping": {
+      "version": "v1",
+      "label": {
+        "en": "Vulva Wetness when wiping"
+      },
+      "description": {
+        "en": "Vulva wetness when wiping"
+      },
+      "streamId": "body-vulva-wetness-wiping",
       "eventType": "ratio/generic",
       "type": "select",
       "options": [

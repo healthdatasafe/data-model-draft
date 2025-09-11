@@ -44,7 +44,7 @@
       "en": "Cervical Fluid Stretch"
     },
     "description": {
-      "en": "Manual strech test of cervical fluid"
+      "en": "Manual strech test of cervical fluid. Short can be streched less than 2 cm, long greater than 2cm."
     },
     "streamId": "body-vulva-mucus-stretch",
     "eventType": "ratio/generic",
@@ -77,9 +77,42 @@
       "en": "Vulva Wetness feeling"
     },
     "description": {
-      "en": "Vulava wetness feeling"
+      "en": "Vulva wetness feeling"
     },
     "streamId": "body-vulva-wetness-feeling",
+    "eventType": "ratio/generic",
+    "type": "select",
+    "options": [
+      {
+        "value": 0,
+        "label": {
+          "en": "Dry"
+        }
+      },
+      {
+        "value": 1,
+        "label": {
+          "en": "Wet"
+        }
+      },
+      {
+        "value": 2,
+        "label": {
+          "en": "Very wet"
+        }
+      }
+    ],
+    "repeatable": "any"
+  },
+  "body-vulva-wetness-wiping": {
+    "version": "v1",
+    "label": {
+      "en": "Vulva Wetness when wiping"
+    },
+    "description": {
+      "en": "Vulva wetness when wiping"
+    },
+    "streamId": "body-vulva-wetness-wiping",
     "eventType": "ratio/generic",
     "type": "select",
     "options": [

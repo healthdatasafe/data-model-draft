@@ -17,24 +17,27 @@
       {
         "id": "body-vulva",
         "name": "Vulva",
-        "parentId": "body",
         "children": [
           {
             "id": "body-vulva-wetness",
             "name": "Vulva Wetness",
-            "parentId": "body-vulva",
             "children": [
+              {
+                "id": "body-vulva-wetness-wiping",
+                "name": "Vulva Wetness when wiping",
+                "parentId": "body-vulva-wetness"
+              },
               {
                 "id": "body-vulva-wetness-feeling",
                 "name": "Vulva Wetness Feeling",
                 "parentId": "body-vulva-wetness"
               }
-            ]
+            ],
+            "parentId": "body-vulva"
           },
           {
             "id": "body-vulva-mucus",
             "name": "Vulva Mucus",
-            "parentId": "body-vulva",
             "children": [
               {
                 "id": "body-vulva-mucus-inspect",
@@ -46,9 +49,11 @@
                 "name": "Vulva Mucus Stretch",
                 "parentId": "body-vulva-mucus"
               }
-            ]
+            ],
+            "parentId": "body-vulva"
           }
-        ]
+        ],
+        "parentId": "body"
       }
     ]
   },
@@ -72,7 +77,6 @@
       {
         "id": "fertility-cycles",
         "name": "Cycles",
-        "parentId": "fertility",
         "children": [
           {
             "id": "fertility-cycles-start",
@@ -89,7 +93,8 @@
             "name": "Cycles charted estimation",
             "parentId": "fertility-cycles"
           }
-        ]
+        ],
+        "parentId": "fertility"
       },
       {
         "id": "fertility-miscarriages",

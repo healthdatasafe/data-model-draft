@@ -4,23 +4,16 @@ parentId: null
 children:
   - id: fertility-cycles
     name: Cycles
-    parentId: fertility
     children:
       - id: fertility-cycles-start
         name: New Cycle
-        parentId: fertility-cycles
       - id: fertility-cycles-ovulation
         name: Ovulation Day
-        parentId: fertility-cycles
       - id: fertility-cycles-charted-estimation
         name: Cycles charted estimation
-        parentId: fertility-cycles
   - id: fertility-miscarriages
     name: Miscarriages
-    parentId: fertility
   - id: fertility-trainings
     name: Trainings
-    parentId: fertility
   - id: fertility-ttc-tta
     name: Trying to conceive / Avoiding pregnancy
-    parentId: fertility

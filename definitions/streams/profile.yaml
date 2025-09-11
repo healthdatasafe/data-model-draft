@@ -4,16 +4,11 @@ parentId: null
 children:
   - id: profile-address
     name: Adress
-    parentId: profile
   - id: profile-date-of-birth
     name: Date of Birth
-    parentId: profile
   - id: profile-location
     name: Location
-    parentId: profile
   - id: profile-name
     name: Name
-    parentId: profile
   - id: profile-sex
     name: Sex
-    parentId: profile
