@@ -51,6 +51,18 @@
               }
             ],
             "parentId": "body-vulva"
+          },
+          {
+            "id": "body-vulva-bleeding",
+            "name": "Vulva Bleeding",
+            "children": [
+              {
+                "id": "body-vulva-bleeding-browndark",
+                "name": "Presence of browndark coloration",
+                "parentId": "body-vulva-bleeding"
+              }
+            ],
+            "parentId": "body-vulva"
           }
         ],
         "parentId": "body"

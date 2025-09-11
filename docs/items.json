@@ -137,6 +137,64 @@
     ],
     "repeatable": "any"
   },
+  "body-vulva-bleeding": {
+    "version": "v1",
+    "label": {
+      "en": "Bleeding type"
+    },
+    "description": {
+      "en": "Bleeding type subjective"
+    },
+    "streamId": "body-vulva-bleeding",
+    "eventType": "ratio/generic",
+    "type": "select",
+    "options": [
+      {
+        "value": 0,
+        "label": {
+          "en": "None"
+        }
+      },
+      {
+        "value": 1,
+        "label": {
+          "en": "Spotting"
+        }
+      },
+      {
+        "value": 2,
+        "label": {
+          "en": "Light"
+        }
+      },
+      {
+        "value": 3,
+        "label": {
+          "en": "Medium"
+        }
+      },
+      {
+        "value": 4,
+        "label": {
+          "en": "Heavy"
+        }
+      }
+    ],
+    "repeatable": "any"
+  },
+  "body-vulva-bleeding-browndark": {
+    "version": "temporary",
+    "label": {
+      "en": "Brown coloration of bleeding"
+    },
+    "description": {
+      "en": "Brown coloration of bleeding"
+    },
+    "streamId": "body-vulva-bleeding-browndark",
+    "eventType": "activity/plain",
+    "type": "checkbox",
+    "repeatable": "daily"
+  },
   "body-weight": {
     "version": "temporary",
     "label": {
