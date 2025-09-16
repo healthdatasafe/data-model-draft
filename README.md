@@ -8,15 +8,15 @@ Defines the initial version of stream structures and event types for a common mo
 
 ## Functional Requirements Specifications
 
-| Date             | 5th June 2025 |
+| Date             | 16th September 2025 |
 | ---------------- | ------------- |
-| Document Version | 0.2           |
+| Document Version | 0.3           |
 | Status           | Draft         |
 |                  |               |
 
 ### Dev & Roadmap 
 
-Base Logic - metrics, observation, all about patien data 
+Base Logic - metrics, observation, all about patient data 
 
 - [ ] Choose JSON or YAML
 - [ ] Write JsonScheams and validate with [ajv](https://github.com/ajv-validator/ajv)
@@ -31,6 +31,9 @@ Specific Logic
   - [ ] Properties for supported interactions
     - [ ] A `chat stream` when the counter part supports chats
 
+Data usage and display
+
+- [ ] Provide definition to display items in forms see:  https://jsonforms.io/ 
 
 ### Function Requirements
 
