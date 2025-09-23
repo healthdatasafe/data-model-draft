@@ -1,5 +1,5 @@
 {
-  "publicationDate": "2025-09-23T13:34:40.973Z",
+  "publicationDate": "2025-09-23T13:56:10.645Z",
   "streams": [
     {
       "id": "body",
@@ -667,6 +667,12 @@
           "value": "stillbirth",
           "label": {
             "en": "Stillbirth"
+          }
+        },
+        {
+          "value": "livebirth",
+          "label": {
+            "en": "Live birth"
           }
         },
         {

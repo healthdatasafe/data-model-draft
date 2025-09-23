@@ -120,6 +120,8 @@ fertility-pregnancy:
       label: 'Ectopic'
     - value: 'stillbirth'
       label: 'Stillbirth'
+    - value: 'livebirth'
+      label: 'Live birth'
     - value: 'abortion'
       label: 'Abortion'
 

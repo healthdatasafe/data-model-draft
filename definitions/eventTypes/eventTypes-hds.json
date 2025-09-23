@@ -42,6 +42,7 @@
         "miscarriage",
         "ectopic",
         "stillbirth",
+        "livebirth",
         "abortion"
       ]
     }
