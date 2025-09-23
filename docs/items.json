@@ -368,7 +368,7 @@
       {
         "value": 5,
         "label": {
-          "en": "TTW/TTA - “Loosely TTA” known risks are taken in the fertile window. “OOPS” pregnancy would be welcome."
+          "en": "TTW/TTA - \"Loosely TTA\" known risks are taken in the fertile window. \"OOPS\" pregnancy would be welcome."
         }
       },
       {
@@ -386,19 +386,19 @@
       {
         "value": 8,
         "label": {
-          "en": "TTC - “Excited to start/grow a family TTC” Intentional intercourse every cycle. Excited to start/grow a family. But would not use any fertility treatments if needed."
+          "en": "TTC - \"Excited to start/grow a family TTC\" Intentional intercourse every cycle. Excited to start/grow a family. But would not use any fertility treatments if needed."
         }
       },
       {
         "value": 9,
         "label": {
-          "en": "TTC - “Highly hopeful TTC” Intentional intercourse every cycle. Would consider some but not all fertility treatments if needed."
+          "en": "TTC - \"Highly hopeful TTC\" Intentional intercourse every cycle. Would consider some but not all fertility treatments if needed."
         }
       },
       {
         "value": 10,
         "label": {
-          "en": "TTC - “ Seriously TTC” Intentional intercourse every cycle. Would pursue any/ALL fertility treatments or procedures if needed."
+          "en": "TTC - \" Seriously TTC\" Intentional intercourse every cycle. Would pursue any/ALL fertility treatments or procedures if needed."
         }
       }
     ],

@@ -53,7 +53,8 @@ for (const key of Object.keys(itemsById).sort()) {
   const i = itemsById[key];
   const variation = (i.variations != null) ? Object.keys(i.variations.eventType).join(', ') : '';
   const type = (typeof i.eventType === 'string') ? i.eventType : variation;
-  const line = `<tr><td><b>${key}</b><br><u>Type:</u>${i.type}</td><td>${i.label.en}<br>${i.description.en}</td><td>streamId: ${i.streamId}<br>eventType(s): ${type}</td></tr>`;
+  const select = (i.options == null) ? '' : '<BR><SELECT style="width: 20em">' + i.options.map((o) => (`<OPTION>${o.value}: ${o.label.en}</OPTION>`)).join('') + '</SELECT>';
+  const line = `<tr><td><b>${key}</b><br><u>Type: </u>${i.type}</td><td>${i.label.en}<br>${i.description.en}${select}</td><td>streamId: ${i.streamId}<br>eventType(s): ${type}</td></tr>`;
   rowsItems.push(line);
 }
 const indexHtmlDest = indexHtmlDest1.replace('{TABLE_ITEMS}', rowsItems.join('\n'));

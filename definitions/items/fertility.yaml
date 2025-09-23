@@ -59,8 +59,8 @@ fertility-ttc-tta:
       label: TTA - Not taking risks.  Currently content with family size but a
         surprise pregnancy would be welcome.
     - value: 5
-      label: TTW/TTA - “Loosely TTA” known risks are taken in the fertile window.
-        “OOPS” pregnancy would be welcome.
+      label: TTW/TTA - "Loosely TTA" known risks are taken in the fertile window.
+        "OOPS" pregnancy would be welcome.
     - value: 6
       label: TTW - Charting only for health/curiosity. Unprotected intercourse happens
         whenever. Pregnancy very welcome.
@@ -68,14 +68,14 @@ fertility-ttc-tta:
       label: TTW/TTC - Pregnancy very welcome (moving up the scale in very near
         future).
     - value: 8
-      label: TTC - “Excited to start/grow a family TTC” Intentional intercourse every
+      label: TTC - "Excited to start/grow a family TTC" Intentional intercourse every
         cycle. Excited to start/grow a family. But would not use any fertility
         treatments if needed.
     - value: 9
-      label: TTC - “Highly hopeful TTC” Intentional intercourse every cycle. Would
+      label: TTC - "Highly hopeful TTC" Intentional intercourse every cycle. Would
         consider some but not all fertility treatments if needed.
     - value: 10
-      label: TTC - “ Seriously TTC” Intentional intercourse every cycle. Would pursue
+      label: TTC - " Seriously TTC" Intentional intercourse every cycle. Would pursue
         any/ALL fertility treatments or procedures if needed.
   repeatable: daily
 fertility-sexual-activity:
