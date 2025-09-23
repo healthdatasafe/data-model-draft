@@ -44,35 +44,31 @@
             <th scope="col"><b>Id & Type</b></th>
             <th scope="col"><b>Description</b></th>
             <th scope="col"><b>streamId & eventType</b></th>
-            <th scope="col"><b>Variations</b></th>
           </tr>
         </thead>
         <tbody>
-          <tr><td>Id: body-vulva-bleeding<br>Type: select</td><td>Bleeding type<br>Bleeding type subjective</td><td>streamId: body-vulva-bleeding<br>eventType(s): - variations -</td><td><pre></pre></td></tr>
-<tr><td>Id: body-vulva-bleeding-browndark<br>Type: checkbox</td><td>Brown coloration of bleeding<br>Brown coloration of bleeding</td><td>streamId: body-vulva-bleeding-browndark<br>eventType(s): - variations -</td><td><pre></pre></td></tr>
-<tr><td>Id: body-vulva-mucus-inspect<br>Type: select</td><td>Cervical Fluid Inspect<br>Visual aspect of cervical fluid inspection</td><td>streamId: body-vulva-mucus-inspect<br>eventType(s): - variations -</td><td><pre></pre></td></tr>
-<tr><td>Id: body-vulva-mucus-stretch<br>Type: select</td><td>Cervical Fluid Stretch<br>Manual strech test of cervical fluid. Short can be streched less than 2 cm, long greater than 2cm.</td><td>streamId: body-vulva-mucus-stretch<br>eventType(s): - variations -</td><td><pre></pre></td></tr>
-<tr><td>Id: body-vulva-wetness-feeling<br>Type: select</td><td>Vulva Wetness feeling<br>Vulva wetness feeling</td><td>streamId: body-vulva-wetness-feeling<br>eventType(s): - variations -</td><td><pre></pre></td></tr>
-<tr><td>Id: body-vulva-wetness-wiping<br>Type: select</td><td>Vulva Wetness when wiping<br>Vulva wetness when wiping</td><td>streamId: body-vulva-wetness-wiping<br>eventType(s): - variations -</td><td><pre></pre></td></tr>
-<tr><td>Id: body-weight<br>Type: number</td><td>Body weight<br>Measured body weight</td><td>streamId: body-weight<br>eventType(s): - variations -</td><td><pre>eventType:
-  mass/kg:
-    label:
-      en: Kg
-  mass/lb:
-    label:
-      en: Lbs
-</pre></td></tr>
-<tr><td>Id: family-children-count<br>Type: number</td><td>Nb of children<br>Number of children at this date</td><td>streamId: family-children<br>eventType(s): - variations -</td><td><pre></pre></td></tr>
-<tr><td>Id: fertility-cycles-charted-count<br>Type: number</td><td>Nb of charted cycles<br>Number of total charted cycles at this date</td><td>streamId: fertility-cycles-charted-estimation<br>eventType(s): - variations -</td><td><pre></pre></td></tr>
-<tr><td>Id: fertility-cycles-ovulation<br>Type: checkbox</td><td>Ovulation Day<br>Flag this day as an ovulation day</td><td>streamId: fertility-cycles-ovulation<br>eventType(s): - variations -</td><td><pre></pre></td></tr>
-<tr><td>Id: fertility-cycles-start<br>Type: checkbox</td><td>New Cycle<br>Flag this day as a new cycle start</td><td>streamId: fertility-cycles-start<br>eventType(s): - variations -</td><td><pre></pre></td></tr>
-<tr><td>Id: fertility-miscarriages-count<br>Type: number</td><td>Nb of miscarriages<br>Number of total miscarriages at this date</td><td>streamId: fertility-miscarriages<br>eventType(s): - variations -</td><td><pre></pre></td></tr>
-<tr><td>Id: fertility-ttc-tta<br>Type: select</td><td>Trying to conceive / Avoiding pregnancy<br>Current fertility intention</td><td>streamId: fertility-ttc-tta<br>eventType(s): - variations -</td><td><pre></pre></td></tr>
-<tr><td>Id: profile-addresscountry<br>Type: text</td><td>Country<br>Country of living</td><td>streamId: profile-address<br>eventType(s): - variations -</td><td><pre></pre></td></tr>
-<tr><td>Id: profile-date-of-birth<br>Type: date</td><td>Date of Birth<br>Date of birth</td><td>streamId: profile-date-of-birth<br>eventType(s): - variations -</td><td><pre></pre></td></tr>
-<tr><td>Id: profile-name<br>Type: text</td><td>Name<br>Name</td><td>streamId: profile-name<br>eventType(s): - variations -</td><td><pre></pre></td></tr>
-<tr><td>Id: profile-sex<br>Type: select</td><td>Sex<br>Biological Sex</td><td>streamId: profile-sex<br>eventType(s): - variations -</td><td><pre></pre></td></tr>
-<tr><td>Id: profile-surname<br>Type: text</td><td>Surname<br>Surname</td><td>streamId: profile-name<br>eventType(s): - variations -</td><td><pre></pre></td></tr>
+          <tr><td><b>body-height</b><br><u>Type:</u>number</td><td>Body height<br>Measured body height</td><td>streamId: body-height<br>eventType(s): length/m, length/ft</td></tr>
+<tr><td><b>body-vulva-bleeding</b><br><u>Type:</u>select</td><td>Bleeding type<br>Bleeding type subjective</td><td>streamId: body-vulva-bleeding<br>eventType(s): ratio/generic</td></tr>
+<tr><td><b>body-vulva-bleeding-browndark</b><br><u>Type:</u>checkbox</td><td>Brown coloration of bleeding<br>Brown coloration of bleeding</td><td>streamId: body-vulva-bleeding-browndark<br>eventType(s): activity/plain</td></tr>
+<tr><td><b>body-vulva-mucus-inspect</b><br><u>Type:</u>select</td><td>Cervical Fluid Inspect<br>Visual aspect of cervical fluid inspection</td><td>streamId: body-vulva-mucus-inspect<br>eventType(s): vulva-mucus-inspect/v0</td></tr>
+<tr><td><b>body-vulva-mucus-stretch</b><br><u>Type:</u>select</td><td>Cervical Fluid Stretch<br>Manual strech test of cervical fluid. Short can be streched less than 2 cm, long greater than 2cm.</td><td>streamId: body-vulva-mucus-stretch<br>eventType(s): ratio/generic</td></tr>
+<tr><td><b>body-vulva-wetness-feeling</b><br><u>Type:</u>select</td><td>Vulva Wetness feeling<br>Vulva wetness feeling</td><td>streamId: body-vulva-wetness-feeling<br>eventType(s): ratio/generic</td></tr>
+<tr><td><b>body-vulva-wetness-wiping</b><br><u>Type:</u>select</td><td>Vulva Wetness when wiping<br>Vulva wetness when wiping</td><td>streamId: body-vulva-wetness-wiping<br>eventType(s): ratio/generic</td></tr>
+<tr><td><b>body-weight</b><br><u>Type:</u>number</td><td>Body weight<br>Measured body weight</td><td>streamId: body-weight<br>eventType(s): mass/kg, mass/lb</td></tr>
+<tr><td><b>family-children-count</b><br><u>Type:</u>number</td><td>Nb of children<br>Number of children at this date</td><td>streamId: family-children<br>eventType(s): count/generic</td></tr>
+<tr><td><b>fertility-cycles-charted-count</b><br><u>Type:</u>number</td><td>Nb of charted cycles<br>Number of total charted cycles at this date</td><td>streamId: fertility-cycles-charted-estimation<br>eventType(s): count/generic</td></tr>
+<tr><td><b>fertility-cycles-ovulation</b><br><u>Type:</u>checkbox</td><td>Ovulation Day<br>Flag this day as an ovulation day</td><td>streamId: fertility-cycles-ovulation<br>eventType(s): activity/plain</td></tr>
+<tr><td><b>fertility-cycles-peak-day</b><br><u>Type:</u>checkbox</td><td>Peak day of fertility<br>When fertility is at its highest point</td><td>streamId: fertility-cycles-peak-day<br>eventType(s): activity/plain</td></tr>
+<tr><td><b>fertility-cycles-start</b><br><u>Type:</u>checkbox</td><td>New Cycle<br>Flag this day as a new cycle start</td><td>streamId: fertility-cycles-start<br>eventType(s): activity/plain</td></tr>
+<tr><td><b>fertility-miscarriages-count</b><br><u>Type:</u>number</td><td>Nb of miscarriages<br>Number of total miscarriages at this date</td><td>streamId: fertility-miscarriages<br>eventType(s): count/generic</td></tr>
+<tr><td><b>fertility-pregnancy</b><br><u>Type:</u>select</td><td>Pregnancy<br>Pregnancy</td><td>streamId: fertility-preganancies<br>eventType(s): pregnancy/detailed</td></tr>
+<tr><td><b>fertility-sexual-activity</b><br><u>Type:</u>select</td><td>Sexual activity<br>Potentially reproductive sexual activity</td><td>streamId: fertility-sexual-activity<br>eventType(s): reproductive-sexuality/detailed</td></tr>
+<tr><td><b>fertility-ttc-tta</b><br><u>Type:</u>select</td><td>Trying to conceive / Avoiding pregnancy<br>Current fertility intention</td><td>streamId: fertility-ttc-tta<br>eventType(s): ratio/generic</td></tr>
+<tr><td><b>profile-addresscountry</b><br><u>Type:</u>text</td><td>Country<br>Country of living</td><td>streamId: profile-address<br>eventType(s): contact/country</td></tr>
+<tr><td><b>profile-date-of-birth</b><br><u>Type:</u>date</td><td>Date of Birth<br>Date of birth</td><td>streamId: profile-date-of-birth<br>eventType(s): date/iso-8601</td></tr>
+<tr><td><b>profile-name</b><br><u>Type:</u>text</td><td>Name<br>Name</td><td>streamId: profile-name<br>eventType(s): contact/name</td></tr>
+<tr><td><b>profile-sex</b><br><u>Type:</u>select</td><td>Sex<br>Biological Sex</td><td>streamId: profile-sex<br>eventType(s): attributes/biological-sex</td></tr>
+<tr><td><b>profile-surname</b><br><u>Type:</u>text</td><td>Surname<br>Surname</td><td>streamId: profile-name<br>eventType(s): contact/surname</td></tr>
         </tbody>
       </table>
     </div>

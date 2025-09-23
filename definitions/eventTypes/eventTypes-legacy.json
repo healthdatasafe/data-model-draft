@@ -412,7 +412,7 @@
       "type": "number"
     },
     "date/iso-8601": {
-      "description": "The ISO 8601 format",
+      "description": "Date iso ISO 8601 format",
       "type": "string"
     },
     "density/g-dl": {

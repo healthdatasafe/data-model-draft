@@ -15,3 +15,20 @@ body-weight:
       mass/lb:
         label: Lbs
   repeatable: any
+body-height:
+  version: temporary
+  label: 
+    en: Body height
+    fr: Taille
+  description: 
+    en: Measured body height
+    fr: Taille mesuré
+  streamId: body-height
+  type: number
+  variations:
+    eventType: 
+      length/m:
+        label: m
+      length/ft:
+        label: Feet
+  repeatable: any

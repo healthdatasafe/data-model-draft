@@ -101,16 +101,16 @@
             "parentId": "fertility-cycles"
           },
           {
+            "id": "fertility-cycles-peak-day",
+            "name": "Peak Day",
+            "parentId": "fertility-cycles"
+          },
+          {
             "id": "fertility-cycles-charted-estimation",
             "name": "Cycles charted estimation",
             "parentId": "fertility-cycles"
           }
         ],
-        "parentId": "fertility"
-      },
-      {
-        "id": "fertility-miscarriages",
-        "name": "Miscarriages",
         "parentId": "fertility"
       },
       {
@@ -121,6 +121,23 @@
       {
         "id": "fertility-ttc-tta",
         "name": "Trying to conceive / Avoiding pregnancy",
+        "parentId": "fertility"
+      },
+      {
+        "id": "fertility-sexual-activity",
+        "name": "Sexual Activity",
+        "parentId": "fertility"
+      },
+      {
+        "id": "fertility-preganancies",
+        "name": "Pregancies",
+        "children": [
+          {
+            "id": "fertility-miscarriages",
+            "name": "Miscarriages",
+            "parentId": "fertility-preganancies"
+          }
+        ],
         "parentId": "fertility"
       }
     ]

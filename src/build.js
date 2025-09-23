@@ -1,6 +1,5 @@
 const fs = require('fs');
 const path = require('path');
-const YAML = require('yaml');
 
 const basePath = path.resolve(__dirname, '../docs');
 
@@ -52,8 +51,9 @@ const indexHtmlDest1 = indexHtmlSrc.replace('{TABLE_FILES}', htmlTableFiles);
 const rowsItems = [];
 for (const key of Object.keys(itemsById).sort()) {
   const i = itemsById[key];
-  const variation = i.variations ? YAML.stringify(i.variations, null, 2) : '';
-  const line = `<tr><td>Id: ${key}<br>Type: ${i.type}</td><td>${i.label.en}<br>${i.description.en}</td><td>streamId: ${i.streamId}<br>eventType(s): ${i.eventTypes || '- variations -'}</td><td><pre>${variation}</pre></td></tr>`;
+  const variation = (i.variations != null) ? Object.keys(i.variations.eventType).join(', ') : '';
+  const type = (typeof i.eventType === 'string') ? i.eventType : variation;
+  const line = `<tr><td><b>${key}</b><br><u>Type:</u>${i.type}</td><td>${i.label.en}<br>${i.description.en}</td><td>streamId: ${i.streamId}<br>eventType(s): ${type}</td></tr>`;
   rowsItems.push(line);
 }
 const indexHtmlDest = indexHtmlDest1.replace('{TABLE_ITEMS}', rowsItems.join('\n'));

@@ -5,11 +5,10 @@
       "description": "Cervical Fluid Inspect",
       "type": "string",
       "enum": [
-        "dry",
-        "sticky",
+        "clear",
         "creamy",
-        "watery",
-        "egg_white"
+        "dry-sticky",
+        "egg-white"
       ]
     },
     "contact/country": {
@@ -23,6 +22,28 @@
     "contact/surname": {
       "description": "Surname",
       "type": "string"
+    },
+    "reproductive-sexuality/detailed": {
+      "description": "Potentially reproductive sexual activity",
+      "type": "string",
+      "enum": [
+        "plain",
+        "incomplete",
+        "withdrawal",
+        "condom",
+        "cervical-barrier"
+      ]
+    },
+    "pregnancy/detailed": {
+      "description": "Pregnancy. The value of `event.time` should indicate the start of pregnancy. When content value is 'ongoing' `event.duration` must be set to `null`. For any other value `event.duration` should be set to indicate when the pregnancy state terminated.",
+      "type": "string",
+      "enum": [
+        "ongoing",
+        "miscarriage",
+        "ectopic",
+        "stillbirth",
+        "abortion"
+      ]
     }
   }
 }
