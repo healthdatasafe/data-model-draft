@@ -223,6 +223,34 @@
     },
     "repeatable": "any"
   },
+  "body-height": {
+    "version": "temporary",
+    "label": {
+      "en": "Body height",
+      "fr": "Taille"
+    },
+    "description": {
+      "en": "Measured body height",
+      "fr": "Taille mesuré"
+    },
+    "streamId": "body-height",
+    "type": "number",
+    "variations": {
+      "eventType": {
+        "length/m": {
+          "label": {
+            "en": "m"
+          }
+        },
+        "length/ft": {
+          "label": {
+            "en": "Feet"
+          }
+        }
+      }
+    },
+    "repeatable": "any"
+  },
   "family-children-count": {
     "version": "temporary",
     "label": {
@@ -271,6 +299,19 @@
       "en": "Flag this day as a new cycle start"
     },
     "streamId": "fertility-cycles-start",
+    "eventType": "activity/plain",
+    "type": "checkbox",
+    "repeatable": "daily"
+  },
+  "fertility-cycles-peak-day": {
+    "version": "temporary",
+    "label": {
+      "en": "Peak day of fertility"
+    },
+    "description": {
+      "en": "When fertility is at its highest point"
+    },
+    "streamId": "fertility-cycles-peak-day",
     "eventType": "activity/plain",
     "type": "checkbox",
     "repeatable": "daily"
@@ -362,6 +403,100 @@
       }
     ],
     "repeatable": "daily"
+  },
+  "fertility-sexual-activity": {
+    "version": "v1",
+    "label": {
+      "en": "Sexual activity"
+    },
+    "description": {
+      "en": "Potentially reproductive sexual activity"
+    },
+    "streamId": "fertility-sexual-activity",
+    "eventType": "reproductive-sexuality/detailed",
+    "type": "select",
+    "options": [
+      {
+        "value": "plain",
+        "label": {
+          "en": "Semen released in the vagina"
+        }
+      },
+      {
+        "value": "incomplete",
+        "label": {
+          "en": "No ejaculation"
+        }
+      },
+      {
+        "value": "withdrawal",
+        "label": {
+          "en": "Withdrawal before ejaculation"
+        }
+      },
+      {
+        "value": "condom",
+        "label": {
+          "en": "Usage of a condom"
+        }
+      },
+      {
+        "value": "cervical-barrier",
+        "label": {
+          "en": "Usage of a cervical barrier"
+        }
+      }
+    ]
+  },
+  "fertility-pregnancy": {
+    "version": "v1",
+    "label": {
+      "en": "Pregnancy"
+    },
+    "description": {
+      "en": "Pregnancy"
+    },
+    "duration": {
+      "mandatory": true,
+      "canBeNull": true,
+      "maxSeconds": 32400000
+    },
+    "streamId": "fertility-preganancies",
+    "eventType": "pregnancy/detailed",
+    "devNotes": "The value of `event.time` should indicate the start of pregnancy. When content value is 'ongoing' `event.duration` must be set to `null`. For any other value `event.duration` should be set to indicate when the pregnancy state terminated.\n",
+    "type": "select",
+    "options": [
+      {
+        "value": "ongoing",
+        "label": {
+          "en": "Ongoing pregnangcy"
+        }
+      },
+      {
+        "value": "miscarriage",
+        "label": {
+          "en": "Miscarriage"
+        }
+      },
+      {
+        "value": "ectopic",
+        "label": {
+          "en": "Ectopic"
+        }
+      },
+      {
+        "value": "stillbirth",
+        "label": {
+          "en": "Stillbirth"
+        }
+      },
+      {
+        "value": "abortion",
+        "label": {
+          "en": "Abortion"
+        }
+      }
+    ]
   },
   "profile-addresscountry": {
     "version": "temporary",

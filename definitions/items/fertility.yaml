@@ -22,6 +22,14 @@ fertility-cycles-start:
   eventType: activity/plain
   type: checkbox
   repeatable: daily
+fertility-cycles-peak-day:
+  version: temporary
+  label: Peak day of fertility
+  description: When fertility is at its highest point
+  streamId: fertility-cycles-peak-day
+  eventType: activity/plain
+  type: checkbox
+  repeatable: daily
 fertility-miscarriages-count:
   version: temporary
   label: Nb of miscarriages
@@ -70,3 +78,50 @@ fertility-ttc-tta:
       label: TTC - “ Seriously TTC” Intentional intercourse every cycle. Would pursue
         any/ALL fertility treatments or procedures if needed.
   repeatable: daily
+fertility-sexual-activity:
+  version: v1
+  label: Sexual activity
+  description: Potentially reproductive sexual activity
+  streamId: fertility-sexual-activity
+  eventType: reproductive-sexuality/detailed
+  type: select
+  options:
+    - value: 'plain'
+      label: 'Semen released in the vagina'
+    - value: 'incomplete'
+      label: 'No ejaculation'
+    - value: 'withdrawal'
+      label: 'Withdrawal before ejaculation'
+    - value: 'condom'
+      label: 'Usage of a condom'
+    - value: 'cervical-barrier'
+      label: 'Usage of a cervical barrier'
+fertility-pregnancy:
+  version: v1
+  label: Pregnancy
+  description: Pregnancy
+  duration:
+    mandatory: true
+    canBeNull: true
+    maxSeconds: 32400000 # maximum known pregnancy 53 weeks
+  streamId: fertility-preganancies
+  eventType: pregnancy/detailed
+  devNotes: >
+    The value of `event.time` should indicate the start of pregnancy.
+    When content value is 'ongoing' `event.duration` must be set to `null`.
+    For any other value `event.duration` should be set to indicate when the pregnancy state terminated.
+  type: select
+  options:
+    - value: 'ongoing'
+      label: 'Ongoing pregnangcy'
+    - value: 'miscarriage'
+      label: 'Miscarriage'
+    - value: 'ectopic'
+      label: 'Ectopic'
+    - value: 'stillbirth'
+      label: 'Stillbirth'
+    - value: 'abortion'
+      label: 'Abortion'
+
+    
+

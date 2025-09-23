@@ -72,21 +72,23 @@ function addItem (key, itemSrc) {
   itemsById[key] = item;
 
   // an item may have variation of eventTypes (e.g. body-weight)
-  const eventTypes = [];
+  const itemEventTypes = [];
   if (item.variations?.eventType) {
-    eventTypes.push(...Object.keys(item.variations?.eventType));
+    itemEventTypes.push(...Object.keys(item.variations?.eventType));
     if (item.eventType) {
       throw new Error(`Item with ${key} mixes eventType and variation.eventTypes: ${JSON.stringify(item)}`);
     }
   } else {
-    eventTypes.push(item.eventType);
+    itemEventTypes.push(item.eventType);
   }
 
-  for (const eventType of eventTypes) {
-    if (!eventTypesById(eventType)) {
-      throw new Error(`Event type with id ${eventType} does not exist, cannot add item: ${JSON.stringify(item)}`);
+  for (const itemEventType of itemEventTypes) {
+    const eventType = eventTypesById(itemEventType);
+    if (eventType == null) {
+      throw new Error(`Event type with id ${itemEventType} does not exist, cannot add item: ${JSON.stringify(item)}`);
     }
-    const streamIdTypeId = item.streamId + ':' + eventType;
+    checkItemVsEvenType(key, item, eventType);
+    const streamIdTypeId = item.streamId + ':' + itemEventType;
     if (itemsByStreamIdTypeId[streamIdTypeId]) {
       throw new Error(`Item with streamIdTypeId ${streamIdTypeId} already exists, cannot add item: ${JSON.stringify(item)}`);
     }
@@ -103,4 +105,39 @@ function toBePublished () {
     content: itemsById,
     includeInPack: 'items'
   }];
+}
+
+function checkItemVsEvenType (key, item, eventType) {
+  if (eventType.type === 'string') {
+    if (item.type === 'select') { // check that all options value are string
+      if (eventType.enum === null) throw new Error(`for item "${key}", as a "select" of type "string", matching eventType must have an "enum" property`, JSON.stringify({ item, eventType }));
+      for (const option of item.options) {
+        if (typeof option.value !== 'string') throw new Error(`as item "${key}" is of type "select" and matching event type is "string" all options value must be string check the following option: ` + JSON.stringify(option));
+        const found = eventType.enum.find((v) => (v === option.value));
+        if (!found) throw new Error(`for item "${key}" the value "${option.value}" cannot be found it evenType enum": ` + JSON.stringify(eventType));
+      }
+      return true;
+    }
+    if (item.type === 'text') return true;
+    if (item.type === 'date') {
+      if (item.eventType === 'date/iso-8601') return true;
+    }
+  }
+  if (item.eventType === 'ratio/generic') {
+    if (item.type === 'select') {
+      // values of options must be numbers
+      for (const option of item.options) {
+        if (typeof option.value !== 'number') throw new Error(`as item "${key}" is of type "select" and matching event type is "ratio/generic" all options value must be numbers check the following option: ` + JSON.stringify(option));
+      }
+      return true;
+    }
+  }
+  if (item.type === 'number') {
+    if (eventType.type !== 'number') throw new Error(`as item "${key}" is of type "number" matching eventtype should be a "number" ` + JSON.stringify({ item, eventType }));
+    return true;
+  }
+  if (item.type === 'checkbox') {
+    if (item.eventType === 'activity/plain') return true;
+  }
+  throw new Error(`There is no check available for the matching of item content end eventType for ${JSON.stringify({ item, eventType }, null, 2)}`);
 }

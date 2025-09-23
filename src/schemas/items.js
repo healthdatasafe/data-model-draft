@@ -31,6 +31,19 @@ const itemSchema = {
     description: { $ref: 'defs.json#/definitions/localized' },
     streamId: { type: 'string' },
     repeatable: { enum: ['any', 'none', 'daily'] },
+    duration: {
+      type: 'object',
+      nullable: true,
+      properties: {
+        mandatory: { type: 'boolean', nullable: false },
+        canBeNull: { type: 'boolean', nullable: false },
+        maxSeconds: { type: 'number', nullable: true }
+      }
+    },
+    devNotes: {
+      type: 'string',
+      nullable: true
+    },
     type: { enum: ['number', 'text', 'select', 'checkbox', 'date'] },
     eventType: { type: 'string' },
     options: {

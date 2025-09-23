@@ -22,6 +22,28 @@
         "daily"
       ]
     },
+    "duration": {
+      "type": "object",
+      "nullable": true,
+      "properties": {
+        "mandatory": {
+          "type": "boolean",
+          "nullable": false
+        },
+        "canBeNull": {
+          "type": "boolean",
+          "nullable": false
+        },
+        "maxSeconds": {
+          "type": "number",
+          "nullable": true
+        }
+      }
+    },
+    "devNotes": {
+      "type": "string",
+      "nullable": true
+    },
     "type": {
       "enum": [
         "number",

@@ -9,11 +9,18 @@ children:
         name: New Cycle
       - id: fertility-cycles-ovulation
         name: Ovulation Day
+      - id: fertility-cycles-peak-day
+        name: Peak Day
       - id: fertility-cycles-charted-estimation
         name: Cycles charted estimation
-  - id: fertility-miscarriages
-    name: Miscarriages
   - id: fertility-trainings
     name: Trainings
   - id: fertility-ttc-tta
     name: Trying to conceive / Avoiding pregnancy
+  - id: fertility-sexual-activity
+    name: Sexual Activity
+  - id: fertility-preganancies
+    name: Pregancies
+    children:
+      - id: fertility-miscarriages
+        name: Miscarriages
