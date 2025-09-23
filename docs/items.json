@@ -491,6 +491,12 @@
         }
       },
       {
+        "value": "livebirth",
+        "label": {
+          "en": "Live birth"
+        }
+      },
+      {
         "value": "abortion",
         "label": {
           "en": "Abortion"
