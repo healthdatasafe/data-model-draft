@@ -85,6 +85,7 @@ fertility-sexual-activity:
   streamId: fertility-sexual-activity
   eventType: reproductive-sexuality/detailed
   type: select
+  repeatable: any
   options:
     - value: 'plain'
       label: 'Semen released in the vagina'
@@ -106,11 +107,13 @@ fertility-pregnancy:
     maxSeconds: 32400000 # maximum known pregnancy 53 weeks
   streamId: fertility-preganancies
   eventType: pregnancy/detailed
-  devNotes: >
+  devNotes: |-
+    One per fetus. (can be multiple with same start date)
     The value of `event.time` should indicate the start of pregnancy.
     When content value is 'ongoing' `event.duration` must be set to `null`.
     For any other value `event.duration` should be set to indicate when the pregnancy state terminated.
   type: select
+  repeatable: any
   options:
     - value: 'ongoing'
       label: 'Ongoing pregnangcy'
