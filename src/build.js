@@ -5,6 +5,8 @@ const basePath = path.resolve(__dirname, '../docs');
 
 const { itemsById } = require('./items');
 
+const rootStreams = require('./streams').roots;
+
 const sources = [
   require('./schemas/items').toBePublished,
   require('./streams').toBePublished,
@@ -54,9 +56,30 @@ for (const key of Object.keys(itemsById).sort()) {
   const variation = (i.variations != null) ? Object.keys(i.variations.eventType).join(', ') : '';
   const type = (typeof i.eventType === 'string') ? i.eventType : variation;
   const select = (i.options == null) ? '' : '<BR><SELECT style="width: 20em">' + i.options.map((o) => (`<OPTION>${o.value}: ${o.label.en}</OPTION>`)).join('') + '</SELECT>';
-  const line = `<tr><td><b>${key}</b><br><u>Type: </u>${i.type}</td><td>${i.label.en}<br>${i.description.en}${select}</td><td>streamId: ${i.streamId}<br>eventType(s): ${type}</td></tr>`;
+  const infos = (i.devNotes == null) ? '' : `<BR><span style="font-style: italic; font-size: small">${i.devNotes.replaceAll('\n', '<br>')}</span>`;
+  const line = `<tr><td><span style="font-weight: bold;">${key}</span><br><u>Type:</u> ${i.type}<br><u>When:</u> ${i.repeatable}</td><td>${i.label.en}<br>${i.description.en}${select}${infos}</td><td><u>streamId:</u> ${i.streamId}<br><u>eventType(s):</u> ${type}<br><u>version:</u> ${i.version}</td></tr>`;
   rowsItems.push(line);
 }
 const indexHtmlDest = indexHtmlDest1.replace('{TABLE_ITEMS}', rowsItems.join('\n'));
 
 fs.writeFileSync(path.resolve(basePath, 'index.html'), indexHtmlDest, 'utf-8');
+
+// -- streams page
+const streamsHtmlSrc = fs.readFileSync(path.resolve(__dirname, '../docs-src/streams.html'), 'utf-8');
+
+function addStreams (streams, depth) {
+  if (streams == null) return '';
+  const pad = '                   '.substring(0, depth).replaceAll(' ', '&nbsp&nbsp');
+  let res = '';
+  for (const stream of streams) {
+    res += `<TR><TD>${pad}-${stream.name}</TD><TD>${stream.id}</TD></TR>`;
+    res += addStreams(stream.children, depth + 1);
+  }
+  return res;
+}
+
+const streamsContent = addStreams(rootStreams, 0);
+
+const streamsHtmlDest = streamsHtmlSrc.replace('{STREAMS}', streamsContent);
+
+fs.writeFileSync(path.resolve(basePath, 'streams.html'), streamsHtmlDest, 'utf-8');

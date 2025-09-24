@@ -1,5 +1,5 @@
 {
-  "publicationDate": "2025-09-23T14:38:55.682Z",
+  "publicationDate": "2025-09-24T08:57:02.525Z",
   "streams": [
     {
       "id": "body",
@@ -594,6 +594,7 @@
       "streamId": "fertility-sexual-activity",
       "eventType": "reproductive-sexuality/detailed",
       "type": "select",
+      "repeatable": "any",
       "options": [
         {
           "value": "plain",
@@ -642,8 +643,9 @@
       },
       "streamId": "fertility-preganancies",
       "eventType": "pregnancy/detailed",
-      "devNotes": "The value of `event.time` should indicate the start of pregnancy. When content value is 'ongoing' `event.duration` must be set to `null`. For any other value `event.duration` should be set to indicate when the pregnancy state terminated.\n",
+      "devNotes": "One per fetus. (can be multiple with same start date)\nThe value of `event.time` should indicate the start of pregnancy.\nWhen content value is 'ongoing' `event.duration` must be set to `null`.\nFor any other value `event.duration` should be set to indicate when the pregnancy state terminated.",
       "type": "select",
+      "repeatable": "any",
       "options": [
         {
           "value": "ongoing",
