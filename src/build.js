@@ -49,15 +49,23 @@ const htmlTableFiles = htmlTableSrc.map(i => `<tr><td>${i.title}</td><td><a href
 const indexHtmlSrc = fs.readFileSync(path.resolve(__dirname, '../docs-src/index.html'), 'utf-8');
 const indexHtmlDest1 = indexHtmlSrc.replace('{TABLE_FILES}', htmlTableFiles);
 
+const itemsByStreamId = {};
+
 // -- html table items
 const rowsItems = [];
 for (const key of Object.keys(itemsById).sort()) {
   const i = itemsById[key];
+
+  // add to itemsByStreamId
+  if (itemsByStreamId[i.streamId] == null) itemsByStreamId[i.streamId] = [];
+  itemsByStreamId[i.streamId].push(key);
+
+  // continue
   const variation = (i.variations != null) ? Object.keys(i.variations.eventType).join(', ') : '';
   const type = (typeof i.eventType === 'string') ? i.eventType : variation;
   const select = (i.options == null) ? '' : '<BR><SELECT style="width: 20em">' + i.options.map((o) => (`<OPTION>${o.value}: ${o.label.en}</OPTION>`)).join('') + '</SELECT>';
   const infos = (i.devNotes == null) ? '' : `<BR><span style="font-style: italic; font-size: small">${i.devNotes.replaceAll('\n', '<br>')}</span>`;
-  const line = `<tr><td><span style="font-weight: bold;">${key}</span><br><u>Type:</u> ${i.type}<br><u>When:</u> ${i.repeatable}</td><td>${i.label.en}<br>${i.description.en}${select}${infos}</td><td><u>streamId:</u> ${i.streamId}<br><u>eventType(s):</u> ${type}<br><u>version:</u> ${i.version}</td></tr>`;
+  const line = `<tr><td><span style="font-weight: bold;" id="${key}">${key}</span><br><u>Type:</u> ${i.type}<br><u>When:</u> ${i.repeatable}</td><td>${i.label.en}<br>${i.description.en}${select}${infos}</td><td><u>streamId:</u> ${i.streamId}<br><u>eventType(s):</u> ${type}<br><u>version:</u> ${i.version}</td></tr>`;
   rowsItems.push(line);
 }
 const indexHtmlDest = indexHtmlDest1.replace('{TABLE_ITEMS}', rowsItems.join('\n'));
@@ -72,7 +80,13 @@ function addStreams (streams, depth) {
   const pad = '                   '.substring(0, depth).replaceAll(' ', '&nbsp&nbsp');
   let res = '';
   for (const stream of streams) {
-    res += `<TR><TD>${pad}-${stream.name}</TD><TD>${stream.id}</TD></TR>`;
+    const items = [];
+    if (itemsByStreamId[stream.id]) {
+      for (const key of itemsByStreamId[stream.id]) {
+        items.push(`<A HREF="index.html#${key}">${key}</A>`);
+      }
+    }
+    res += `<TR><TD>${pad}-${stream.name}</TD><TD>${stream.id}</TD><TD>${items.join('<BR>')}</TD></TR>`;
     res += addStreams(stream.children, depth + 1);
   }
   return res;
