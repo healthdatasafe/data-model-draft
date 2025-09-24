@@ -87,10 +87,10 @@ fertility-sexual-activity:
   type: select
   repeatable: any
   options:
-    - value: 'plain'
-      label: 'Semen released in the vagina'
+    - value: 'fertile'
+      label: 'Fertile intercourse'
     - value: 'incomplete'
-      label: 'No ejaculation'
+      label: 'No ejaculation (incomplete)'
     - value: 'withdrawal'
       label: 'Withdrawal before ejaculation'
     - value: 'condom'

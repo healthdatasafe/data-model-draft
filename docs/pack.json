@@ -1,5 +1,5 @@
 {
-  "publicationDate": "2025-09-24T08:57:02.525Z",
+  "publicationDate": "2025-09-24T09:15:11.666Z",
   "streams": [
     {
       "id": "body",
@@ -597,15 +597,15 @@
       "repeatable": "any",
       "options": [
         {
-          "value": "plain",
+          "value": "fertile",
           "label": {
-            "en": "Semen released in the vagina"
+            "en": "Fertile intercourse"
           }
         },
         {
           "value": "incomplete",
           "label": {
-            "en": "No ejaculation"
+            "en": "No ejaculation (incomplete)"
           }
         },
         {

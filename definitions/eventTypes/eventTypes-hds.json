@@ -27,7 +27,7 @@
       "description": "Potentially reproductive sexual activity",
       "type": "string",
       "enum": [
-        "plain",
+        "fertile",
         "incomplete",
         "withdrawal",
         "condom",
