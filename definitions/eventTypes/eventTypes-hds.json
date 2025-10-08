@@ -45,6 +45,42 @@
         "livebirth",
         "abortion"
       ]
-    }
+    },
+    "medication/basic": {
+      "description": "Simple medication based on name and eventual coding",
+      "type": "object",
+      "required": ["label"],
+      "properties": {
+        "name": {
+          "description": "The name of product",
+          "type": "string"
+        },
+        "doseMg": {
+          "description": "The dosage in milligrams",
+          "type": "number"
+        },
+        "frequencyHours": {
+          "description": "Frequency in Hours. If non null, 'event.duration' should reflect the full period, otherwise it reflects one intake",
+          "type": "number"
+        },
+        "codes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["system", "content"],
+            "properties": {
+              "system": {
+                "description": "The system code for HDS",
+                "type": "string"
+              },
+              "content": {
+                "description": "Accordingly to the norm, appropriate content for coding",
+                "type": "object"
+              }
+            }
+          }
+        }
+      }
+    } 
   }
 }

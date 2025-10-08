@@ -143,6 +143,23 @@
     ]
   },
   {
+    "id": "medication",
+    "name": "Medication",
+    "parentId": null,
+    "children": [
+      {
+        "id": "medication-intake",
+        "name": "Intake",
+        "parentId": "medication"
+      },
+      {
+        "id": "medication-prescription",
+        "name": "Prescriptions",
+        "parentId": "medication"
+      }
+    ]
+  },
+  {
     "id": "profile",
     "name": "Profile",
     "parentId": null,

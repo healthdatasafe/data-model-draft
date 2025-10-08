@@ -18,6 +18,15 @@
       "required": [
         "en"
       ]
+    },
+    "entryType": {
+      "enum": [
+        "number",
+        "text",
+        "select",
+        "checkbox",
+        "date"
+      ]
     }
   }
 }

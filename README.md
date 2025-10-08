@@ -8,9 +8,9 @@ Defines the initial version of stream structures and event types for a common mo
 
 ## Functional Requirements Specifications
 
-| Date             | 16th September 2025 |
+| Date             | 29th September 2025 |
 | ---------------- | ------------- |
-| Document Version | 0.3           |
+| Document Version | 0.4           |
 | Status           | Draft         |
 |                  |               |
 
@@ -69,6 +69,14 @@ Note: all textual descriptions and labels should be translatable. market with a 
   - Some data may be taken with different variations and context
   - [SNOWMED CT](https://bioportal.bioontology.org/ontologies/SNOMEDCT)
   - [LOINC (BODY WEIGHT)](https://loinc.org/LG34372-9)
+
+- Medications code list
+  - ATC: https://atcddd.fhi.no/atc_ddd_index/
+  - HCPCS: https://www.aapc.com/codes/hcpcs-codes-range/ 
+  - SCTID: https://browser.ihtsdotools.org/?perspective=full&conceptId1=404684003&edition=MAIN/2025-09-01&release=&languages=en
+  - UNII: https://precision.fda.gov/uniisearch
+  - Frequency Fhir: https://build.fhir.org/ig/HL7/CDA-Examples/medicationfrequency.html
+
   
 - Source of the data
   The origin of the data will be given by `createdBy` and `modifiedBy` . Still this may not be sufficient 

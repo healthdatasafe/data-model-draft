@@ -1,0 +1,8 @@
+id: medication
+name: Medication
+parentId: null
+children:
+  - id: medication-intake
+    name: Intake
+  - id: medication-prescription
+    name: Prescriptions

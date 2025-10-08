@@ -1,5 +1,5 @@
 {
-  "publicationDate": "2025-09-24T09:32:55.428Z",
+  "publicationDate": "2025-10-08T12:48:11.640Z",
   "streams": [
     {
       "id": "body",
@@ -141,6 +141,23 @@
             }
           ],
           "parentId": "fertility"
+        }
+      ]
+    },
+    {
+      "id": "medication",
+      "name": "Medication",
+      "parentId": null,
+      "children": [
+        {
+          "id": "medication-intake",
+          "name": "Intake",
+          "parentId": "medication"
+        },
+        {
+          "id": "medication-prescription",
+          "name": "Prescriptions",
+          "parentId": "medication"
         }
       ]
     },
@@ -684,6 +701,40 @@
           }
         }
       ]
+    },
+    "medication-intake": {
+      "version": "v1",
+      "label": {
+        "en": "Medication Intake"
+      },
+      "description": {
+        "en": "Medication Intake"
+      },
+      "streamId": "medication-intake",
+      "eventType": "medication/basic",
+      "type": "composite",
+      "composite": {
+        "name": {
+          "label": {
+            "en": "Name of the medication"
+          },
+          "type": "text"
+        },
+        "doseMg": {
+          "label": {
+            "en": "Dosage in milligrams"
+          },
+          "type": "number",
+          "canBeNull": true
+        },
+        "frequencyHours": {
+          "label": {
+            "en": "Frequency in hours"
+          },
+          "type": "number",
+          "canBeNull": true
+        }
+      }
     },
     "profile-addresscountry": {
       "version": "temporary",
