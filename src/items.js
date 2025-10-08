@@ -139,5 +139,8 @@ function checkItemVsEvenType (key, item, eventType) {
   if (item.type === 'checkbox') {
     if (item.eventType === 'activity/plain') return true;
   }
+  if (item.type === 'composite') {
+    console.error('XX Composite type TODO'); return true;
+  }
   throw new Error(`There is no check available for the matching of item content end eventType for ${JSON.stringify({ item, eventType }, null, 2)}`);
 }

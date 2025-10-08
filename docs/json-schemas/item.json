@@ -15,6 +15,9 @@
     "streamId": {
       "type": "string"
     },
+    "eventType": {
+      "type": "string"
+    },
     "repeatable": {
       "enum": [
         "any",
@@ -45,39 +48,17 @@
       "nullable": true
     },
     "type": {
-      "enum": [
-        "number",
-        "text",
-        "select",
-        "checkbox",
-        "date"
-      ]
-    },
-    "eventType": {
-      "type": "string"
-    },
-    "options": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "nullable": false,
-        "properties": {
-          "value": {
-            "type": [
-              "number",
-              "string"
-            ]
-          },
-          "label": {
-            "$ref": "defs.json#/definitions/localized"
-          }
+      "type": "string",
+      "oneOf": [
+        {
+          "$ref": "defs.json#/definitions/entryType"
         },
-        "required": [
-          "value",
-          "label"
-        ],
-        "additionalProperties": false
-      }
+        {
+          "enum": [
+            "composite"
+          ]
+        }
+      ]
     },
     "variations": {
       "type": "object",
@@ -89,12 +70,87 @@
       }
     }
   },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "select"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "options": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "nullable": false,
+              "properties": {
+                "value": {
+                  "type": [
+                    "number",
+                    "string"
+                  ]
+                },
+                "label": {
+                  "$ref": "defs.json#/definitions/localized"
+                }
+              },
+              "required": [
+                "value",
+                "label"
+              ],
+              "additionalProperties": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "composite"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "composite": {
+            "type": "object",
+            "nullable": false,
+            "patternProperties": {
+              "^[a-z][a-zA-Z0-9]*$": {
+                "type": "object",
+                "properties": {
+                  "label": {
+                    "$ref": "defs.json#/definitions/localized"
+                  },
+                  "type": {
+                    "$ref": "defs.json#/definitions/entryType"
+                  },
+                  "canBeNull": {
+                    "type": "boolean",
+                    "nullable": true
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "required": [
+          "composite"
+        ]
+      }
+    }
+  ],
   "required": [
     "version",
     "label",
     "description",
     "streamId",
     "type"
-  ],
-  "additionalProperties": false
+  ]
 }

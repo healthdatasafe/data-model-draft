@@ -17,7 +17,8 @@ const defsSchema = {
         es: { type: 'string' }
       },
       required: ['en']
-    }
+    },
+    entryType: { enum: ['number', 'text', 'select', 'checkbox', 'date'] }
   }
 };
 
@@ -30,6 +31,7 @@ const itemSchema = {
     label: { $ref: 'defs.json#/definitions/localized' },
     description: { $ref: 'defs.json#/definitions/localized' },
     streamId: { type: 'string' },
+    eventType: { type: 'string' },
     repeatable: { enum: ['any', 'none', 'daily'] },
     duration: {
       type: 'object',
@@ -44,20 +46,12 @@ const itemSchema = {
       type: 'string',
       nullable: true
     },
-    type: { enum: ['number', 'text', 'select', 'checkbox', 'date'] },
-    eventType: { type: 'string' },
-    options: {
-      type: 'array',
-      items: {
-        type: 'object',
-        nullable: false,
-        properties: {
-          value: { type: ['number', 'string'] },
-          label: { $ref: 'defs.json#/definitions/localized' }
-        },
-        required: ['value', 'label'],
-        additionalProperties: false
-      }
+    type: {
+      type: 'string',
+      oneOf: [
+        { $ref: 'defs.json#/definitions/entryType' },
+        { enum: ['composite'] }
+      ]
     },
     variations: {
       type: 'object',
@@ -69,11 +63,67 @@ const itemSchema = {
       }
     }
   },
-  required: ['version', 'label', 'description', 'streamId', 'type'],
-  additionalProperties: false
+  allOf: [
+    { // type is select
+      if: {
+        properties: {
+          type: { const: 'select' }
+        }
+      },
+      then: {
+        properties: {
+          options: {
+            type: 'array',
+            items: {
+              type: 'object',
+              nullable: false,
+              properties: {
+                value: { type: ['number', 'string'] },
+                label: { $ref: 'defs.json#/definitions/localized' }
+              },
+              required: ['value', 'label'],
+              additionalProperties: false
+            }
+          }
+        }
+      }
+    },
+    { // type is composite or not
+      if: {
+        properties: {
+          type: { const: 'composite' }
+        }
+      },
+      then: {
+        properties: {
+          composite: {
+            type: 'object',
+            nullable: false,
+            patternProperties: {
+              '^[a-z][a-zA-Z0-9]*$': { // any key starting with a lowerCase
+                type: 'object',
+                properties: {
+                  label: { $ref: 'defs.json#/definitions/localized' },
+                  type: { $ref: 'defs.json#/definitions/entryType' },
+                  canBeNull: { type: 'boolean', nullable: true }
+                },
+                additionalProperties: false
+              }
+            }
+          }
+        },
+        required: ['composite']
+      }
+    }
+  ],
+  required: ['version', 'label', 'description', 'streamId', 'type']
+  // additionalProperties: false // find a way to check no additional properties have been induced
 };
 
-const ajv = new Ajv({ schemas: [itemSchema, defsSchema] });
+const ajv = new Ajv({
+  schemas: [itemSchema, defsSchema],
+  allowUnionTypes: true // to allow oneOf
+});
 const validateItem = ajv.getSchema('https://model.datasafe.dev/json-schemas/item.json');
 
 function checkItem (item) {

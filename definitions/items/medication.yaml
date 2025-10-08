@@ -1,0 +1,20 @@
+medication-intake:
+  version: v1
+  label: Medication Intake
+  description: Medication Intake
+  streamId: medication-intake
+  eventType: medication/basic
+  type: composite
+  composite:
+    name: 
+      label: Name of the medication
+      type: text
+    doseMg:
+      label: Dosage in milligrams
+      type: number
+      canBeNull: true
+    frequencyHours:
+      label: Frequency in hours
+      type: number
+      canBeNull: true
+    
