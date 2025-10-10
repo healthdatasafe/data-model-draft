@@ -209,16 +209,23 @@
     "type": "number",
     "variations": {
       "eventType": {
-        "mass/kg": {
-          "label": {
-            "en": "Kg"
-          }
+        "label": {
+          "en": "Unit"
         },
-        "mass/lb": {
-          "label": {
-            "en": "Lbs"
+        "options": [
+          {
+            "value": "mass/kg",
+            "label": {
+              "en": "Kg"
+            }
+          },
+          {
+            "value": "mass/lb",
+            "label": {
+              "en": "Lbs"
+            }
           }
-        }
+        ]
       }
     },
     "repeatable": "any"
@@ -237,16 +244,23 @@
     "type": "number",
     "variations": {
       "eventType": {
-        "length/m": {
-          "label": {
-            "en": "m"
-          }
+        "label": {
+          "en": "Unit"
         },
-        "length/ft": {
-          "label": {
-            "en": "Feet"
+        "options": [
+          {
+            "value": "length/m",
+            "label": {
+              "en": "m"
+            }
+          },
+          {
+            "value": "length/ft",
+            "label": {
+              "en": "Feet"
+            }
           }
-        }
+        ]
       }
     },
     "repeatable": "any"
