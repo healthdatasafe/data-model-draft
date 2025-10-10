@@ -61,7 +61,7 @@ for (const key of Object.keys(itemsById).sort()) {
   itemsByStreamId[i.streamId].push(key);
 
   // continue
-  const variation = (i.variations != null) ? Object.keys(i.variations.eventType).join(', ') : '';
+  const variation = (i.variations?.eventType != null) ? `(${i.variations.eventType.label.en}): ` + i.variations.eventType.options.map(v => v.value).join(', ') : '';
   const type = (typeof i.eventType === 'string') ? i.eventType : variation;
   const select = (i.options == null) ? '' : '<BR><SELECT style="width: 20em">' + i.options.map((o) => (`<OPTION>${o.value}: ${o.label.en}</OPTION>`)).join('') + '</SELECT>';
   const infos = (i.devNotes == null) ? '' : `<BR><span style="font-style: italic; font-size: small">${i.devNotes.replaceAll('\n', '<br>')}</span>`;

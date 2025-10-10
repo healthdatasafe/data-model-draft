@@ -57,10 +57,27 @@ const itemSchema = {
       type: 'object',
       nullable: false,
       properties: {
-        eventTypes: {
-          type: 'object'
+        eventType: {
+          type: 'object',
+          properties: {
+            label: { $ref: 'defs.json#/definitions/localized' },
+            options: {
+              type: 'array',
+              items: {
+                type: 'object',
+                nullable: false,
+                properties: {
+                  value: { type: 'string' },
+                  label: { $ref: 'defs.json#/definitions/localized' }
+                },
+                required: ['value', 'label'],
+                additionalProperties: false
+              }
+            }
+          }
         }
-      }
+      },
+      additionalProperties: false
     }
   },
   allOf: [

@@ -115,16 +115,18 @@ body-weight:
   streamId: body-weight # the parents structures of streams is given by the default streams structure
   variations: # Variations of this measure
   	eventType: # Reserved key for variation by EventType
-  		mass/kg:
-  			label: Kg
-  			hl7fhir:
-  				unit: kg
-        	code: kg
-  		mass/lb:
-  			label: Lbs
-  			hl7fhir:
-          unit: lb
-          code: "[lb_av]"
+      label: Unit
+      options:
+        - value: mass/kg
+  			  label: Kg
+  			  hl7fhir:
+  				  unit: kg
+        	  code: kg
+  		  - value: mass/lb
+  			  label: Lbs
+  			  hl7fhir:
+            unit: lb
+            code: "[lb_av]"
     measure-detail: # Free-from key for variation
       default: # Reserved keywork for default selection when none is provided
         label: 

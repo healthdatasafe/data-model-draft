@@ -74,7 +74,8 @@ function addItem (key, itemSrc) {
   // an item may have variation of eventTypes (e.g. body-weight)
   const itemEventTypes = [];
   if (item.variations?.eventType) {
-    itemEventTypes.push(...Object.keys(item.variations?.eventType));
+    const types = item.variations.eventType.options.map(o => o.value);
+    itemEventTypes.push(...types);
     if (item.eventType) {
       throw new Error(`Item with ${key} mixes eventType and variation.eventTypes: ${JSON.stringify(item)}`);
     }

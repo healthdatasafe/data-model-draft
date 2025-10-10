@@ -9,11 +9,13 @@ body-weight:
   streamId: body-weight
   type: number
   variations:
-    eventType: 
-      mass/kg:
-        label: Kg
-      mass/lb:
-        label: Lbs
+    eventType:
+      label: Unit
+      options: 
+        - value: mass/kg
+          label: Kg
+        - value: mass/lb
+          label: Lbs
   repeatable: any
 body-height:
   version: temporary
@@ -26,9 +28,11 @@ body-height:
   streamId: body-height
   type: number
   variations:
-    eventType: 
-      length/m:
-        label: m
-      length/ft:
-        label: Feet
+    eventType:
+      label: Unit
+      options:
+        - value: length/m
+          label: m
+        - value: length/ft
+          label: Feet
   repeatable: any
