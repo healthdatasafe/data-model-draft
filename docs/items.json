@@ -309,13 +309,52 @@
     "label": {
       "en": "New Cycle"
     },
+    "duration": {
+      "mandatory": false,
+      "canBeNull": true,
+      "maxSeconds": 7776000
+    },
     "description": {
-      "en": "Flag this day as a new cycle start"
+      "en": "Flag this day as a new cycle start. First day of full menstrual bleeding (Period)"
     },
     "streamId": "fertility-cycles-start",
     "eventType": "activity/plain",
     "type": "checkbox",
-    "repeatable": "daily"
+    "repeatable": "daily",
+    "devNotes": "Cycle duration is determined by next fertility cycle date unless duration property is given."
+  },
+  "fertility-cycles-period-end": {
+    "version": "temporary",
+    "label": {
+      "en": "End of period."
+    },
+    "description": {
+      "en": "Last day of periods. First day of period is given by a new cycle indication."
+    },
+    "streamId": "fertility-cycles-period",
+    "eventType": "activity/plain",
+    "type": "checkbox",
+    "repeatable": "daily",
+    "devNotes": "To track start / end of period, use fertility-cycles-start & fertility-cycles-period-end."
+  },
+  "fertility-cycles-fertile-window": {
+    "version": "temporary",
+    "label": {
+      "en": "Fertile Window"
+    },
+    "description": {
+      "en": "When a women is considered a fertile"
+    },
+    "streamId": "fertility-cycles-fertile-window",
+    "eventType": "activity/plain",
+    "duration": {
+      "mandatory": true,
+      "canBeNull": false,
+      "maxSeconds": 518400
+    },
+    "type": "checkbox",
+    "repeatable": "daily",
+    "devNotes": "Use duration property to indicate end of fertile window."
   },
   "fertility-cycles-peak-day": {
     "version": "temporary",

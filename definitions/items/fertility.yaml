@@ -17,11 +17,41 @@ fertility-cycles-ovulation:
 fertility-cycles-start:
   version: temporary
   label: New Cycle
-  description: Flag this day as a new cycle start
+  duration:
+    mandatory: false
+    canBeNull: true
+    maxSeconds: 7776000 # thershold for amenorrhea  90 days
+  description: Flag this day as a new cycle start. First day of full menstrual bleeding (Period)
   streamId: fertility-cycles-start
   eventType: activity/plain
   type: checkbox
   repeatable: daily
+  devNotes: |-
+    Cycle duration is determined by next fertility cycle date unless duration property is given.
+fertility-cycles-period-end:
+  version: temporary
+  label: End of period.
+  description: Last day of periods. First day of period is given by a new cycle indication.
+  streamId: fertility-cycles-period
+  eventType: activity/plain
+  type: checkbox
+  repeatable: daily
+  devNotes: |-
+    To track start / end of period, use fertility-cycles-start & fertility-cycles-period-end.
+fertility-cycles-fertile-window:
+  version: temporary
+  label: Fertile Window
+  description: When a women is considered a fertile
+  streamId: fertility-cycles-fertile-window
+  eventType: activity/plain
+  duration:
+    mandatory: true
+    canBeNull: false
+    maxSeconds: 518400 # maximum known fertile window 6 days
+  type: checkbox
+  repeatable: daily
+  devNotes: |-
+    Use duration property to indicate end of fertile window.
 fertility-cycles-peak-day:
   version: temporary
   label: Peak day of fertility
