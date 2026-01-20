@@ -7,6 +7,10 @@ children:
     children:
       - id: fertility-cycles-start
         name: New Cycle
+      - id: fertility-cycles-period
+        name: Period
+      - id: fertility-cycles-fertile-window
+        name: Fertile Window
       - id: fertility-cycles-ovulation
         name: Ovulation Day
       - id: fertility-cycles-peak-day

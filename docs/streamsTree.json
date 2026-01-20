@@ -96,6 +96,16 @@
             "parentId": "fertility-cycles"
           },
           {
+            "id": "fertility-cycles-period",
+            "name": "Period",
+            "parentId": "fertility-cycles"
+          },
+          {
+            "id": "fertility-cycles-fertile-window",
+            "name": "Fertile Window",
+            "parentId": "fertility-cycles"
+          },
+          {
             "id": "fertility-cycles-ovulation",
             "name": "Ovulation Day",
             "parentId": "fertility-cycles"
