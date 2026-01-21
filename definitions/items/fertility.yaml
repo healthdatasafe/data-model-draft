@@ -157,3 +157,45 @@ fertility-pregnancy:
       label: 'Live birth'
     - value: 'abortion'
       label: 'Abortion'
+fertility-hormone-fsh:
+  version: v1
+  label: FSH 
+  description: Follicle Stimulating Hormone concentration in urine - IU/L
+  streamId: body-urine-hormones-fsh
+  eventType: concentration/iu-l
+  type: number
+  repeatable: none
+fertility-hormone-hcg:
+  version: v1
+  label: hCG 
+  description: Human Chorionic Gonadotropin concentration in urine - IU/L
+  streamId: body-urine-hormones-hcg
+  eventType: concentration/iu-l
+  type: number
+  repeatable: none
+fertility-hormone-pdg:
+  version: v1
+  label: PdG 
+  description: Pregnanediol-3-glucuronide concentration in urine - IU/L
+  streamId: body-urine-hormones-pdg
+  eventType: concentration/iu-l
+  type: number
+  repeatable: none
+fertility-hormone-e3g:
+  version: v1
+  label: E3G 
+  description: Estrone-3-glucuronide concentration in urine - µg/L
+  streamId: body-urine-hormones-e3g
+  eventType: concentration/ug-l
+  type: number
+  repeatable: any
+fertility-hormone-lh:
+  version: v1
+  label: LH 
+  description: Luteinizing Hormone concentration in urine - mg/L
+  streamId: body-urine-hormones-lh
+  eventType: concentration/mg-l
+  type: number
+  repeatable: any
+
+  

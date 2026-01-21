@@ -28,3 +28,20 @@ children:
         children:
           - id: body-vulva-bleeding-browndark
             name: Presence of browndark coloration
+  - id: body-urine
+    name: Urine
+    children:
+      - id: body-urine-hormones
+        name: Urine Hormones
+        children:
+          - id: body-urine-hormones-lh
+            name: LH
+          - id: body-urine-hormones-e3g
+            name: E3G
+          - id: body-urine-hormones-pdg
+            name: PdG
+          - id: body-urine-hormones-fsh
+            name: FSH
+          - id: body-urine-hormones-hcg
+            name: hCG
+
