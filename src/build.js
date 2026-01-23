@@ -10,7 +10,8 @@ const rootStreams = require('./streams').roots;
 const sources = [
   require('./schemas/items').toBePublished,
   require('./streams').toBePublished,
-  require('./items').toBePublished
+  require('./items').toBePublished,
+  require('./eventTypes').toBePublished
 ];
 
 const pack = {
