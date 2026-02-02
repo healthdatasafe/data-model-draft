@@ -570,7 +570,7 @@
     "streamId": "body-urine-hormones-fsh",
     "eventType": "concentration/iu-l",
     "type": "number",
-    "repeatable": "none"
+    "repeatable": "any"
   },
   "fertility-hormone-hcg": {
     "version": "v1",
@@ -583,7 +583,7 @@
     "streamId": "body-urine-hormones-hcg",
     "eventType": "concentration/iu-l",
     "type": "number",
-    "repeatable": "none"
+    "repeatable": "any"
   },
   "fertility-hormone-pdg": {
     "version": "v1",
@@ -596,7 +596,7 @@
     "streamId": "body-urine-hormones-pdg",
     "eventType": "concentration/iu-l",
     "type": "number",
-    "repeatable": "none"
+    "repeatable": "any"
   },
   "fertility-hormone-e3g": {
     "version": "v1",
