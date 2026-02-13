@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "HDS data model",
   "main": "src/index.js",
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "lint": "eslint .",
     "build": "node src/build.js",
@@ -18,11 +21,7 @@
   },
   "devDependencies": {
     "mocha": "^10.7.3",
-    "eslint": "^8.57.0",
-    "eslint-config-semistandard": "^17.0.0",
-    "eslint-config-standard": "^17.1.0",
-    "eslint-plugin-import": "^2.29.1",
-    "eslint-plugin-n": "^15.7.0",
-    "eslint-plugin-promise": "^6.1.1"
+    "eslint": "^9.0.0",
+    "neostandard": "^0.12.0"
   }
 }
