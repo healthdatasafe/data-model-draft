@@ -1,5 +1,5 @@
 {
-  "publicationDate": "2026-02-12T18:19:36.712Z",
+  "publicationDate": "2026-02-25T14:51:39.772Z",
   "streams": [
     {
       "id": "body",
@@ -869,13 +869,13 @@
       "type": "number",
       "repeatable": "any"
     },
-    "medication-intake": {
+    "medication-intake-basic": {
       "version": "v1",
       "label": {
-        "en": "Medication Intake"
+        "en": "Medication Intake Basic"
       },
       "description": {
-        "en": "Medication Intake"
+        "en": "Medication Intake Custom"
       },
       "streamId": "medication-intake",
       "eventType": "medication/basic",
@@ -902,6 +902,19 @@
           "canBeNull": true
         }
       }
+    },
+    "medication-intake-coded": {
+      "version": "v1",
+      "label": {
+        "en": "Medication Intake (coded)"
+      },
+      "description": {
+        "en": "Search and select a coded medication from datasets service"
+      },
+      "streamId": "medication-intake",
+      "eventType": "medication/coded-v1",
+      "type": "datasource-search",
+      "datasource": "medication"
     },
     "profile-addresscountry": {
       "version": "temporary",
@@ -2944,6 +2957,64 @@
             }
           }
         }
+      },
+      "medication/coded-v1": {
+        "description": "Coded medication from external dataset with optional dosage and route metadata",
+        "type": "object",
+        "required": [
+          "label"
+        ],
+        "properties": {
+          "label": {
+            "description": "Localized medication name",
+            "type": "object"
+          },
+          "codes": {
+            "description": "Array of coding identifiers (ATC, RxNorm, etc.)",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "code",
+                "system"
+              ],
+              "properties": {
+                "code": {
+                  "description": "Code value (e.g. ATC code)",
+                  "type": "string"
+                },
+                "system": {
+                  "description": "Coding system (e.g. ATC, RxNorm)",
+                  "type": "string"
+                },
+                "source": {
+                  "description": "Data source reference",
+                  "type": "object"
+                },
+                "hdsId": {
+                  "description": "Unique HDS identifier for this code entry",
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "dosageValue": {
+            "description": "Dosage amount",
+            "type": "number"
+          },
+          "dosageUnit": {
+            "description": "Dosage unit (mg, g, ml, etc.)",
+            "type": "string"
+          },
+          "administrationRoute": {
+            "description": "Route of administration (oral, parenteral, etc.)",
+            "type": "string"
+          },
+          "frequencyHours": {
+            "description": "Frequency in Hours. If non null, 'event.duration' should reflect the full period, otherwise it reflects one intake",
+            "type": "number"
+          }
+        }
       }
     },
     "extras": {
@@ -4690,6 +4761,36 @@
         },
         "symbol": "tsp"
       }
+    }
+  },
+  "datasources": {
+    "medication": {
+      "label": {
+        "en": "Medications"
+      },
+      "description": {
+        "en": "Search medications from datasets service"
+      },
+      "endpoint": "https://datasets.datasafe.dev/medication",
+      "queryParam": "search",
+      "minQueryLength": 3,
+      "resultKey": "medications",
+      "displayFields": {
+        "label": {
+          "en": "label"
+        },
+        "description": {
+          "en": "description"
+        }
+      },
+      "valueFields": [
+        "label",
+        "code",
+        "system",
+        "source",
+        "hdsId",
+        "meta"
+      ]
     }
   }
 }

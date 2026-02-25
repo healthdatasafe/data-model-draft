@@ -6,6 +6,7 @@ const streamsFilePath = path.join(__dirname, '../definitions/items');
 const { eventTypesById } = require('./eventTypes');
 const streams = require('./streams');
 const { checkItem } = require('./schemas/items');
+const { datasourcesById } = require('./datasources');
 
 const itemsById = {};
 const itemsByStreamIdTypeId = {};
@@ -69,6 +70,16 @@ function addItem (key, itemSrc) {
   if (itemsById[key]) {
     throw new Error(`Item with id ${key} already exists, cannot add item: ${JSON.stringify(item)}`);
   }
+  // validate datasource reference
+  if (item.type === 'datasource-search') {
+    if (!item.datasource) {
+      throw new Error(`Item "${key}" of type datasource-search must have a "datasource" property`);
+    }
+    if (!datasourcesById[item.datasource]) {
+      throw new Error(`Item "${key}" references unknown datasource "${item.datasource}"`);
+    }
+  }
+
   itemsById[key] = item;
 
   // an item may have variation of eventTypes (e.g. body-weight)
@@ -142,6 +153,9 @@ function checkItemVsEvenType (key, item, eventType) {
   }
   if (item.type === 'composite') {
     console.error('XX Composite type TODO'); return true;
+  }
+  if (item.type === 'datasource-search') {
+    return true;
   }
   throw new Error(`There is no check available for the matching of item content end eventType for ${JSON.stringify({ item, eventType }, null, 2)}`);
 }

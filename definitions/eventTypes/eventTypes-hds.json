@@ -81,7 +81,60 @@
           }
         }
       }
-    } 
+    },
+    "medication/coded-v1": {
+      "description": "Coded medication from external dataset with optional dosage and route metadata",
+      "type": "object",
+      "required": ["label"],
+      "properties": {
+        "label": {
+          "description": "Localized medication name",
+          "type": "object"
+        },
+        "codes": {
+          "description": "Array of coding identifiers (ATC, RxNorm, etc.)",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["code", "system"],
+            "properties": {
+              "code": {
+                "description": "Code value (e.g. ATC code)",
+                "type": "string"
+              },
+              "system": {
+                "description": "Coding system (e.g. ATC, RxNorm)",
+                "type": "string"
+              },
+              "source": {
+                "description": "Data source reference",
+                "type": "object"
+              },
+              "hdsId": {
+                "description": "Unique HDS identifier for this code entry",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "dosageValue": {
+          "description": "Dosage amount",
+          "type": "number"
+        },
+        "dosageUnit": {
+          "description": "Dosage unit (mg, g, ml, etc.)",
+          "type": "string"
+        },
+        "administrationRoute": {
+          "description": "Route of administration (oral, parenteral, etc.)",
+          "type": "string"
+        },
+        "frequencyHours": {
+          "description": "Frequency in Hours. If non null, 'event.duration' should reflect the full period, otherwise it reflects one intake",
+          "type": "number"
+        }
+      }
+    }
   },
   "extras": {}
 }

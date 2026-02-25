@@ -624,13 +624,13 @@
     "type": "number",
     "repeatable": "any"
   },
-  "medication-intake": {
+  "medication-intake-basic": {
     "version": "v1",
     "label": {
-      "en": "Medication Intake"
+      "en": "Medication Intake Basic"
     },
     "description": {
-      "en": "Medication Intake"
+      "en": "Medication Intake Custom"
     },
     "streamId": "medication-intake",
     "eventType": "medication/basic",
@@ -657,6 +657,19 @@
         "canBeNull": true
       }
     }
+  },
+  "medication-intake-coded": {
+    "version": "v1",
+    "label": {
+      "en": "Medication Intake (coded)"
+    },
+    "description": {
+      "en": "Search and select a coded medication from datasets service"
+    },
+    "streamId": "medication-intake",
+    "eventType": "medication/coded-v1",
+    "type": "datasource-search",
+    "datasource": "medication"
   },
   "profile-addresscountry": {
     "version": "temporary",

@@ -11,7 +11,8 @@ const sources = [
   require('./schemas/items').toBePublished,
   require('./streams').toBePublished,
   require('./items').toBePublished,
-  require('./eventTypes').toBePublished
+  require('./eventTypes').toBePublished,
+  require('./datasources').toBePublished
 ];
 
 const pack = {

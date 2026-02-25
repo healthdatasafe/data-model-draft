@@ -55,7 +55,8 @@
         },
         {
           "enum": [
-            "composite"
+            "composite",
+            "datasource-search"
           ]
         }
       ]
@@ -168,6 +169,25 @@
         },
         "required": [
           "composite"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "datasource-search"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "datasource": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "datasource"
         ]
       }
     }

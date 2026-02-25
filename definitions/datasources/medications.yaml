@@ -1,0 +1,17 @@
+medication:
+  label: Medications
+  description: Search medications from datasets service
+  endpoint: https://datasets.datasafe.dev/medication
+  queryParam: search
+  minQueryLength: 3
+  resultKey: medications
+  displayFields:
+    label: label
+    description: description
+  valueFields:
+    - label
+    - code
+    - system
+    - source
+    - hdsId
+    - meta
