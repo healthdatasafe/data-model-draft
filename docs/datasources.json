@@ -1,0 +1,30 @@
+{
+  "medication": {
+    "label": {
+      "en": "Medications"
+    },
+    "description": {
+      "en": "Search medications from datasets service"
+    },
+    "endpoint": "https://datasets.datasafe.dev/medication",
+    "queryParam": "search",
+    "minQueryLength": 3,
+    "resultKey": "medications",
+    "displayFields": {
+      "label": {
+        "en": "label"
+      },
+      "description": {
+        "en": "description"
+      }
+    },
+    "valueFields": [
+      "label",
+      "code",
+      "system",
+      "source",
+      "hdsId",
+      "meta"
+    ]
+  }
+}

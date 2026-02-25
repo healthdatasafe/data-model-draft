@@ -1,7 +1,7 @@
-medication-intake:
+medication-intake-basic:
   version: v1
-  label: Medication Intake
-  description: Medication Intake
+  label: Medication Intake Basic
+  description: Medication Intake Custom
   streamId: medication-intake
   eventType: medication/basic
   type: composite
@@ -17,4 +17,12 @@ medication-intake:
       label: Frequency in hours
       type: number
       canBeNull: true
-    
+
+medication-intake-coded:
+  version: v1
+  label: Medication Intake (coded)
+  description: Search and select a coded medication from datasets service
+  streamId: medication-intake
+  eventType: medication/coded-v1
+  type: datasource-search
+  datasource: medication

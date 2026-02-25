@@ -50,7 +50,7 @@ const itemSchema = {
       type: 'string',
       oneOf: [
         { $ref: 'defs.json#/definitions/entryType' },
-        { enum: ['composite'] }
+        { enum: ['composite', 'datasource-search'] }
       ]
     },
     variations: {
@@ -130,6 +130,20 @@ const itemSchema = {
           }
         },
         required: ['composite']
+      }
+    }
+    ,
+    { // type is datasource-search
+      if: {
+        properties: {
+          type: { const: 'datasource-search' }
+        }
+      },
+      then: {
+        properties: {
+          datasource: { type: 'string' }
+        },
+        required: ['datasource']
       }
     }
   ],
