@@ -1,7 +1,7 @@
 medication:
   label: Medications
   description: Search medications from datasets service
-  endpoint: https://datasets.datasafe.dev/medication
+  endpoint: datasets://medication
   queryParam: search
   minQueryLength: 3
   resultKey: medications

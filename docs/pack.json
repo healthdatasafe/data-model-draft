@@ -1,5 +1,5 @@
 {
-  "publicationDate": "2026-02-27T10:42:19.848Z",
+  "publicationDate": "2026-02-27T16:38:52.325Z",
   "streams": [
     {
       "id": "body",
@@ -4982,7 +4982,7 @@
       "description": {
         "en": "Search medications from datasets service"
       },
-      "endpoint": "https://datasets.datasafe.dev/medication",
+      "endpoint": "datasets://medication",
       "queryParam": "search",
       "minQueryLength": 3,
       "resultKey": "medications",
