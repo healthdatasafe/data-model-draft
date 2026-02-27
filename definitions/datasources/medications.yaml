@@ -10,8 +10,11 @@ medication:
     description: description
   valueFields:
     - label
-    - code
-    - system
-    - source
+    - description
+    - ingredient
+    - strength
+    - doseForm
+    - route
+    - doseUnit
+    - codes
     - hdsId
-    - meta
