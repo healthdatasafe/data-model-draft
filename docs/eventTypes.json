@@ -1960,62 +1960,182 @@
       }
     },
     "medication/coded-v1": {
-      "description": "Coded medication from external dataset with optional dosage and route metadata",
+      "description": "Coded medication intake. 'drug' is the coded identity from datasets-service, 'intake' is the user-entered regimen. Maps to FHIR MedicationStatement: drug → medicationCodeableConcept, intake → dosage.",
       "type": "object",
       "required": [
-        "label"
+        "drug"
       ],
       "properties": {
-        "label": {
-          "description": "Localized medication name",
-          "type": "object"
-        },
-        "codes": {
-          "description": "Array of coding identifiers (ATC, RxNorm, etc.)",
-          "type": "array",
-          "items": {
-            "type": "object",
-            "required": [
-              "code",
-              "system"
-            ],
-            "properties": {
-              "code": {
-                "description": "Code value (e.g. ATC code)",
-                "type": "string"
-              },
-              "system": {
-                "description": "Coding system (e.g. ATC, RxNorm)",
-                "type": "string"
-              },
-              "source": {
-                "description": "Data source reference",
-                "type": "object"
-              },
-              "hdsId": {
-                "description": "Unique HDS identifier for this code entry",
-                "type": "string"
+        "drug": {
+          "description": "Coded drug identity, populated from datasets-service selection. Contains multiple codes when the same drug is matched across coding systems.",
+          "type": "object",
+          "required": [
+            "label",
+            "codes"
+          ],
+          "properties": {
+            "label": {
+              "description": "Localized medication name for display",
+              "type": "object",
+              "properties": {
+                "en": {
+                  "type": "string"
+                }
+              }
+            },
+            "description": {
+              "description": "Localized full description (e.g. 'Aspirin 325 MG Oral Tablet')",
+              "type": "object",
+              "properties": {
+                "en": {
+                  "type": "string"
+                }
+              }
+            },
+            "codes": {
+              "description": "Coding identifiers across systems. A single drug may have codes in RxNorm (prescribing), SNOMED-CT (clinical), and ATC (classification).",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": [
+                  "code",
+                  "system",
+                  "hdsId"
+                ],
+                "properties": {
+                  "code": {
+                    "description": "Code value (rxcui, SCTID, ATC code)",
+                    "type": "string"
+                  },
+                  "system": {
+                    "description": "Coding system: RxNorm, SNOMED-CT, ATC",
+                    "type": "string"
+                  },
+                  "source": {
+                    "description": "Data source reference",
+                    "type": "object",
+                    "properties": {
+                      "key": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "hdsId": {
+                    "description": "Unique HDS identifier for this code entry",
+                    "type": "string"
+                  }
+                }
               }
             }
           }
         },
-        "dosageValue": {
-          "description": "Dosage amount",
-          "type": "number"
-        },
-        "dosageUnit": {
-          "description": "Dosage unit (mg, g, ml, etc.)",
-          "type": "string"
-        },
-        "administrationRoute": {
-          "description": "Route of administration (oral, parenteral, etc.)",
-          "type": "string"
-        },
-        "frequencyHours": {
-          "description": "Frequency in Hours. If non null, 'event.duration' should reflect the full period, otherwise it reflects one intake",
-          "type": "number"
+        "intake": {
+          "description": "User-entered intake regimen",
+          "type": "object",
+          "properties": {
+            "doseValue": {
+              "description": "Amount per intake (e.g. 2 for '2 tablets', 5 for '5 mL')",
+              "type": "number"
+            },
+            "doseUnit": {
+              "description": "HDS eventType reference for the dose unit",
+              "type": "string",
+              "enum": [
+                "dose/tablet",
+                "dose/drop",
+                "dose/puff",
+                "dose/application",
+                "dose/suppository",
+                "dose/unit",
+                "volume/ml",
+                "mass/mg",
+                "mass/mcg",
+                "mass/g"
+              ]
+            },
+            "route": {
+              "description": "Route of administration",
+              "type": "string",
+              "enum": [
+                "oral",
+                "sublingual",
+                "parenteral",
+                "intravenous",
+                "intramuscular",
+                "subcutaneous",
+                "inhalation",
+                "nasal",
+                "topical",
+                "transdermal",
+                "ophthalmic",
+                "otic",
+                "rectal",
+                "vaginal"
+              ]
+            },
+            "frequencyHours": {
+              "description": "Interval between doses in hours. If set, event.duration should reflect the full treatment period",
+              "type": "number"
+            },
+            "asNeeded": {
+              "description": "True if taken as needed (PRN) rather than on schedule",
+              "type": "boolean"
+            },
+            "note": {
+              "description": "Free text instructions (e.g. 'take with food', 'before bedtime')",
+              "type": "string"
+            }
+          }
         }
       }
+    },
+    "mass/mcg": {
+      "description": "Micrograms",
+      "type": "number"
+    },
+    "dose/tablet": {
+      "description": "Tablets or capsules count",
+      "type": "number"
+    },
+    "dose/drop": {
+      "description": "Drops (ophthalmic, otic, nasal, oral)",
+      "type": "number"
+    },
+    "dose/puff": {
+      "description": "Puffs or actuations (inhalers, nasal sprays)",
+      "type": "number"
+    },
+    "dose/application": {
+      "description": "Applications (topical creams, ointments, gels, patches)",
+      "type": "number"
+    },
+    "dose/suppository": {
+      "description": "Suppositories (rectal, vaginal)",
+      "type": "number"
+    },
+    "dose/unit": {
+      "description": "International Units (IU)",
+      "type": "number"
+    },
+    "concentration/mg-ml": {
+      "description": "Milligrams per milliliter",
+      "type": "number"
+    },
+    "concentration/mcg-ml": {
+      "description": "Micrograms per milliliter",
+      "type": "number"
+    },
+    "concentration/mg-g": {
+      "description": "Milligrams per gram (topical)",
+      "type": "number"
+    },
+    "rate/mg-hr": {
+      "description": "Milligrams per hour (transdermal, infusion)",
+      "type": "number"
+    },
+    "rate/mcg-hr": {
+      "description": "Micrograms per hour (transdermal)",
+      "type": "number"
     }
   },
   "extras": {
@@ -3761,6 +3881,97 @@
         "fr": "Cuillères à café"
       },
       "symbol": "tsp"
+    },
+    "mass/mg": {
+      "name": {
+        "en": "Milligrams",
+        "fr": "Milligrammes"
+      },
+      "symbol": "mg"
+    },
+    "mass/mcg": {
+      "name": {
+        "en": "Micrograms",
+        "fr": "Microgrammes"
+      },
+      "symbol": "μg"
+    },
+    "dose/tablet": {
+      "name": {
+        "en": "Tablets",
+        "fr": "Comprimés"
+      },
+      "symbol": "tab"
+    },
+    "dose/drop": {
+      "name": {
+        "en": "Drops",
+        "fr": "Gouttes"
+      },
+      "symbol": "gtt"
+    },
+    "dose/puff": {
+      "name": {
+        "en": "Puffs",
+        "fr": "Bouffées"
+      },
+      "symbol": "puff"
+    },
+    "dose/application": {
+      "name": {
+        "en": "Applications",
+        "fr": "Applications"
+      },
+      "symbol": "app"
+    },
+    "dose/suppository": {
+      "name": {
+        "en": "Suppositories",
+        "fr": "Suppositoires"
+      },
+      "symbol": "supp"
+    },
+    "dose/unit": {
+      "name": {
+        "en": "International Units",
+        "fr": "Unités internationales"
+      },
+      "symbol": "IU"
+    },
+    "concentration/mg-ml": {
+      "name": {
+        "en": "Milligrams per milliliter",
+        "fr": "Milligrammes par millilitre"
+      },
+      "symbol": "mg/mL"
+    },
+    "concentration/mcg-ml": {
+      "name": {
+        "en": "Micrograms per milliliter",
+        "fr": "Microgrammes par millilitre"
+      },
+      "symbol": "μg/mL"
+    },
+    "concentration/mg-g": {
+      "name": {
+        "en": "Milligrams per gram",
+        "fr": "Milligrammes par gramme"
+      },
+      "symbol": "mg/g"
+    },
+    "rate/mg-hr": {
+      "name": {
+        "en": "Milligrams per hour",
+        "fr": "Milligrammes par heure"
+      },
+      "symbol": "mg/h"
+    },
+    "rate/mcg-hr": {
+      "name": {
+        "en": "Micrograms per hour",
+        "fr": "Microgrammes par heure"
+      },
+      "symbol": "μg/h"
     }
   }
 }

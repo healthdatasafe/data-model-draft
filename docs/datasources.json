@@ -20,11 +20,14 @@
     },
     "valueFields": [
       "label",
-      "code",
-      "system",
-      "source",
-      "hdsId",
-      "meta"
+      "description",
+      "ingredient",
+      "strength",
+      "doseForm",
+      "route",
+      "doseUnit",
+      "codes",
+      "hdsId"
     ]
   }
 }
