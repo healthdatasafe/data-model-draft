@@ -131,8 +131,7 @@ const itemSchema = {
         },
         required: ['composite']
       }
-    }
-    ,
+    },
     { // type is datasource-search
       if: {
         properties: {
