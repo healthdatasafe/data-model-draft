@@ -19,11 +19,7 @@
       "type": "string"
     },
     "repeatable": {
-      "enum": [
-        "any",
-        "none",
-        "daily"
-      ]
+      "type": "string"
     },
     "duration": {
       "type": "object",
@@ -197,6 +193,7 @@
     "label",
     "description",
     "streamId",
-    "type"
+    "type",
+    "repeatable"
   ]
 }
