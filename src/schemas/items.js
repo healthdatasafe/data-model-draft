@@ -32,7 +32,7 @@ const itemSchema = {
     description: { $ref: 'defs.json#/definitions/localized' },
     streamId: { type: 'string' },
     eventType: { type: 'string' },
-    repeatable: { enum: ['any', 'none', 'daily'] },
+    repeatable: { type: 'string' },
     duration: {
       type: 'object',
       nullable: true,
@@ -146,7 +146,7 @@ const itemSchema = {
       }
     }
   ],
-  required: ['version', 'label', 'description', 'streamId', 'type']
+  required: ['version', 'label', 'description', 'streamId', 'type', 'repeatable']
   // additionalProperties: false // find a way to check no additional properties have been induced
 };
 

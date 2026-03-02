@@ -5,7 +5,7 @@ fertility-cycles-charted-count:
   streamId: fertility-cycles-charted-estimation
   eventType: count/generic
   type: number
-  repeatable: none
+  repeatable: once
 fertility-cycles-ovulation:
   version: temporary
   label: Ovulation Day
@@ -13,7 +13,7 @@ fertility-cycles-ovulation:
   streamId: fertility-cycles-ovulation
   eventType: activity/plain
   type: checkbox
-  repeatable: daily
+  repeatable: P1D
 fertility-cycles-start:
   version: temporary
   label: New Cycle
@@ -25,7 +25,7 @@ fertility-cycles-start:
   streamId: fertility-cycles-start
   eventType: activity/plain
   type: checkbox
-  repeatable: daily
+  repeatable: P1D
   devNotes: |-
     Cycle duration is determined by next fertility cycle date unless duration property is given.
 fertility-cycles-period-end:
@@ -35,7 +35,7 @@ fertility-cycles-period-end:
   streamId: fertility-cycles-period
   eventType: activity/plain
   type: checkbox
-  repeatable: daily
+  repeatable: P1D
   devNotes: |-
     To track start / end of period, use fertility-cycles-start & fertility-cycles-period-end.
 fertility-cycles-fertile-window:
@@ -49,7 +49,7 @@ fertility-cycles-fertile-window:
     canBeNull: false
     maxSeconds: 518400 # maximum known fertile window 6 days
   type: checkbox
-  repeatable: daily
+  repeatable: P1D
   devNotes: |-
     Use duration property to indicate end of fertile window.
 fertility-cycles-peak-day:
@@ -59,7 +59,7 @@ fertility-cycles-peak-day:
   streamId: fertility-cycles-peak-day
   eventType: activity/plain
   type: checkbox
-  repeatable: daily
+  repeatable: P1D
 fertility-miscarriages-count:
   version: temporary
   label: Nb of miscarriages
@@ -67,7 +67,7 @@ fertility-miscarriages-count:
   streamId: fertility-miscarriages
   eventType: count/generic
   type: number
-  repeatable: none
+  repeatable: once
 fertility-ttc-tta:
   version: v1
   label: Trying to conceive / Avoiding pregnancy
@@ -107,7 +107,7 @@ fertility-ttc-tta:
     - value: 10
       label: TTC - " Seriously TTC" Intentional intercourse every cycle. Would pursue
         any/ALL fertility treatments or procedures if needed.
-  repeatable: daily
+  repeatable: P1D
 fertility-sexual-activity:
   version: v1
   label: Sexual activity

@@ -17,6 +17,7 @@ medication-intake-basic:
       label: Frequency in hours
       type: number
       canBeNull: true
+  repeatable: unlimited
 
 medication-intake-coded:
   version: v1
@@ -26,3 +27,4 @@ medication-intake-coded:
   eventType: medication/coded-v1
   type: datasource-search
   datasource: medication
+  repeatable: unlimited

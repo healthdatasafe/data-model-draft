@@ -16,7 +16,7 @@ body-vulva-mucus-inspect:
       label: Dry & Sticky
     - value: egg-white
       label: Egg White
-  repeatable: any
+  repeatable: unlimited
 body-vulva-mucus-stretch:
   version: v1
   label: Cervical Fluid Stretch
@@ -31,7 +31,7 @@ body-vulva-mucus-stretch:
       label: Short
     - value: 2
       label: Long
-  repeatable: any
+  repeatable: unlimited
 
 ## WETNESS
 
@@ -49,7 +49,7 @@ body-vulva-wetness-feeling:
       label: Wet
     - value: 2
       label: Very wet
-  repeatable: any
+  repeatable: unlimited
 body-vulva-wetness-wiping:
   version: v1
   label: Vulva Wetness when wiping
@@ -64,7 +64,7 @@ body-vulva-wetness-wiping:
       label: Wet
     - value: 2
       label: Very wet
-  repeatable: any
+  repeatable: unlimited
 
 ## Bleeding
 body-vulva-bleeding:
@@ -85,7 +85,7 @@ body-vulva-bleeding:
       label: Medium
     - value: 4
       label: Heavy
-  repeatable: any
+  repeatable: unlimited
 
 body-vulva-bleeding-browndark:
   version: temporary
@@ -94,4 +94,4 @@ body-vulva-bleeding-browndark:
   streamId: body-vulva-bleeding-browndark
   eventType: activity/plain
   type: checkbox
-  repeatable: daily
+  repeatable: P1D

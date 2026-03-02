@@ -7,7 +7,7 @@ profile-addresscountry:
   streamId: profile-address
   eventType: contact/country
   type: text
-  repeatable: none
+  repeatable: once
 profile-date-of-birth:
   label: Date of Birth
   description: Date of birth
@@ -15,7 +15,7 @@ profile-date-of-birth:
   streamId: profile-date-of-birth
   eventType: date/iso-8601
   type: date
-  repeatable: none
+  repeatable: once
 profile-name:
   version: temporary
   label: Name
@@ -23,7 +23,7 @@ profile-name:
   streamId: profile-name
   eventType: contact/name
   type: text
-  repeatable: none
+  repeatable: once
 profile-surname:
   version: temporary
   label: Surname
@@ -31,7 +31,7 @@ profile-surname:
   streamId: profile-name
   eventType: contact/surname
   type: text
-  repeatable: none
+  repeatable: once
 profile-sex:
   version: v1
   label: Sex
@@ -44,4 +44,4 @@ profile-sex:
       label: Male
     - value: female
       label: Female
-  repeatable: none
+  repeatable: once
