@@ -16,7 +16,7 @@ body-weight:
           label: Kg
         - value: mass/lb
           label: Lbs
-  repeatable: any
+  repeatable: unlimited
 body-height:
   version: temporary
   label: 
@@ -35,4 +35,4 @@ body-height:
           label: m
         - value: length/ft
           label: Feet
-  repeatable: any
+  repeatable: unlimited

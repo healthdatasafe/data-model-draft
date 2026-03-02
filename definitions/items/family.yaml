@@ -5,4 +5,4 @@ family-children-count:
   streamId: family-children
   eventType: count/generic
   type: number
-  repeatable: none
+  repeatable: once
