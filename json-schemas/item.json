@@ -1,0 +1,202 @@
+{
+  "$id": "https://model.datasafe.dev/json-schemas/item.json",
+  "type": "object",
+  "nullable": false,
+  "properties": {
+    "version": {
+      "type": "string"
+    },
+    "label": {
+      "$ref": "defs.json#/definitions/localized"
+    },
+    "description": {
+      "$ref": "defs.json#/definitions/localized"
+    },
+    "streamId": {
+      "type": "string"
+    },
+    "eventType": {
+      "type": "string"
+    },
+    "repeatable": {
+      "enum": [
+        "any",
+        "none",
+        "daily"
+      ]
+    },
+    "duration": {
+      "type": "object",
+      "nullable": true,
+      "properties": {
+        "mandatory": {
+          "type": "boolean",
+          "nullable": false
+        },
+        "canBeNull": {
+          "type": "boolean",
+          "nullable": false
+        },
+        "maxSeconds": {
+          "type": "number",
+          "nullable": true
+        }
+      }
+    },
+    "devNotes": {
+      "type": "string",
+      "nullable": true
+    },
+    "type": {
+      "type": "string",
+      "oneOf": [
+        {
+          "$ref": "defs.json#/definitions/entryType"
+        },
+        {
+          "enum": [
+            "composite",
+            "datasource-search"
+          ]
+        }
+      ]
+    },
+    "variations": {
+      "type": "object",
+      "nullable": false,
+      "properties": {
+        "eventType": {
+          "type": "object",
+          "properties": {
+            "label": {
+              "$ref": "defs.json#/definitions/localized"
+            },
+            "options": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "nullable": false,
+                "properties": {
+                  "value": {
+                    "type": "string"
+                  },
+                  "label": {
+                    "$ref": "defs.json#/definitions/localized"
+                  }
+                },
+                "required": [
+                  "value",
+                  "label"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "select"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "options": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "nullable": false,
+              "properties": {
+                "value": {
+                  "type": [
+                    "number",
+                    "string"
+                  ]
+                },
+                "label": {
+                  "$ref": "defs.json#/definitions/localized"
+                }
+              },
+              "required": [
+                "value",
+                "label"
+              ],
+              "additionalProperties": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "composite"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "composite": {
+            "type": "object",
+            "nullable": false,
+            "patternProperties": {
+              "^[a-z][a-zA-Z0-9]*$": {
+                "type": "object",
+                "properties": {
+                  "label": {
+                    "$ref": "defs.json#/definitions/localized"
+                  },
+                  "type": {
+                    "$ref": "defs.json#/definitions/entryType"
+                  },
+                  "canBeNull": {
+                    "type": "boolean",
+                    "nullable": true
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "required": [
+          "composite"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "datasource-search"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "datasource": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "datasource"
+        ]
+      }
+    }
+  ],
+  "required": [
+    "version",
+    "label",
+    "description",
+    "streamId",
+    "type"
+  ]
+}
