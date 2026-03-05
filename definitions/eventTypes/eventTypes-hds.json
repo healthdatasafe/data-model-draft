@@ -180,10 +180,6 @@
                 "rectal",
                 "vaginal"
               ]
-            },
-            "note": {
-              "description": "Free text instructions (e.g. 'take with food', 'before bedtime')",
-              "type": "string"
             }
           }
         }
