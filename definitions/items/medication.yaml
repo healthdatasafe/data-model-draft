@@ -28,3 +28,13 @@ medication-intake-coded:
   type: datasource-search
   datasource: medication
   repeatable: unlimited
+
+medication-prescription-coded:
+  version: v1
+  label: Medication Prescription (coded)
+  description: Doctor-prescribed medication with dosage and frequency
+  streamId: medication-prescription
+  eventType: medication/prescription-v1
+  type: datasource-search
+  datasource: medication
+  repeatable: unlimited
