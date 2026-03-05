@@ -33,7 +33,7 @@ function localizeFields (properties, obj) {
       if (typeof value === 'string') {
         obj[key] = { en: value };
       }
-    } else {
+    } else if (key !== 'displayFields') {
       if (typeof value === 'object' && value !== null && !Array.isArray(value)) {
         localizeFields(properties, value);
       }
