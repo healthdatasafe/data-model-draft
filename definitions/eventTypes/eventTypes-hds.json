@@ -181,9 +181,106 @@
                 "vaginal"
               ]
             },
-            "frequencyHours": {
-              "description": "Interval between doses in hours. If set, event.duration should reflect the full treatment period",
+            "note": {
+              "description": "Free text instructions (e.g. 'take with food', 'before bedtime')",
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "medication/prescription-v1": {
+      "description": "Medication prescription. Captures what the doctor prescribed: drug identity, dosage, frequency, and instructions. event.duration reflects the full treatment period.",
+      "type": "object",
+      "required": ["drug"],
+      "properties": {
+        "drug": {
+          "description": "Coded drug identity, populated from datasets-service selection.",
+          "type": "object",
+          "required": ["label", "codes"],
+          "properties": {
+            "label": {
+              "description": "Localized medication name for display",
+              "type": "object",
+              "properties": {
+                "en": { "type": "string" }
+              }
+            },
+            "description": {
+              "description": "Localized full description (e.g. 'Aspirin 325 MG Oral Tablet')",
+              "type": "object",
+              "properties": {
+                "en": { "type": "string" }
+              }
+            },
+            "codes": {
+              "description": "Coding identifiers across systems.",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["code", "system", "hdsId"],
+                "properties": {
+                  "code": { "type": "string" },
+                  "system": { "type": "string" },
+                  "source": {
+                    "type": "object",
+                    "properties": {
+                      "key": { "type": "string" }
+                    }
+                  },
+                  "hdsId": { "type": "string" }
+                }
+              }
+            }
+          }
+        },
+        "posology": {
+          "description": "Prescribed dosage and schedule",
+          "type": "object",
+          "properties": {
+            "doseValue": {
+              "description": "Amount per intake (e.g. 2 for '2 tablets')",
               "type": "number"
+            },
+            "doseUnit": {
+              "description": "HDS eventType reference for the dose unit",
+              "type": "string",
+              "enum": [
+                "dose/tablet",
+                "dose/drop",
+                "dose/puff",
+                "dose/application",
+                "dose/suppository",
+                "dose/unit",
+                "volume/ml",
+                "mass/mg",
+                "mass/mcg",
+                "mass/g"
+              ]
+            },
+            "route": {
+              "description": "Route of administration",
+              "type": "string",
+              "enum": [
+                "oral",
+                "sublingual",
+                "parenteral",
+                "intravenous",
+                "intramuscular",
+                "subcutaneous",
+                "inhalation",
+                "nasal",
+                "topical",
+                "transdermal",
+                "ophthalmic",
+                "otic",
+                "rectal",
+                "vaginal"
+              ]
+            },
+            "frequency": {
+              "description": "Prescribed frequency (e.g. 2 times per day)",
+              "$ref": "#/types/frequency~1times-period"
             },
             "asNeeded": {
               "description": "True if taken as needed (PRN) rather than on schedule",
@@ -244,6 +341,28 @@
     "rate/mcg-hr": {
       "description": "Micrograms per hour (transdermal)",
       "type": "number"
+    },
+    "frequency/times-period": {
+      "description": "Number of times per period. E.g. 2 times per day, 1 time per week.",
+      "type": "object",
+      "required": ["times", "period", "periodUnit"],
+      "properties": {
+        "times": {
+          "description": "Number of intakes per period (e.g. 2 for 'twice a day')",
+          "type": "number",
+          "minimum": 1
+        },
+        "period": {
+          "description": "Length of the period (e.g. 1 for 'per day', 8 for 'every 8 hours')",
+          "type": "number",
+          "minimum": 1
+        },
+        "periodUnit": {
+          "description": "Unit of the period",
+          "type": "string",
+          "enum": ["h", "d", "wk", "mo", "y"]
+        }
+      }
     }
   },
   "extras": {
@@ -298,6 +417,16 @@
     "rate/mcg-hr": {
       "name": { "en": "Micrograms per hour", "fr": "Microgrammes par heure" },
       "symbol": "μg/h"
+    },
+    "frequency/times-period": {
+      "name": { "en": "Frequency", "fr": "Fréquence" },
+      "periodUnits": {
+        "h": { "name": { "en": "hour", "fr": "heure" }, "symbol": "h" },
+        "d": { "name": { "en": "day", "fr": "jour" }, "symbol": "d" },
+        "wk": { "name": { "en": "week", "fr": "semaine" }, "symbol": "wk" },
+        "mo": { "name": { "en": "month", "fr": "mois" }, "symbol": "mo" },
+        "y": { "name": { "en": "year", "fr": "année" }, "symbol": "y" }
+      }
     }
   }
 }
