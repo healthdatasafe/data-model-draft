@@ -1,9 +1,9 @@
 body-weight:
   version: temporary
-  label: 
+  label:
     en: Body weight
     fr: Poids corporel
-  description: 
+  description:
     en: Measured body weight
     fr: Poids corporel mesuré
   streamId: body-weight
@@ -11,12 +11,14 @@ body-weight:
   variations:
     eventType:
       label: Unit
-      options: 
+      options:
         - value: mass/kg
           label: Kg
         - value: mass/lb
           label: Lbs
   repeatable: unlimited
+  reminder:
+    cooldown: P1D
 body-height:
   version: temporary
   label: 

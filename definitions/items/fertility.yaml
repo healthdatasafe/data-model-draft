@@ -26,6 +26,11 @@ fertility-cycles-start:
   eventType: activity/plain
   type: checkbox
   repeatable: P1D
+  reminder:
+    expectedInterval:
+      min: P21D
+      max: P35D
+    cooldown: P10D
   devNotes: |-
     Cycle duration is determined by next fertility cycle date unless duration property is given.
 fertility-cycles-period-end:
@@ -159,12 +164,15 @@ fertility-pregnancy:
       label: 'Abortion'
 fertility-hormone-fsh:
   version: v1
-  label: FSH 
+  label: FSH
   description: Follicle Stimulating Hormone concentration in urine - IU/L
   streamId: body-urine-hormones-fsh
   eventType: concentration/iu-l
   type: number
   repeatable: any
+  reminder:
+    relativeTo: fertility-cycles-start
+    relativeDays: [2, 3, 4]
 fertility-hormone-hcg:
   version: v1
   label: hCG 
@@ -191,11 +199,14 @@ fertility-hormone-e3g:
   repeatable: any
 fertility-hormone-lh:
   version: v1
-  label: LH 
+  label: LH
   description: Luteinizing Hormone concentration in urine - mg/L
   streamId: body-urine-hormones-lh
   eventType: concentration/mg-l
   type: number
   repeatable: any
+  reminder:
+    relativeTo: fertility-cycles-start
+    relativeDays: [2, 3, 4]
 
   

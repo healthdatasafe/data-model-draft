@@ -46,6 +46,26 @@ const itemSchema = {
       type: 'string',
       nullable: true
     },
+    reminder: {
+      type: 'object',
+      nullable: true,
+      properties: {
+        cooldown: { type: 'string' },
+        expectedInterval: {
+          type: 'object',
+          properties: {
+            min: { type: 'string' },
+            max: { type: 'string' }
+          }
+        },
+        relativeTo: { type: 'string' },
+        relativeDays: {
+          type: 'array',
+          items: { type: 'number' }
+        },
+        importance: { enum: ['may', 'should', 'must'] }
+      }
+    },
     type: {
       type: 'string',
       oneOf: [
