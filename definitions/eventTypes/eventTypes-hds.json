@@ -359,6 +359,34 @@
           "enum": ["h", "d", "wk", "mo", "y"]
         }
       }
+    },
+    "settings/preferred-locales": {
+      "description": "User preferred locales, ordered by priority",
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "settings/theme": {
+      "description": "UI theme preference",
+      "type": "string",
+      "enum": ["light", "dark"]
+    },
+    "settings/timezone": {
+      "description": "User timezone (IANA identifier)",
+      "type": "string"
+    },
+    "settings/date-format": {
+      "description": "Preferred date display format",
+      "type": "string",
+      "enum": ["DD.MM.YYYY", "DD/MM/YYYY", "MM/DD/YYYY", "YYYY-MM-DD"]
+    },
+    "settings/unit-system": {
+      "description": "Preferred measurement unit system",
+      "type": "string",
+      "enum": ["metric", "imperial"]
+    },
+    "contact/display-name": {
+      "description": "User display name",
+      "type": "string"
     }
   },
   "extras": {

@@ -9,7 +9,7 @@
 #   options    — allowed values for enum types
 
 preferredLocales:
-  eventType: settings/preferredLocales
+  eventType: settings/preferred-locales
   default: ['en']
   type: string[]
 
@@ -25,18 +25,18 @@ timezone:
   type: string
 
 dateFormat:
-  eventType: settings/dateFormat
+  eventType: settings/date-format
   default: DD.MM.YYYY
   type: enum
   options: [DD.MM.YYYY, DD/MM/YYYY, MM/DD/YYYY, YYYY-MM-DD]
 
 unitSystem:
-  eventType: settings/unitSystem
+  eventType: settings/unit-system
   default: metric
   type: enum
   options: [metric, imperial]
 
 displayName:
-  eventType: settings/displayName
+  eventType: contact/display-name
   default: null
   type: string
