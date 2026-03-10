@@ -13,7 +13,8 @@ const sources = [
   require('./items').toBePublished,
   require('./eventTypes').toBePublished,
   require('./datasources').toBePublished,
-  require('./conversions').toBePublished
+  require('./conversions').toBePublished,
+  require('./settings').toBePublished
 ];
 
 const pack = {

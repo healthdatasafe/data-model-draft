@@ -1,0 +1,42 @@
+# HDS User Settings definitions
+# Each setting is stored as a Pryv event with the given eventType
+# in the application's baseStream.
+#
+# Fields:
+#   eventType  — Pryv event type used for storage
+#   default    — default value when no server value exists
+#   type       — value type hint (string, string[], enum, etc.)
+#   options    — allowed values for enum types
+
+preferredLocales:
+  eventType: settings/preferredLocales
+  default: ['en']
+  type: string[]
+
+theme:
+  eventType: settings/theme
+  default: light
+  type: enum
+  options: [light, dark]
+
+timezone:
+  eventType: settings/timezone
+  default: Europe/Zurich
+  type: string
+
+dateFormat:
+  eventType: settings/dateFormat
+  default: DD.MM.YYYY
+  type: enum
+  options: [DD.MM.YYYY, DD/MM/YYYY, MM/DD/YYYY, YYYY-MM-DD]
+
+unitSystem:
+  eventType: settings/unitSystem
+  default: metric
+  type: enum
+  options: [metric, imperial]
+
+displayName:
+  eventType: settings/displayName
+  default: null
+  type: string
