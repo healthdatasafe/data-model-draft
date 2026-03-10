@@ -228,7 +228,10 @@
         ]
       }
     },
-    "repeatable": "unlimited"
+    "repeatable": "unlimited",
+    "reminder": {
+      "cooldown": "P1D"
+    }
   },
   "body-height": {
     "version": "temporary",
@@ -321,6 +324,13 @@
     "eventType": "activity/plain",
     "type": "checkbox",
     "repeatable": "P1D",
+    "reminder": {
+      "expectedInterval": {
+        "min": "P21D",
+        "max": "P35D"
+      },
+      "cooldown": "P10D"
+    },
     "devNotes": "Cycle duration is determined by next fertility cycle date unless duration property is given."
   },
   "fertility-cycles-period-end": {
@@ -570,7 +580,15 @@
     "streamId": "body-urine-hormones-fsh",
     "eventType": "concentration/iu-l",
     "type": "number",
-    "repeatable": "any"
+    "repeatable": "any",
+    "reminder": {
+      "relativeTo": "fertility-cycles-start",
+      "relativeDays": [
+        2,
+        3,
+        4
+      ]
+    }
   },
   "fertility-hormone-hcg": {
     "version": "v1",
@@ -622,7 +640,15 @@
     "streamId": "body-urine-hormones-lh",
     "eventType": "concentration/mg-l",
     "type": "number",
-    "repeatable": "any"
+    "repeatable": "any",
+    "reminder": {
+      "relativeTo": "fertility-cycles-start",
+      "relativeDays": [
+        2,
+        3,
+        4
+      ]
+    }
   },
   "medication-intake-basic": {
     "version": "v1",
@@ -669,6 +695,20 @@
     },
     "streamId": "medication-intake",
     "eventType": "medication/coded-v1",
+    "type": "datasource-search",
+    "datasource": "medication",
+    "repeatable": "unlimited"
+  },
+  "medication-prescription-coded": {
+    "version": "v1",
+    "label": {
+      "en": "Medication Prescription (coded)"
+    },
+    "description": {
+      "en": "Doctor-prescribed medication with dosage and frequency"
+    },
+    "streamId": "medication-prescription",
+    "eventType": "medication/prescription-v1",
     "type": "datasource-search",
     "datasource": "medication",
     "repeatable": "unlimited"

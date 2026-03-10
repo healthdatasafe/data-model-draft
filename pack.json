@@ -1,5 +1,5 @@
 {
-  "publicationDate": "2026-03-02T16:53:48.042Z",
+  "publicationDate": "2026-03-10T16:03:16.945Z",
   "streams": [
     {
       "id": "body",
@@ -473,7 +473,10 @@
           ]
         }
       },
-      "repeatable": "unlimited"
+      "repeatable": "unlimited",
+      "reminder": {
+        "cooldown": "P1D"
+      }
     },
     "body-height": {
       "version": "temporary",
@@ -566,6 +569,13 @@
       "eventType": "activity/plain",
       "type": "checkbox",
       "repeatable": "P1D",
+      "reminder": {
+        "expectedInterval": {
+          "min": "P21D",
+          "max": "P35D"
+        },
+        "cooldown": "P10D"
+      },
       "devNotes": "Cycle duration is determined by next fertility cycle date unless duration property is given."
     },
     "fertility-cycles-period-end": {
@@ -815,7 +825,15 @@
       "streamId": "body-urine-hormones-fsh",
       "eventType": "concentration/iu-l",
       "type": "number",
-      "repeatable": "any"
+      "repeatable": "any",
+      "reminder": {
+        "relativeTo": "fertility-cycles-start",
+        "relativeDays": [
+          2,
+          3,
+          4
+        ]
+      }
     },
     "fertility-hormone-hcg": {
       "version": "v1",
@@ -867,7 +885,15 @@
       "streamId": "body-urine-hormones-lh",
       "eventType": "concentration/mg-l",
       "type": "number",
-      "repeatable": "any"
+      "repeatable": "any",
+      "reminder": {
+        "relativeTo": "fertility-cycles-start",
+        "relativeDays": [
+          2,
+          3,
+          4
+        ]
+      }
     },
     "medication-intake-basic": {
       "version": "v1",
@@ -914,6 +940,20 @@
       },
       "streamId": "medication-intake",
       "eventType": "medication/coded-v1",
+      "type": "datasource-search",
+      "datasource": "medication",
+      "repeatable": "unlimited"
+    },
+    "medication-prescription-coded": {
+      "version": "v1",
+      "label": {
+        "en": "Medication Prescription (coded)"
+      },
+      "description": {
+        "en": "Doctor-prescribed medication with dosage and frequency"
+      },
+      "streamId": "medication-prescription",
+      "eventType": "medication/prescription-v1",
       "type": "datasource-search",
       "datasource": "medication",
       "repeatable": "unlimited"
@@ -3073,10 +3113,124 @@
                   "rectal",
                   "vaginal"
                 ]
+              }
+            }
+          }
+        }
+      },
+      "medication/prescription-v1": {
+        "description": "Medication prescription. Captures what the doctor prescribed: drug identity, dosage, frequency, and instructions. event.duration reflects the full treatment period.",
+        "type": "object",
+        "required": [
+          "drug"
+        ],
+        "properties": {
+          "drug": {
+            "description": "Coded drug identity, populated from datasets-service selection.",
+            "type": "object",
+            "required": [
+              "label",
+              "codes"
+            ],
+            "properties": {
+              "label": {
+                "description": "Localized medication name for display",
+                "type": "object",
+                "properties": {
+                  "en": {
+                    "type": "string"
+                  }
+                }
               },
-              "frequencyHours": {
-                "description": "Interval between doses in hours. If set, event.duration should reflect the full treatment period",
+              "description": {
+                "description": "Localized full description (e.g. 'Aspirin 325 MG Oral Tablet')",
+                "type": "object",
+                "properties": {
+                  "en": {
+                    "type": "string"
+                  }
+                }
+              },
+              "codes": {
+                "description": "Coding identifiers across systems.",
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "code",
+                    "system",
+                    "hdsId"
+                  ],
+                  "properties": {
+                    "code": {
+                      "type": "string"
+                    },
+                    "system": {
+                      "type": "string"
+                    },
+                    "source": {
+                      "type": "object",
+                      "properties": {
+                        "key": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "hdsId": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "posology": {
+            "description": "Prescribed dosage and schedule",
+            "type": "object",
+            "properties": {
+              "doseValue": {
+                "description": "Amount per intake (e.g. 2 for '2 tablets')",
                 "type": "number"
+              },
+              "doseUnit": {
+                "description": "HDS eventType reference for the dose unit",
+                "type": "string",
+                "enum": [
+                  "dose/tablet",
+                  "dose/drop",
+                  "dose/puff",
+                  "dose/application",
+                  "dose/suppository",
+                  "dose/unit",
+                  "volume/ml",
+                  "mass/mg",
+                  "mass/mcg",
+                  "mass/g"
+                ]
+              },
+              "route": {
+                "description": "Route of administration",
+                "type": "string",
+                "enum": [
+                  "oral",
+                  "sublingual",
+                  "parenteral",
+                  "intravenous",
+                  "intramuscular",
+                  "subcutaneous",
+                  "inhalation",
+                  "nasal",
+                  "topical",
+                  "transdermal",
+                  "ophthalmic",
+                  "otic",
+                  "rectal",
+                  "vaginal"
+                ]
+              },
+              "frequency": {
+                "description": "Prescribed frequency (e.g. 2 times per day)",
+                "$ref": "#/types/frequency~1times-period"
               },
               "asNeeded": {
                 "description": "True if taken as needed (PRN) rather than on schedule",
@@ -3137,6 +3291,79 @@
       "rate/mcg-hr": {
         "description": "Micrograms per hour (transdermal)",
         "type": "number"
+      },
+      "frequency/times-period": {
+        "description": "Number of times per period. E.g. 2 times per day, 1 time per week.",
+        "type": "object",
+        "required": [
+          "times",
+          "period",
+          "periodUnit"
+        ],
+        "properties": {
+          "times": {
+            "description": "Number of intakes per period (e.g. 2 for 'twice a day')",
+            "type": "number",
+            "minimum": 1
+          },
+          "period": {
+            "description": "Length of the period (e.g. 1 for 'per day', 8 for 'every 8 hours')",
+            "type": "number",
+            "minimum": 1
+          },
+          "periodUnit": {
+            "description": "Unit of the period",
+            "type": "string",
+            "enum": [
+              "h",
+              "d",
+              "wk",
+              "mo",
+              "y"
+            ]
+          }
+        }
+      },
+      "settings/preferred-locales": {
+        "description": "User preferred locales, ordered by priority",
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "settings/theme": {
+        "description": "UI theme preference",
+        "type": "string",
+        "enum": [
+          "light",
+          "dark"
+        ]
+      },
+      "settings/timezone": {
+        "description": "User timezone (IANA identifier)",
+        "type": "string"
+      },
+      "settings/date-format": {
+        "description": "Preferred date display format",
+        "type": "string",
+        "enum": [
+          "DD.MM.YYYY",
+          "DD/MM/YYYY",
+          "MM/DD/YYYY",
+          "YYYY-MM-DD"
+        ]
+      },
+      "settings/unit-system": {
+        "description": "Preferred measurement unit system",
+        "type": "string",
+        "enum": [
+          "metric",
+          "imperial"
+        ]
+      },
+      "contact/display-name": {
+        "description": "User display name",
+        "type": "string"
       }
     },
     "extras": {
@@ -4973,6 +5200,49 @@
           "fr": "Microgrammes par heure"
         },
         "symbol": "μg/h"
+      },
+      "frequency/times-period": {
+        "name": {
+          "en": "Frequency",
+          "fr": "Fréquence"
+        },
+        "periodUnits": {
+          "h": {
+            "name": {
+              "en": "hour",
+              "fr": "heure"
+            },
+            "symbol": "h"
+          },
+          "d": {
+            "name": {
+              "en": "day",
+              "fr": "jour"
+            },
+            "symbol": "d"
+          },
+          "wk": {
+            "name": {
+              "en": "week",
+              "fr": "semaine"
+            },
+            "symbol": "wk"
+          },
+          "mo": {
+            "name": {
+              "en": "month",
+              "fr": "mois"
+            },
+            "symbol": "mo"
+          },
+          "y": {
+            "name": {
+              "en": "year",
+              "fr": "année"
+            },
+            "symbol": "y"
+          }
+        }
       }
     }
   },
@@ -4989,12 +5259,8 @@
       "minQueryLength": 3,
       "resultKey": "medications",
       "displayFields": {
-        "label": {
-          "en": "label"
-        },
-        "description": {
-          "en": "description"
-        }
+        "label": "label",
+        "description": "description"
       },
       "valueFields": [
         "label",
@@ -5007,6 +5273,86 @@
         "codes",
         "hdsId"
       ]
+    }
+  },
+  "conversions": {
+    "length": {
+      "metric": "m",
+      "imperial": "ft",
+      "factors": {
+        "m": {
+          "ft": 3.280839895013123
+        }
+      }
+    },
+    "mass": {
+      "metric": "kg",
+      "imperial": "lb",
+      "factors": {
+        "kg": {
+          "lb": 2.2046226218487757
+        }
+      }
+    },
+    "temperature": {
+      "metric": "c",
+      "imperial": "f",
+      "factors": {
+        "c": {
+          "f": [
+            1.8,
+            32
+          ]
+        }
+      }
+    }
+  },
+  "settings": {
+    "preferredLocales": {
+      "eventType": "settings/preferred-locales",
+      "default": [
+        "en"
+      ],
+      "type": "string[]"
+    },
+    "theme": {
+      "eventType": "settings/theme",
+      "default": "light",
+      "type": "enum",
+      "options": [
+        "light",
+        "dark"
+      ]
+    },
+    "timezone": {
+      "eventType": "settings/timezone",
+      "default": "Europe/Zurich",
+      "type": "string"
+    },
+    "dateFormat": {
+      "eventType": "settings/date-format",
+      "default": "DD.MM.YYYY",
+      "type": "enum",
+      "options": [
+        "DD.MM.YYYY",
+        "DD/MM/YYYY",
+        "MM/DD/YYYY",
+        "YYYY-MM-DD"
+      ]
+    },
+    "unitSystem": {
+      "eventType": "settings/unit-system",
+      "default": "metric",
+      "type": "enum",
+      "options": [
+        "metric",
+        "imperial"
+      ]
+    },
+    "displayName": {
+      "eventType": "contact/display-name",
+      "default": null,
+      "type": "string"
     }
   }
 }

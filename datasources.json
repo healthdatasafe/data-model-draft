@@ -11,12 +11,8 @@
     "minQueryLength": 3,
     "resultKey": "medications",
     "displayFields": {
-      "label": {
-        "en": "label"
-      },
-      "description": {
-        "en": "description"
-      }
+      "label": "label",
+      "description": "description"
     },
     "valueFields": [
       "label",

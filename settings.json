@@ -1,0 +1,48 @@
+{
+  "preferredLocales": {
+    "eventType": "settings/preferred-locales",
+    "default": [
+      "en"
+    ],
+    "type": "string[]"
+  },
+  "theme": {
+    "eventType": "settings/theme",
+    "default": "light",
+    "type": "enum",
+    "options": [
+      "light",
+      "dark"
+    ]
+  },
+  "timezone": {
+    "eventType": "settings/timezone",
+    "default": "Europe/Zurich",
+    "type": "string"
+  },
+  "dateFormat": {
+    "eventType": "settings/date-format",
+    "default": "DD.MM.YYYY",
+    "type": "enum",
+    "options": [
+      "DD.MM.YYYY",
+      "DD/MM/YYYY",
+      "MM/DD/YYYY",
+      "YYYY-MM-DD"
+    ]
+  },
+  "unitSystem": {
+    "eventType": "settings/unit-system",
+    "default": "metric",
+    "type": "enum",
+    "options": [
+      "metric",
+      "imperial"
+    ]
+  },
+  "displayName": {
+    "eventType": "contact/display-name",
+    "default": null,
+    "type": "string"
+  }
+}
