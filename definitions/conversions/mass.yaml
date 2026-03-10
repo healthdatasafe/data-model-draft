@@ -1,2 +1,5 @@
-kg:
-  lb: 2.2046226218487757
+metric: kg
+imperial: lb
+factors:
+  kg:
+    lb: 2.2046226218487757

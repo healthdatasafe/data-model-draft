@@ -1,0 +1,5 @@
+metric: m
+imperial: ft
+factors:
+  m:
+    ft: 3.280839895013123
