@@ -4,7 +4,7 @@
   "description": "HDS data model",
   "main": "src/index.js",
   "engines": {
-    "node": ">=20"
+    "node": ">=24"
   },
   "scripts": {
     "setup": "./scripts/setup.sh",
