@@ -27,7 +27,9 @@ children:
         name: Vulva Bleeding
         children:
           - id: body-vulva-bleeding-browndark
-            name: Presence of browndark coloration
+            name: Presence of brown/dark coloration
+          - id: body-vulva-bleeding-clots
+            name: Presence of blood clots
   - id: body-urine
     name: Urine
     children:

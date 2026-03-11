@@ -68,30 +68,57 @@ body-vulva-wetness-wiping:
 
 ## Bleeding
 body-vulva-bleeding:
-  version: v1
-  label: Bleeding type
-  description: Bleeding type subjective 
+  version: v2
+  label: Bleeding intensity
+  description: Subjective bleeding intensity on a 0-1 proportion scale. Reference points compatible with Apple HealthKit (Light/Medium/Heavy), Clue (adds Very Heavy), Flo, Natural Cycles. Spotting (0.08) maps to HealthKit intermenstrualBleeding or app-level spotting toggles.
   streamId: body-vulva-bleeding
-  eventType: ratio/generic
+  eventType: ratio/proportion
   type: select
   options:
-    - value: 0
-      label: None
-    - value: 1
-      label: Spotting
-    - value: 2
-      label: Light
-    - value: 3
-      label: Medium
-    - value: 4
-      label: Heavy
+    - value: 0.0
+      label:
+        en: None
+        fr: Aucun
+    - value: 0.08
+      label:
+        en: Spotting
+        fr: Spotting
+    - value: 0.20
+      label:
+        en: Very light
+        fr: Très léger
+    - value: 0.35
+      label:
+        en: Light
+        fr: Léger
+    - value: 0.55
+      label:
+        en: Moderate
+        fr: Modéré
+    - value: 0.75
+      label:
+        en: Heavy
+        fr: Abondant
+    - value: 0.95
+      label:
+        en: Very heavy
+        fr: Très abondant
   repeatable: unlimited
 
 body-vulva-bleeding-browndark:
-  version: temporary
-  label: Brown coloration of bleeding
-  description: Brown coloration of bleeding
+  version: v1
+  label: Brown/dark coloration
+  description: Presence of brown or dark coloration in bleeding. Qualifier for a co-occurring body-vulva-bleeding event.
   streamId: body-vulva-bleeding-browndark
+  eventType: activity/plain
+  type: checkbox
+  repeatable: P1D
+
+body-vulva-bleeding-clots:
+  version: v1
+  label: Blood clots
+  description: Presence of blood clots during bleeding. Clots are coagulated blood and tissue, clinically significant when large (>2.5cm) or frequent. Qualifier for a co-occurring body-vulva-bleeding event. Maps to Flo "Blood clots" option.
+  streamId: body-vulva-bleeding-clots
   eventType: activity/plain
   type: checkbox
   repeatable: P1D

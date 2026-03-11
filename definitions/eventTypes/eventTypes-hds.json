@@ -35,6 +35,12 @@
         "protected"
       ]
     },
+    "ratio/proportion": {
+      "description": "A proportion value from 0 to 1. Represents a fraction of a whole: 0 = none, 1 = maximum. Used for subjective scales (e.g. bleeding intensity) where reference points are defined by item options.",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
     "test-result/scale": {
       "description": "Generic qualitative test result on a scale from -1 to 1. Negative values indicate a negative result, 0 indicates indeterminate, positive values indicate a positive result. The magnitude represents intensity or confidence. Common values: -1 (negative), 0 (indeterminate), 1 (positive). Intermediate values can represent semi-quantitative results (e.g., 0.5 for a weak positive). Applicable to any binary or semi-quantitative test: medical (OPK, pregnancy, COVID), environmental, industrial, etc.",
       "type": "number",
@@ -54,36 +60,57 @@
       ]
     },
     "medication/basic": {
-      "description": "Simple medication based on name and eventual coding",
+      "description": "Simple medication intake identified by free-text name. 'intake' follows the same structure as medication/coded-v1 for dose and route.",
       "type": "object",
-      "required": ["label"],
+      "required": ["name"],
       "properties": {
         "name": {
-          "description": "The name of product",
+          "description": "Free-text name of the medication",
           "type": "string"
         },
-        "doseMg": {
-          "description": "The dosage in milligrams",
-          "type": "number"
-        },
-        "frequencyHours": {
-          "description": "Frequency in Hours. If non null, 'event.duration' should reflect the full period, otherwise it reflects one intake",
-          "type": "number"
-        },
-        "codes": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "required": ["system", "content"],
-            "properties": {
-              "system": {
-                "description": "The system code for HDS",
-                "type": "string"
-              },
-              "content": {
-                "description": "Accordingly to the norm, appropriate content for coding",
-                "type": "object"
-              }
+        "intake": {
+          "description": "User-entered intake regimen",
+          "type": "object",
+          "properties": {
+            "doseValue": {
+              "description": "Amount per intake (e.g. 2 for '2 tablets', 5 for '5 mL')",
+              "type": "number"
+            },
+            "doseUnit": {
+              "description": "HDS eventType reference for the dose unit",
+              "type": "string",
+              "enum": [
+                "dose/tablet",
+                "dose/drop",
+                "dose/puff",
+                "dose/application",
+                "dose/suppository",
+                "dose/unit",
+                "volume/ml",
+                "mass/mg",
+                "mass/mcg",
+                "mass/g"
+              ]
+            },
+            "route": {
+              "description": "Route of administration",
+              "type": "string",
+              "enum": [
+                "oral",
+                "sublingual",
+                "parenteral",
+                "intravenous",
+                "intramuscular",
+                "subcutaneous",
+                "inhalation",
+                "nasal",
+                "topical",
+                "transdermal",
+                "ophthalmic",
+                "otic",
+                "rectal",
+                "vaginal"
+              ]
             }
           }
         }

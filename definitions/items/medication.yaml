@@ -1,21 +1,25 @@
 medication-intake-basic:
-  version: v1
+  version: v2
   label: Medication Intake Basic
-  description: Medication Intake Custom
+  description: Free-text medication intake with optional dose and route. Content has an 'intake' sub-object following the same structure as medication/coded-v1.
   streamId: medication-intake
   eventType: medication/basic
   type: composite
   composite:
-    name: 
+    name:
       label: Name of the medication
       type: text
-    doseMg:
-      label: Dosage in milligrams
+    doseValue:
+      label: Dose amount
       type: number
       canBeNull: true
-    frequencyHours:
-      label: Frequency in hours
-      type: number
+    doseUnit:
+      label: Dose unit
+      type: text
+      canBeNull: true
+    route:
+      label: Route of administration
+      type: text
       canBeNull: true
   repeatable: unlimited
 

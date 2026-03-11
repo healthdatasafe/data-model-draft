@@ -144,6 +144,16 @@ function checkItemVsEvenType (key, item, eventType) {
       return true;
     }
   }
+  if (item.eventType === 'ratio/proportion') {
+    if (item.type === 'select') {
+      for (const option of item.options) {
+        if (typeof option.value !== 'number') throw new Error(`as item "${key}" is of type "select" and matching event type is "ratio/proportion" all options value must be numbers check the following option: ` + JSON.stringify(option));
+        if (option.value < 0 || option.value > 1) throw new Error(`as item "${key}" uses "ratio/proportion" all options must be in [0, 1] check the following option: ` + JSON.stringify(option));
+      }
+      return true;
+    }
+    if (item.type === 'number') return true;
+  }
   if (item.type === 'number') {
     if (eventType.type !== 'number') throw new Error(`as item "${key}" is of type "number" matching eventtype should be a "number" ` + JSON.stringify({ item, eventType }));
     return true;

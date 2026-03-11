@@ -1,0 +1,123 @@
+# Menstrual Cycle — Cross-system Compatibility
+
+How HDS bleeding/flow items map to external systems.
+
+## HDS Items
+
+### `body-vulva-bleeding` (ratio/proportion, 0-1)
+
+| Value | Label (en) | Label (fr) | Description |
+|-------|------------|------------|-------------|
+| 0.0 | None | Aucun | No bleeding |
+| 0.08 | Spotting | Spotting | Very light bleeding, may occur outside period |
+| 0.20 | Very light | Très léger | Very light menstrual flow |
+| 0.35 | Light | Léger | Light menstrual flow |
+| 0.55 | Moderate | Modéré | Moderate menstrual flow |
+| 0.75 | Heavy | Abondant | Heavy menstrual flow |
+| 0.95 | Very heavy | Très abondant | Very heavy flow, may indicate menorrhagia |
+
+### `body-vulva-bleeding-browndark` (activity/plain, checkbox)
+
+Presence of brown or dark coloration in bleeding.
+
+### `body-vulva-bleeding-clots` (activity/plain, checkbox)
+
+Presence of blood clots during bleeding. Clinically significant when large (>2.5cm) or frequent.
+
+## Mapping to External Systems
+
+### Apple HealthKit
+
+| HealthKit | HDS |
+|-----------|-----|
+| `HKCategoryValueMenstrualFlow.light` (2) | `body-vulva-bleeding` = 0.35 |
+| `HKCategoryValueMenstrualFlow.medium` (3) | `body-vulva-bleeding` = 0.55 |
+| `HKCategoryValueMenstrualFlow.heavy` (4) | `body-vulva-bleeding` = 0.75 |
+| `HKCategoryValueMenstrualFlow.none` (5) | `body-vulva-bleeding` = 0.0 |
+| `HKCategoryValueMenstrualFlow.unspecified` (1) | No direct mapping |
+| `intermenstrualBleeding` (separate type) | `body-vulva-bleeding` = 0.08 (Spotting) |
+
+Notes:
+- HealthKit has no "Very Heavy" — export HDS 0.95 as `heavy` (4) with loss of granularity.
+- HealthKit has no "Very light" — export HDS 0.20 as `light` (2).
+- HealthKit has no color or clots tracking.
+- HealthKit uses `HKMetadataKeyMenstrualCycleStart` (Bool) on flow samples to mark cycle start — in HDS this is the `fertility-cycles-start` item.
+- Spotting is a separate data type in HealthKit (`intermenstrualBleeding`), not a flow level. When exporting HDS value 0.08, create an `intermenstrualBleeding` sample instead of a `menstrualFlow` sample.
+
+### Clue
+
+| Clue | HDS |
+|------|-----|
+| Spotting (separate category) | `body-vulva-bleeding` = 0.08 |
+| Light | `body-vulva-bleeding` = 0.35 |
+| Medium | `body-vulva-bleeding` = 0.55 |
+| Heavy | `body-vulva-bleeding` = 0.75 |
+| Super Heavy | `body-vulva-bleeding` = 0.95 |
+
+Notes:
+- Clue tracks spotting as a separate category from period flow. In HDS both are on the same scale.
+- Clue does not track color or clots as structured data.
+
+### Flo
+
+| Flo | HDS |
+|-----|-----|
+| Light | `body-vulva-bleeding` = 0.35 |
+| Medium | `body-vulva-bleeding` = 0.55 |
+| Heavy | `body-vulva-bleeding` = 0.75 |
+| Blood clots (separate option) | `body-vulva-bleeding-clots` = true |
+| Spotting (separate concept) | `body-vulva-bleeding` = 0.08 |
+
+Notes:
+- Flo's "Blood clots" is a flow option alongside L/M/H, not a qualifier. In HDS, clots are a separate checkbox to allow co-occurrence with any intensity level.
+- Flo provides educational content about period blood color (bright red, dark red, brown, pink, black) but does not track it as structured data.
+
+### Natural Cycles
+
+| Natural Cycles | HDS |
+|----------------|-----|
+| Light | `body-vulva-bleeding` = 0.35 |
+| Medium | `body-vulva-bleeding` = 0.55 |
+| Heavy | `body-vulva-bleeding` = 0.75 |
+| Spotting (separate toggle) | `body-vulva-bleeding` = 0.08 |
+
+Notes:
+- Natural Cycles has no "Very Heavy" or "Very light" levels.
+- No color or clots tracking.
+
+### Mira
+
+| Mira field | HDS |
+|------------|-----|
+| `flow_spotting` = "Spotting" | `body-vulva-bleeding` = 0.08 |
+| `flow_spotting` = "Light" | `body-vulva-bleeding` = 0.35 |
+| `flow_spotting` = "Medium" | `body-vulva-bleeding` = 0.55 |
+| `flow_spotting` = "Heavy" | `body-vulva-bleeding` = 0.75 |
+| `spotting` = "Brown" or "Dark" | `body-vulva-bleeding-browndark` = true |
+| `spotting` = "Red" | No extra event (red is default) |
+
+Notes:
+- Mira `spotting` is the color, `flow_spotting` is the intensity.
+- If `spotting` exists without `flow_spotting`, implies spotting-level intensity (0.08).
+- Exact enum values for both fields not documented — see `bridge-mira/doc/QUESTIONS.md`.
+
+### FHIR / HL7
+
+No standard FHIR observation profile exists for menstrual flow intensity as of 2026.
+
+- **LOINC** codes cover cycle timing (last period date, duration, frequency) but not flow intensity.
+- **SNOMED CT** has diagnostic concepts (menorrhagia, hypomenorrhea) but not a graduated observation scale.
+- **PBAC** (Pictorial Blood Loss Assessment Chart) is a clinical research tool using continuous numeric scores based on pad saturation and clot counts. Not a patient self-tracking scale.
+
+The HDS model fills a gap — it can serve as a bridge format until a FHIR IG emerges.
+
+## Design Rationale
+
+**Why ratio/proportion (0-1)?**
+A continuous [0, 1] scale with defined reference points allows systems with different granularities to map cleanly. The gaps between reference values (e.g. 0.08, 0.20, 0.35) leave room for future systems with intermediate levels without breaking existing data. It also enables meaningful averaging and charting.
+
+**Why include Spotting (0.08) in the flow scale?**
+Spotting is bleeding. Apps that separate it do so because spotting can occur between periods (intermenstrual), but the observation itself is about intensity. The timing context (during vs. between periods) is already captured by cycle event data (`fertility-cycles-start`, `fertility-cycles-period-end`).
+
+**Why separate browndark and clots as checkboxes?**
+They are qualifiers, not intensity levels. A user can have Heavy flow with or without clots, Light flow that is brown-tinged, etc. Separate items allow any combination. Both always co-occur with a `body-vulva-bleeding` event.
