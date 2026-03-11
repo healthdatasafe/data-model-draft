@@ -1,0 +1,63 @@
+# Symptom items — currently covers Mira daily log symptoms only.
+# See documentation/SYMPTOMS.md for cross-system compatibility research
+# (Apple HealthKit, SNOMED CT, FHIR, Ovia) and future extension plans.
+#
+# Event type: activity/plain (presence flag + event duration).
+# Severity extension path: switch to ratio/proportion with
+# 0/0.33/0.66/1.0 (None/Mild/Moderate/Severe) — see SYMPTOMS.md.
+
+## Gastrointestinal
+symptom-gastrointestinal-nausea:
+  version: v1
+  label: Nausea
+  description: Feeling of nausea or urge to vomit.
+  streamId: symptom-gastrointestinal-nausea
+  eventType: activity/plain
+  type: checkbox
+  repeatable: unlimited
+
+symptom-gastrointestinal-cramps:
+  version: v1
+  label: Cramps
+  description: Abdominal or pelvic cramps.
+  streamId: symptom-gastrointestinal-cramps
+  eventType: activity/plain
+  type: checkbox
+  repeatable: unlimited
+
+symptom-gastrointestinal-gas:
+  version: v1
+  label: Gas
+  description: Intestinal gas or flatulence.
+  streamId: symptom-gastrointestinal-gas
+  eventType: activity/plain
+  type: checkbox
+  repeatable: unlimited
+
+symptom-gastrointestinal-cravings:
+  version: v1
+  label: Cravings
+  description: Food cravings or increased appetite for specific foods.
+  streamId: symptom-gastrointestinal-cravings
+  eventType: activity/plain
+  type: checkbox
+  repeatable: unlimited
+
+## Pain
+symptom-pain-headache:
+  version: v1
+  label: Headache
+  description: Head pain, tension-type or unspecified.
+  streamId: symptom-pain-headache
+  eventType: activity/plain
+  type: checkbox
+  repeatable: unlimited
+
+symptom-pain-migraine:
+  version: v1
+  label: Migraine
+  description: Migraine headache, typically with throbbing pain, may include aura, nausea, or light sensitivity.
+  streamId: symptom-pain-migraine
+  eventType: activity/plain
+  type: checkbox
+  repeatable: unlimited

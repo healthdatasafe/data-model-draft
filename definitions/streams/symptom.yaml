@@ -1,0 +1,22 @@
+id: symptom
+name: Symptoms
+parentId: null
+children:
+  - id: symptom-gastrointestinal
+    name: Gastrointestinal
+    children:
+      - id: symptom-gastrointestinal-nausea
+        name: Nausea
+      - id: symptom-gastrointestinal-cramps
+        name: Cramps
+      - id: symptom-gastrointestinal-gas
+        name: Gas
+      - id: symptom-gastrointestinal-cravings
+        name: Cravings
+  - id: symptom-pain
+    name: Pain
+    children:
+      - id: symptom-pain-headache
+        name: Headache
+      - id: symptom-pain-migraine
+        name: Migraine
