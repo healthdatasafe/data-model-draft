@@ -132,6 +132,8 @@ fertility-sexual-activity:
       label: 'Usage of a condom'
     - value: 'cervical-barrier'
       label: 'Usage of a cervical barrier'
+    - value: 'protected'
+      label: 'Protected intercourse (unspecified method)'
 fertility-pregnancy:
   version: v1
   label: Pregnancy
