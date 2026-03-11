@@ -70,7 +70,7 @@ body-vulva-wetness-wiping:
 body-vulva-bleeding:
   version: v2
   label: Bleeding intensity
-  description: Subjective bleeding intensity on a 0-1 proportion scale. Reference points compatible with Apple HealthKit (Light/Medium/Heavy), Clue (adds Very Heavy), Flo, Natural Cycles. Spotting (0.08) maps to HealthKit intermenstrualBleeding or app-level spotting toggles.
+  description: Subjective bleeding intensity on a 0-1 proportion scale.
   streamId: body-vulva-bleeding
   eventType: ratio/proportion
   type: select
@@ -117,7 +117,7 @@ body-vulva-bleeding-browndark:
 body-vulva-bleeding-clots:
   version: v1
   label: Blood clots
-  description: Presence of blood clots during bleeding. Clots are coagulated blood and tissue, clinically significant when large (>2.5cm) or frequent. Qualifier for a co-occurring body-vulva-bleeding event. Maps to Flo "Blood clots" option.
+  description: Presence of blood clots during bleeding. Qualifier for a co-occurring bleeding event.
   streamId: body-vulva-bleeding-clots
   eventType: activity/plain
   type: checkbox

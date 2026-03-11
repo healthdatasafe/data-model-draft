@@ -1,0 +1,51 @@
+# Skin observation items — self-reported skin quality tracking.
+# See documentation/SKIN.md for cross-system compatibility research
+# (Apple HealthKit, SNOMED CT, Clue, Natural Cycles, Mira).
+#
+# Event type: activity/plain (presence flag + event duration).
+# Placed under body/ (not symptom/) because it includes positive
+# states (glowing) alongside pathological ones (acne).
+
+body-skin-acne:
+  version: v1
+  label:
+    en: Acne
+    fr: Acné
+  description: Acne or skin breakouts.
+  streamId: body-skin-acne
+  eventType: activity/plain
+  type: checkbox
+  repeatable: P1D
+
+body-skin-dry:
+  version: v1
+  label:
+    en: Dry Skin
+    fr: Peau sèche
+  description: Dry skin.
+  streamId: body-skin-dry
+  eventType: activity/plain
+  type: checkbox
+  repeatable: P1D
+
+body-skin-oily:
+  version: v1
+  label:
+    en: Oily Skin
+    fr: Peau grasse
+  description: Oily or greasy skin.
+  streamId: body-skin-oily
+  eventType: activity/plain
+  type: checkbox
+  repeatable: P1D
+
+body-skin-glowing:
+  version: v1
+  label:
+    en: Glowing Skin
+    fr: Peau éclatante
+  description: Good or glowing skin quality.
+  streamId: body-skin-glowing
+  eventType: activity/plain
+  type: checkbox
+  repeatable: P1D
