@@ -35,6 +35,12 @@
         "protected"
       ]
     },
+    "test-result/scale": {
+      "description": "Generic qualitative test result on a scale from -1 to 1. Negative values indicate a negative result, 0 indicates indeterminate, positive values indicate a positive result. The magnitude represents intensity or confidence. Common values: -1 (negative), 0 (indeterminate), 1 (positive). Intermediate values can represent semi-quantitative results (e.g., 0.5 for a weak positive). Applicable to any binary or semi-quantitative test: medical (OPK, pregnancy, COVID), environmental, industrial, etc.",
+      "type": "number",
+      "minimum": -1,
+      "maximum": 1
+    },
     "pregnancy/detailed": {
       "description": "Pregnancy. The value of `event.time` should indicate the start of pregnancy. When content value is 'ongoing' `event.duration` must be set to `null`. For any other value `event.duration` should be set to indicate when the pregnancy state terminated.",
       "type": "string",

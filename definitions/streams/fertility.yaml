@@ -23,6 +23,10 @@ children:
     name: Trying to conceive / Avoiding pregnancy
   - id: fertility-sexual-activity
     name: Sexual Activity
+  - id: fertility-test-opk
+    name: Ovulation Test (OPK)
+  - id: fertility-test-pregnancy
+    name: Pregnancy Test
   - id: fertility-preganancies
     name: Pregancies
     children:

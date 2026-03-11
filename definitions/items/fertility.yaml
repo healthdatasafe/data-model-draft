@@ -210,5 +210,20 @@ fertility-hormone-lh:
   reminder:
     relativeTo: fertility-cycles-start
     relativeDays: [2, 3, 4]
+fertility-test-opk:
+  version: v1
+  label: Ovulation test (OPK)
+  description: Ovulation Predictor Kit result. Uses test-result/scale (-1 negative, 0 indeterminate, 1 positive). Intermediate values for semi-quantitative results (e.g. 0.5 weak positive).
+  streamId: fertility-test-opk
+  eventType: test-result/scale
+  type: number
+  repeatable: any
+fertility-test-pregnancy:
+  version: v1
+  label: Pregnancy test
+  description: Home pregnancy test result. Uses test-result/scale (-1 negative, 0 indeterminate, 1 positive).
+  streamId: fertility-test-pregnancy
+  eventType: test-result/scale
+  type: number
+  repeatable: any
 
-  
