@@ -1,0 +1,21 @@
+# Wellbeing items — subjective behavioral / psychological self-reports.
+
+wellbeing-sex-drive:
+  version: v1
+  label:
+    en: Sex Drive
+    fr: Libido
+  description: Self-reported sex drive level.
+  streamId: wellbeing-sex-drive
+  eventType: ratio/proportion
+  type: select
+  options:
+    - value: 0.25
+      label:
+        en: Low
+        fr: Faible
+    - value: 0.75
+      label:
+        en: High
+        fr: Élevée
+  repeatable: P1D
