@@ -3,9 +3,13 @@ name: Profile
 parentId: null
 children:
   - id: profile-address
-    name: Adress
+    name: Address
   - id: profile-date-of-birth
     name: Date of Birth
+  - id: profile-avatar
+    name: Avatar
+  - id: profile-display-name
+    name: Display Name
   - id: profile-location
     name: Location
   - id: profile-name

@@ -8,6 +8,26 @@ profile-addresscountry:
   eventType: contact/country
   type: text
   repeatable: once
+profile-avatar:
+  version: v1
+  label:
+    en: Avatar
+    fr: Avatar
+  description: Profile picture (picture/attached, picture/base64, or picture/url)
+  streamId: profile-avatar
+  eventType: picture/*
+  type: picture
+  repeatable: once
+profile-display-name:
+  version: v1
+  label:
+    en: Display Name
+    fr: Nom d'affichage
+  description: Preferred display name
+  streamId: profile-display-name
+  eventType: contact/display-name
+  type: text
+  repeatable: once
 profile-date-of-birth:
   label: Date of Birth
   description: Date of birth
