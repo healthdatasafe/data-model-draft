@@ -13,10 +13,24 @@ profile-avatar:
   label:
     en: Avatar
     fr: Avatar
-  description: Profile picture (picture/attached, picture/base64, or picture/url)
+  description:
+    en: Profile picture (picture/attached, picture/base64, or picture/url)
   streamId: profile-avatar
-  eventType: picture/*
   type: picture
+  variations:
+    eventType:
+      label:
+        en: Format
+      options:
+        - value: picture/attached
+          label:
+            en: Attached file
+        - value: picture/base64
+          label:
+            en: Base64 encoded
+        - value: picture/url
+          label:
+            en: URL reference
   repeatable: once
 profile-display-name:
   version: v1

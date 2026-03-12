@@ -18,7 +18,7 @@ const defsSchema = {
       },
       required: ['en']
     },
-    entryType: { enum: ['number', 'text', 'select', 'checkbox', 'date'] }
+    entryType: { enum: ['number', 'text', 'select', 'checkbox', 'date', 'picture'] }
   }
 };
 
