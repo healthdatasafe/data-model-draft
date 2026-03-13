@@ -1,5 +1,138 @@
 # Wellbeing items — subjective behavioral / psychological self-reports.
 
+wellbeing-mood:
+  version: v1
+  label:
+    en: Mood
+    fr: Humeur
+  description:
+    en: How you feel — pleasantness, energy, sense of control, and more.
+    fr: Comment vous vous sentez — agrément, énergie, sentiment de contrôle, et plus.
+  streamId: wellbeing-mood
+  eventType: mood/5d-vectors
+  type: composite
+  composite:
+    valence:
+      label:
+        en: Valence
+        fr: Valence
+      type: select
+      canBeNull: true
+      options:
+        - value: 0.0
+          label:
+            en: Very unpleasant
+            fr: Très désagréable
+        - value: 0.25
+          label:
+            en: Unpleasant
+            fr: Désagréable
+        - value: 0.5
+          label:
+            en: Neutral
+            fr: Neutre
+        - value: 0.75
+          label:
+            en: Pleasant
+            fr: Agréable
+        - value: 1.0
+          label:
+            en: Very pleasant
+            fr: Très agréable
+    arousal:
+      label:
+        en: Energy
+        fr: Énergie
+      type: select
+      canBeNull: true
+      options:
+        - value: 0.0
+          label:
+            en: Very calm
+            fr: Très calme
+        - value: 0.25
+          label:
+            en: Calm
+            fr: Calme
+        - value: 0.5
+          label:
+            en: Moderate
+            fr: Modéré
+        - value: 0.75
+          label:
+            en: Energized
+            fr: Énergique
+        - value: 1.0
+          label:
+            en: Very energized
+            fr: Très énergique
+    dominance:
+      label:
+        en: Sense of control
+        fr: Sentiment de contrôle
+      type: select
+      canBeNull: true
+      options:
+        - value: 0.0
+          label:
+            en: Powerless
+            fr: Impuissant
+        - value: 0.25
+          label:
+            en: Overwhelmed
+            fr: Submergé
+        - value: 0.5
+          label:
+            en: Neutral
+            fr: Neutre
+        - value: 0.75
+          label:
+            en: In control
+            fr: En contrôle
+        - value: 1.0
+          label:
+            en: Very in control
+            fr: Très en contrôle
+    socialOrientation:
+      label:
+        en: Social focus
+        fr: Focus social
+      type: select
+      canBeNull: true
+      options:
+        - value: 0.0
+          label:
+            en: Self-focused
+            fr: Centré sur soi
+        - value: 0.5
+          label:
+            en: Balanced
+            fr: Équilibré
+        - value: 1.0
+          label:
+            en: Other-focused
+            fr: Centré sur les autres
+    temporalFocus:
+      label:
+        en: Time focus
+        fr: Focus temporel
+      type: select
+      canBeNull: true
+      options:
+        - value: 0.0
+          label:
+            en: Past-dwelling
+            fr: Tourné vers le passé
+        - value: 0.5
+          label:
+            en: Present
+            fr: Présent
+        - value: 1.0
+          label:
+            en: Future-anticipating
+            fr: Tourné vers le futur
+  repeatable: unlimited
+
 wellbeing-sex-drive:
   version: v1
   label:

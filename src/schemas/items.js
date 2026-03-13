@@ -142,7 +142,20 @@ const itemSchema = {
                 properties: {
                   label: { $ref: 'defs.json#/definitions/localized' },
                   type: { $ref: 'defs.json#/definitions/entryType' },
-                  canBeNull: { type: 'boolean', nullable: true }
+                  canBeNull: { type: 'boolean', nullable: true },
+                  options: {
+                    type: 'array',
+                    items: {
+                      type: 'object',
+                      nullable: false,
+                      properties: {
+                        value: { type: ['number', 'string'] },
+                        label: { $ref: 'defs.json#/definitions/localized' }
+                      },
+                      required: ['value', 'label'],
+                      additionalProperties: false
+                    }
+                  }
                 },
                 additionalProperties: false
               }

@@ -122,3 +122,76 @@ body-vulva-bleeding-clots:
   eventType: activity/plain
   type: checkbox
   repeatable: P1D
+
+## Cervical Position
+
+body-vulva-cervix-position:
+  version: v1
+  label:
+    en: Cervical Position
+    fr: Position du col utérin
+  description:
+    en: Self-assessed cervical position with three dimensions (height, firmness, openness) on a 0–1 fertility scale.
+    fr: Position du col utérin auto-évaluée avec trois dimensions (hauteur, fermeté, ouverture) sur une échelle de fertilité 0–1.
+  streamId: body-vulva-cervix-position
+  eventType: cervix-position/3d-vectors
+  type: composite
+  composite:
+    height:
+      label:
+        en: Height
+        fr: Hauteur
+      type: select
+      canBeNull: true
+      options:
+        - value: 0.0
+          label:
+            en: Low
+            fr: Bas
+        - value: 0.5
+          label:
+            en: Medium
+            fr: Moyen
+        - value: 1.0
+          label:
+            en: High
+            fr: Haut
+    firmness:
+      label:
+        en: Firmness
+        fr: Fermeté
+      type: select
+      canBeNull: true
+      options:
+        - value: 0.0
+          label:
+            en: Firm
+            fr: Ferme
+        - value: 0.5
+          label:
+            en: Medium
+            fr: Moyen
+        - value: 1.0
+          label:
+            en: Soft
+            fr: Souple
+    openness:
+      label:
+        en: Openness
+        fr: Ouverture
+      type: select
+      canBeNull: true
+      options:
+        - value: 0.0
+          label:
+            en: Closed
+            fr: Fermé
+        - value: 0.5
+          label:
+            en: Medium
+            fr: Moyen
+        - value: 1.0
+          label:
+            en: Open
+            fr: Ouvert
+  repeatable: P1D
