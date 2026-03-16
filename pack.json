@@ -1,5 +1,5 @@
 {
-  "publicationDate": "2026-03-10T16:03:16.945Z",
+  "publicationDate": "2026-03-16T17:47:20.609Z",
   "streams": [
     {
       "id": "body",
@@ -55,16 +55,53 @@
               "parentId": "body-vulva"
             },
             {
+              "id": "body-vulva-cervix-position",
+              "name": "Cervical Position",
+              "parentId": "body-vulva"
+            },
+            {
               "id": "body-vulva-bleeding",
               "name": "Vulva Bleeding",
               "children": [
                 {
                   "id": "body-vulva-bleeding-browndark",
-                  "name": "Presence of browndark coloration",
+                  "name": "Presence of brown/dark coloration",
+                  "parentId": "body-vulva-bleeding"
+                },
+                {
+                  "id": "body-vulva-bleeding-clots",
+                  "name": "Presence of blood clots",
                   "parentId": "body-vulva-bleeding"
                 }
               ],
               "parentId": "body-vulva"
+            }
+          ],
+          "parentId": "body"
+        },
+        {
+          "id": "body-skin",
+          "name": "Skin",
+          "children": [
+            {
+              "id": "body-skin-acne",
+              "name": "Acne",
+              "parentId": "body-skin"
+            },
+            {
+              "id": "body-skin-dry",
+              "name": "Dry Skin",
+              "parentId": "body-skin"
+            },
+            {
+              "id": "body-skin-oily",
+              "name": "Oily Skin",
+              "parentId": "body-skin"
+            },
+            {
+              "id": "body-skin-glowing",
+              "name": "Glowing Skin",
+              "parentId": "body-skin"
             }
           ],
           "parentId": "body"
@@ -180,6 +217,16 @@
           "parentId": "fertility"
         },
         {
+          "id": "fertility-test-opk",
+          "name": "Ovulation Test (OPK)",
+          "parentId": "fertility"
+        },
+        {
+          "id": "fertility-test-pregnancy",
+          "name": "Pregnancy Test",
+          "parentId": "fertility"
+        },
+        {
           "id": "fertility-preganancies",
           "name": "Pregancies",
           "children": [
@@ -217,12 +264,22 @@
       "children": [
         {
           "id": "profile-address",
-          "name": "Adress",
+          "name": "Address",
           "parentId": "profile"
         },
         {
           "id": "profile-date-of-birth",
           "name": "Date of Birth",
+          "parentId": "profile"
+        },
+        {
+          "id": "profile-avatar",
+          "name": "Avatar",
+          "parentId": "profile"
+        },
+        {
+          "id": "profile-display-name",
+          "name": "Display Name",
           "parentId": "profile"
         },
         {
@@ -241,9 +298,133 @@
           "parentId": "profile"
         }
       ]
+    },
+    {
+      "id": "symptom",
+      "name": "Symptoms",
+      "parentId": null,
+      "children": [
+        {
+          "id": "symptom-gastrointestinal",
+          "name": "Gastrointestinal",
+          "children": [
+            {
+              "id": "symptom-gastrointestinal-nausea",
+              "name": "Nausea",
+              "parentId": "symptom-gastrointestinal"
+            },
+            {
+              "id": "symptom-gastrointestinal-cramps",
+              "name": "Cramps",
+              "parentId": "symptom-gastrointestinal"
+            },
+            {
+              "id": "symptom-gastrointestinal-gas",
+              "name": "Gas",
+              "parentId": "symptom-gastrointestinal"
+            },
+            {
+              "id": "symptom-gastrointestinal-cravings",
+              "name": "Cravings",
+              "parentId": "symptom-gastrointestinal"
+            }
+          ],
+          "parentId": "symptom"
+        },
+        {
+          "id": "symptom-pain",
+          "name": "Pain",
+          "children": [
+            {
+              "id": "symptom-pain-headache",
+              "name": "Headache",
+              "parentId": "symptom-pain"
+            },
+            {
+              "id": "symptom-pain-migraine",
+              "name": "Migraine",
+              "parentId": "symptom-pain"
+            }
+          ],
+          "parentId": "symptom"
+        }
+      ]
+    },
+    {
+      "id": "wellbeing",
+      "name": "Wellbeing",
+      "parentId": null,
+      "children": [
+        {
+          "id": "wellbeing-mood",
+          "name": "Mood",
+          "parentId": "wellbeing"
+        },
+        {
+          "id": "wellbeing-sex-drive",
+          "name": "Sex Drive",
+          "parentId": "wellbeing"
+        }
+      ]
     }
   ],
   "items": {
+    "body-skin-acne": {
+      "version": "v1",
+      "label": {
+        "en": "Acne",
+        "fr": "Acné"
+      },
+      "description": {
+        "en": "Acne or skin breakouts."
+      },
+      "streamId": "body-skin-acne",
+      "eventType": "activity/plain",
+      "type": "checkbox",
+      "repeatable": "P1D"
+    },
+    "body-skin-dry": {
+      "version": "v1",
+      "label": {
+        "en": "Dry Skin",
+        "fr": "Peau sèche"
+      },
+      "description": {
+        "en": "Dry skin."
+      },
+      "streamId": "body-skin-dry",
+      "eventType": "activity/plain",
+      "type": "checkbox",
+      "repeatable": "P1D"
+    },
+    "body-skin-oily": {
+      "version": "v1",
+      "label": {
+        "en": "Oily Skin",
+        "fr": "Peau grasse"
+      },
+      "description": {
+        "en": "Oily or greasy skin."
+      },
+      "streamId": "body-skin-oily",
+      "eventType": "activity/plain",
+      "type": "checkbox",
+      "repeatable": "P1D"
+    },
+    "body-skin-glowing": {
+      "version": "v1",
+      "label": {
+        "en": "Glowing Skin",
+        "fr": "Peau éclatante"
+      },
+      "description": {
+        "en": "Good or glowing skin quality."
+      },
+      "streamId": "body-skin-glowing",
+      "eventType": "activity/plain",
+      "type": "checkbox",
+      "repeatable": "P1D"
+    },
     "body-vulva-mucus-inspect": {
       "version": "v1",
       "label": {
@@ -383,61 +564,203 @@
       "repeatable": "unlimited"
     },
     "body-vulva-bleeding": {
-      "version": "v1",
+      "version": "v2",
       "label": {
-        "en": "Bleeding type"
+        "en": "Bleeding intensity"
       },
       "description": {
-        "en": "Bleeding type subjective"
+        "en": "Subjective bleeding intensity on a 0-1 proportion scale."
       },
       "streamId": "body-vulva-bleeding",
-      "eventType": "ratio/generic",
+      "eventType": "ratio/proportion",
       "type": "select",
       "options": [
         {
           "value": 0,
           "label": {
-            "en": "None"
+            "en": "None",
+            "fr": "Aucun"
           }
         },
         {
-          "value": 1,
+          "value": 0.08,
           "label": {
-            "en": "Spotting"
+            "en": "Spotting",
+            "fr": "Spotting"
           }
         },
         {
-          "value": 2,
+          "value": 0.2,
           "label": {
-            "en": "Light"
+            "en": "Very light",
+            "fr": "Très léger"
           }
         },
         {
-          "value": 3,
+          "value": 0.35,
           "label": {
-            "en": "Medium"
+            "en": "Light",
+            "fr": "Léger"
           }
         },
         {
-          "value": 4,
+          "value": 0.55,
           "label": {
-            "en": "Heavy"
+            "en": "Moderate",
+            "fr": "Modéré"
+          }
+        },
+        {
+          "value": 0.75,
+          "label": {
+            "en": "Heavy",
+            "fr": "Abondant"
+          }
+        },
+        {
+          "value": 0.95,
+          "label": {
+            "en": "Very heavy",
+            "fr": "Très abondant"
           }
         }
       ],
       "repeatable": "unlimited"
     },
     "body-vulva-bleeding-browndark": {
-      "version": "temporary",
+      "version": "v1",
       "label": {
-        "en": "Brown coloration of bleeding"
+        "en": "Brown/dark coloration"
       },
       "description": {
-        "en": "Brown coloration of bleeding"
+        "en": "Presence of brown or dark coloration in bleeding. Qualifier for a co-occurring body-vulva-bleeding event."
       },
       "streamId": "body-vulva-bleeding-browndark",
       "eventType": "activity/plain",
       "type": "checkbox",
+      "repeatable": "P1D"
+    },
+    "body-vulva-bleeding-clots": {
+      "version": "v1",
+      "label": {
+        "en": "Blood clots"
+      },
+      "description": {
+        "en": "Presence of blood clots during bleeding. Qualifier for a co-occurring bleeding event."
+      },
+      "streamId": "body-vulva-bleeding-clots",
+      "eventType": "activity/plain",
+      "type": "checkbox",
+      "repeatable": "P1D"
+    },
+    "body-vulva-cervix-position": {
+      "version": "v1",
+      "label": {
+        "en": "Cervical Position",
+        "fr": "Position du col utérin"
+      },
+      "description": {
+        "en": "Self-assessed cervical position with three dimensions (height, firmness, openness) on a 0–1 fertility scale.",
+        "fr": "Position du col utérin auto-évaluée avec trois dimensions (hauteur, fermeté, ouverture) sur une échelle de fertilité 0–1."
+      },
+      "streamId": "body-vulva-cervix-position",
+      "eventType": "cervix-position/3d-vectors",
+      "type": "composite",
+      "composite": {
+        "height": {
+          "label": {
+            "en": "Height",
+            "fr": "Hauteur"
+          },
+          "type": "select",
+          "canBeNull": true,
+          "options": [
+            {
+              "value": 0,
+              "label": {
+                "en": "Low",
+                "fr": "Bas"
+              }
+            },
+            {
+              "value": 0.5,
+              "label": {
+                "en": "Medium",
+                "fr": "Moyen"
+              }
+            },
+            {
+              "value": 1,
+              "label": {
+                "en": "High",
+                "fr": "Haut"
+              }
+            }
+          ]
+        },
+        "firmness": {
+          "label": {
+            "en": "Firmness",
+            "fr": "Fermeté"
+          },
+          "type": "select",
+          "canBeNull": true,
+          "options": [
+            {
+              "value": 0,
+              "label": {
+                "en": "Firm",
+                "fr": "Ferme"
+              }
+            },
+            {
+              "value": 0.5,
+              "label": {
+                "en": "Medium",
+                "fr": "Moyen"
+              }
+            },
+            {
+              "value": 1,
+              "label": {
+                "en": "Soft",
+                "fr": "Souple"
+              }
+            }
+          ]
+        },
+        "openness": {
+          "label": {
+            "en": "Openness",
+            "fr": "Ouverture"
+          },
+          "type": "select",
+          "canBeNull": true,
+          "options": [
+            {
+              "value": 0,
+              "label": {
+                "en": "Closed",
+                "fr": "Fermé"
+              }
+            },
+            {
+              "value": 0.5,
+              "label": {
+                "en": "Medium",
+                "fr": "Moyen"
+              }
+            },
+            {
+              "value": 1,
+              "label": {
+                "en": "Open",
+                "fr": "Ouvert"
+              }
+            }
+          ]
+        }
+      },
       "repeatable": "P1D"
     },
     "body-weight": {
@@ -754,6 +1077,12 @@
           "label": {
             "en": "Usage of a cervical barrier"
           }
+        },
+        {
+          "value": "protected",
+          "label": {
+            "en": "Protected intercourse (unspecified method)"
+          }
         }
       ]
     },
@@ -895,13 +1224,39 @@
         ]
       }
     },
-    "medication-intake-basic": {
+    "fertility-test-opk": {
       "version": "v1",
+      "label": {
+        "en": "Ovulation test (OPK)"
+      },
+      "description": {
+        "en": "Ovulation Predictor Kit result. Uses test-result/scale (-1 negative, 0 indeterminate, 1 positive). Intermediate values for semi-quantitative results (e.g. 0.5 weak positive)."
+      },
+      "streamId": "fertility-test-opk",
+      "eventType": "test-result/scale",
+      "type": "number",
+      "repeatable": "any"
+    },
+    "fertility-test-pregnancy": {
+      "version": "v1",
+      "label": {
+        "en": "Pregnancy test"
+      },
+      "description": {
+        "en": "Home pregnancy test result. Uses test-result/scale (-1 negative, 0 indeterminate, 1 positive)."
+      },
+      "streamId": "fertility-test-pregnancy",
+      "eventType": "test-result/scale",
+      "type": "number",
+      "repeatable": "any"
+    },
+    "medication-intake-basic": {
+      "version": "v2",
       "label": {
         "en": "Medication Intake Basic"
       },
       "description": {
-        "en": "Medication Intake Custom"
+        "en": "Free-text medication intake with optional dose and route. Content has an 'intake' sub-object following the same structure as medication/coded-v1."
       },
       "streamId": "medication-intake",
       "eventType": "medication/basic",
@@ -913,18 +1268,25 @@
           },
           "type": "text"
         },
-        "doseMg": {
+        "doseValue": {
           "label": {
-            "en": "Dosage in milligrams"
+            "en": "Dose amount"
           },
           "type": "number",
           "canBeNull": true
         },
-        "frequencyHours": {
+        "doseUnit": {
           "label": {
-            "en": "Frequency in hours"
+            "en": "Dose unit"
           },
-          "type": "number",
+          "type": "text",
+          "canBeNull": true
+        },
+        "route": {
+          "label": {
+            "en": "Route of administration"
+          },
+          "type": "text",
           "canBeNull": true
         }
       },
@@ -969,6 +1331,60 @@
       },
       "streamId": "profile-address",
       "eventType": "contact/country",
+      "type": "text",
+      "repeatable": "once"
+    },
+    "profile-avatar": {
+      "version": "v1",
+      "label": {
+        "en": "Avatar",
+        "fr": "Avatar"
+      },
+      "description": {
+        "en": "Profile picture (picture/attached, picture/base64, or picture/url)"
+      },
+      "streamId": "profile-avatar",
+      "type": "picture",
+      "variations": {
+        "eventType": {
+          "label": {
+            "en": "Format"
+          },
+          "options": [
+            {
+              "value": "picture/attached",
+              "label": {
+                "en": "Attached file"
+              }
+            },
+            {
+              "value": "picture/base64",
+              "label": {
+                "en": "Base64 encoded"
+              }
+            },
+            {
+              "value": "picture/url",
+              "label": {
+                "en": "URL reference"
+              }
+            }
+          ]
+        }
+      },
+      "repeatable": "once"
+    },
+    "profile-display-name": {
+      "version": "v1",
+      "label": {
+        "en": "Display Name",
+        "fr": "Nom d'affichage"
+      },
+      "description": {
+        "en": "Preferred display name"
+      },
+      "streamId": "profile-display-name",
+      "eventType": "contact/display-name",
       "type": "text",
       "repeatable": "once"
     },
@@ -1037,6 +1453,328 @@
         }
       ],
       "repeatable": "once"
+    },
+    "symptom-gastrointestinal-nausea": {
+      "version": "v1",
+      "label": {
+        "en": "Nausea"
+      },
+      "description": {
+        "en": "Feeling of nausea or urge to vomit."
+      },
+      "streamId": "symptom-gastrointestinal-nausea",
+      "eventType": "activity/plain",
+      "type": "checkbox",
+      "repeatable": "unlimited"
+    },
+    "symptom-gastrointestinal-cramps": {
+      "version": "v1",
+      "label": {
+        "en": "Cramps"
+      },
+      "description": {
+        "en": "Abdominal or pelvic cramps."
+      },
+      "streamId": "symptom-gastrointestinal-cramps",
+      "eventType": "activity/plain",
+      "type": "checkbox",
+      "repeatable": "unlimited"
+    },
+    "symptom-gastrointestinal-gas": {
+      "version": "v1",
+      "label": {
+        "en": "Gas"
+      },
+      "description": {
+        "en": "Intestinal gas or flatulence."
+      },
+      "streamId": "symptom-gastrointestinal-gas",
+      "eventType": "activity/plain",
+      "type": "checkbox",
+      "repeatable": "unlimited"
+    },
+    "symptom-gastrointestinal-cravings": {
+      "version": "v1",
+      "label": {
+        "en": "Cravings"
+      },
+      "description": {
+        "en": "Food cravings or increased appetite for specific foods."
+      },
+      "streamId": "symptom-gastrointestinal-cravings",
+      "eventType": "activity/plain",
+      "type": "checkbox",
+      "repeatable": "unlimited"
+    },
+    "symptom-pain-headache": {
+      "version": "v1",
+      "label": {
+        "en": "Headache"
+      },
+      "description": {
+        "en": "Head pain, tension-type or unspecified."
+      },
+      "streamId": "symptom-pain-headache",
+      "eventType": "activity/plain",
+      "type": "checkbox",
+      "repeatable": "unlimited"
+    },
+    "symptom-pain-migraine": {
+      "version": "v1",
+      "label": {
+        "en": "Migraine"
+      },
+      "description": {
+        "en": "Migraine headache, typically with throbbing pain, may include aura, nausea, or light sensitivity."
+      },
+      "streamId": "symptom-pain-migraine",
+      "eventType": "activity/plain",
+      "type": "checkbox",
+      "repeatable": "unlimited"
+    },
+    "wellbeing-mood": {
+      "version": "v1",
+      "label": {
+        "en": "Mood",
+        "fr": "Humeur"
+      },
+      "description": {
+        "en": "How you feel — pleasantness, energy, sense of control, and more.",
+        "fr": "Comment vous vous sentez — agrément, énergie, sentiment de contrôle, et plus."
+      },
+      "streamId": "wellbeing-mood",
+      "eventType": "mood/5d-vectors",
+      "type": "composite",
+      "composite": {
+        "valence": {
+          "label": {
+            "en": "Valence",
+            "fr": "Valence"
+          },
+          "type": "select",
+          "canBeNull": true,
+          "options": [
+            {
+              "value": 0,
+              "label": {
+                "en": "Very unpleasant",
+                "fr": "Très désagréable"
+              }
+            },
+            {
+              "value": 0.25,
+              "label": {
+                "en": "Unpleasant",
+                "fr": "Désagréable"
+              }
+            },
+            {
+              "value": 0.5,
+              "label": {
+                "en": "Neutral",
+                "fr": "Neutre"
+              }
+            },
+            {
+              "value": 0.75,
+              "label": {
+                "en": "Pleasant",
+                "fr": "Agréable"
+              }
+            },
+            {
+              "value": 1,
+              "label": {
+                "en": "Very pleasant",
+                "fr": "Très agréable"
+              }
+            }
+          ]
+        },
+        "arousal": {
+          "label": {
+            "en": "Energy",
+            "fr": "Énergie"
+          },
+          "type": "select",
+          "canBeNull": true,
+          "options": [
+            {
+              "value": 0,
+              "label": {
+                "en": "Very calm",
+                "fr": "Très calme"
+              }
+            },
+            {
+              "value": 0.25,
+              "label": {
+                "en": "Calm",
+                "fr": "Calme"
+              }
+            },
+            {
+              "value": 0.5,
+              "label": {
+                "en": "Moderate",
+                "fr": "Modéré"
+              }
+            },
+            {
+              "value": 0.75,
+              "label": {
+                "en": "Energized",
+                "fr": "Énergique"
+              }
+            },
+            {
+              "value": 1,
+              "label": {
+                "en": "Very energized",
+                "fr": "Très énergique"
+              }
+            }
+          ]
+        },
+        "dominance": {
+          "label": {
+            "en": "Sense of control",
+            "fr": "Sentiment de contrôle"
+          },
+          "type": "select",
+          "canBeNull": true,
+          "options": [
+            {
+              "value": 0,
+              "label": {
+                "en": "Powerless",
+                "fr": "Impuissant"
+              }
+            },
+            {
+              "value": 0.25,
+              "label": {
+                "en": "Overwhelmed",
+                "fr": "Submergé"
+              }
+            },
+            {
+              "value": 0.5,
+              "label": {
+                "en": "Neutral",
+                "fr": "Neutre"
+              }
+            },
+            {
+              "value": 0.75,
+              "label": {
+                "en": "In control",
+                "fr": "En contrôle"
+              }
+            },
+            {
+              "value": 1,
+              "label": {
+                "en": "Very in control",
+                "fr": "Très en contrôle"
+              }
+            }
+          ]
+        },
+        "socialOrientation": {
+          "label": {
+            "en": "Social focus",
+            "fr": "Focus social"
+          },
+          "type": "select",
+          "canBeNull": true,
+          "options": [
+            {
+              "value": 0,
+              "label": {
+                "en": "Self-focused",
+                "fr": "Centré sur soi"
+              }
+            },
+            {
+              "value": 0.5,
+              "label": {
+                "en": "Balanced",
+                "fr": "Équilibré"
+              }
+            },
+            {
+              "value": 1,
+              "label": {
+                "en": "Other-focused",
+                "fr": "Centré sur les autres"
+              }
+            }
+          ]
+        },
+        "temporalFocus": {
+          "label": {
+            "en": "Time focus",
+            "fr": "Focus temporel"
+          },
+          "type": "select",
+          "canBeNull": true,
+          "options": [
+            {
+              "value": 0,
+              "label": {
+                "en": "Past-dwelling",
+                "fr": "Tourné vers le passé"
+              }
+            },
+            {
+              "value": 0.5,
+              "label": {
+                "en": "Present",
+                "fr": "Présent"
+              }
+            },
+            {
+              "value": 1,
+              "label": {
+                "en": "Future-anticipating",
+                "fr": "Tourné vers le futur"
+              }
+            }
+          ]
+        }
+      },
+      "repeatable": "unlimited"
+    },
+    "wellbeing-sex-drive": {
+      "version": "v1",
+      "label": {
+        "en": "Sex Drive",
+        "fr": "Libido"
+      },
+      "description": {
+        "en": "Self-reported sex drive level."
+      },
+      "streamId": "wellbeing-sex-drive",
+      "eventType": "ratio/proportion",
+      "type": "select",
+      "options": [
+        {
+          "value": 0.25,
+          "label": {
+            "en": "Low",
+            "fr": "Faible"
+          }
+        },
+        {
+          "value": 0.75,
+          "label": {
+            "en": "High",
+            "fr": "Élevée"
+          }
+        }
+      ],
+      "repeatable": "P1D"
     }
   },
   "eventTypes": {
@@ -2944,8 +3682,21 @@
           "incomplete",
           "withdrawal",
           "condom",
-          "cervical-barrier"
+          "cervical-barrier",
+          "protected"
         ]
+      },
+      "ratio/proportion": {
+        "description": "A proportion value from 0 to 1. Represents a fraction of a whole: 0 = none, 1 = maximum. Used for subjective scales (e.g. bleeding intensity) where reference points are defined by item options.",
+        "type": "number",
+        "minimum": 0,
+        "maximum": 1
+      },
+      "test-result/scale": {
+        "description": "Generic qualitative test result on a scale from -1 to 1. Negative values indicate a negative result, 0 indicates indeterminate, positive values indicate a positive result. The magnitude represents intensity or confidence. Common values: -1 (negative), 0 (indeterminate), 1 (positive). Intermediate values can represent semi-quantitative results (e.g., 0.5 for a weak positive). Applicable to any binary or semi-quantitative test: medical (OPK, pregnancy, COVID), environmental, industrial, etc.",
+        "type": "number",
+        "minimum": -1,
+        "maximum": 1
       },
       "pregnancy/detailed": {
         "description": "Pregnancy. The value of `event.time` should indicate the start of pregnancy. When content value is 'ongoing' `event.duration` must be set to `null`. For any other value `event.duration` should be set to indicate when the pregnancy state terminated.",
@@ -2960,41 +3711,59 @@
         ]
       },
       "medication/basic": {
-        "description": "Simple medication based on name and eventual coding",
+        "description": "Simple medication intake identified by free-text name. 'intake' follows the same structure as medication/coded-v1 for dose and route.",
         "type": "object",
         "required": [
-          "label"
+          "name"
         ],
         "properties": {
           "name": {
-            "description": "The name of product",
+            "description": "Free-text name of the medication",
             "type": "string"
           },
-          "doseMg": {
-            "description": "The dosage in milligrams",
-            "type": "number"
-          },
-          "frequencyHours": {
-            "description": "Frequency in Hours. If non null, 'event.duration' should reflect the full period, otherwise it reflects one intake",
-            "type": "number"
-          },
-          "codes": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "system",
-                "content"
-              ],
-              "properties": {
-                "system": {
-                  "description": "The system code for HDS",
-                  "type": "string"
-                },
-                "content": {
-                  "description": "Accordingly to the norm, appropriate content for coding",
-                  "type": "object"
-                }
+          "intake": {
+            "description": "User-entered intake regimen",
+            "type": "object",
+            "properties": {
+              "doseValue": {
+                "description": "Amount per intake (e.g. 2 for '2 tablets', 5 for '5 mL')",
+                "type": "number"
+              },
+              "doseUnit": {
+                "description": "HDS eventType reference for the dose unit",
+                "type": "string",
+                "enum": [
+                  "dose/tablet",
+                  "dose/drop",
+                  "dose/puff",
+                  "dose/application",
+                  "dose/suppository",
+                  "dose/unit",
+                  "volume/ml",
+                  "mass/mg",
+                  "mass/mcg",
+                  "mass/g"
+                ]
+              },
+              "route": {
+                "description": "Route of administration",
+                "type": "string",
+                "enum": [
+                  "oral",
+                  "sublingual",
+                  "parenteral",
+                  "intravenous",
+                  "intramuscular",
+                  "subcutaneous",
+                  "inhalation",
+                  "nasal",
+                  "topical",
+                  "transdermal",
+                  "ophthalmic",
+                  "otic",
+                  "rectal",
+                  "vaginal"
+                ]
               }
             }
           }
@@ -3364,6 +4133,66 @@
       "contact/display-name": {
         "description": "User display name",
         "type": "string"
+      },
+      "cervix-position/3d-vectors": {
+        "description": "Cervical position observation as three 0–1 vectors: height (low→high), firmness (firm→soft), openness (closed→open). Each dimension follows the fertility direction (0 = least fertile, 1 = most fertile).",
+        "type": "object",
+        "properties": {
+          "height": {
+            "description": "Cervix height: 0 = low, 0.5 = medium, 1 = high",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "firmness": {
+            "description": "Cervix firmness: 0 = firm, 0.5 = medium, 1 = soft",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "openness": {
+            "description": "Cervical os openness: 0 = closed, 0.5 = medium, 1 = open",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          }
+        }
+      },
+      "mood/5d-vectors": {
+        "description": "Mood observation as five 0–1 dimensional vectors based on Russell's Circumplex and PAD models. Valence (unpleasant→pleasant), arousal (calm→activated), dominance (powerless→in-control), social orientation (self→other-focused), temporal focus (past→future).",
+        "type": "object",
+        "properties": {
+          "valence": {
+            "description": "Pleasure/displeasure: 0 = very unpleasant, 0.5 = neutral, 1 = very pleasant",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "arousal": {
+            "description": "Energy/activation: 0 = very calm, 0.5 = moderate, 1 = very activated",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "dominance": {
+            "description": "Sense of control: 0 = powerless, 0.5 = neutral, 1 = in control",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "socialOrientation": {
+            "description": "Social focus: 0 = self-focused, 0.5 = balanced, 1 = other-focused",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "temporalFocus": {
+            "description": "Time orientation: 0 = past-dwelling, 0.5 = present, 1 = future-anticipating",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          }
+        }
       }
     },
     "extras": {

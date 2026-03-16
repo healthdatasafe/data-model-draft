@@ -1903,8 +1903,21 @@
         "incomplete",
         "withdrawal",
         "condom",
-        "cervical-barrier"
+        "cervical-barrier",
+        "protected"
       ]
+    },
+    "ratio/proportion": {
+      "description": "A proportion value from 0 to 1. Represents a fraction of a whole: 0 = none, 1 = maximum. Used for subjective scales (e.g. bleeding intensity) where reference points are defined by item options.",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "test-result/scale": {
+      "description": "Generic qualitative test result on a scale from -1 to 1. Negative values indicate a negative result, 0 indicates indeterminate, positive values indicate a positive result. The magnitude represents intensity or confidence. Common values: -1 (negative), 0 (indeterminate), 1 (positive). Intermediate values can represent semi-quantitative results (e.g., 0.5 for a weak positive). Applicable to any binary or semi-quantitative test: medical (OPK, pregnancy, COVID), environmental, industrial, etc.",
+      "type": "number",
+      "minimum": -1,
+      "maximum": 1
     },
     "pregnancy/detailed": {
       "description": "Pregnancy. The value of `event.time` should indicate the start of pregnancy. When content value is 'ongoing' `event.duration` must be set to `null`. For any other value `event.duration` should be set to indicate when the pregnancy state terminated.",
@@ -1919,41 +1932,59 @@
       ]
     },
     "medication/basic": {
-      "description": "Simple medication based on name and eventual coding",
+      "description": "Simple medication intake identified by free-text name. 'intake' follows the same structure as medication/coded-v1 for dose and route.",
       "type": "object",
       "required": [
-        "label"
+        "name"
       ],
       "properties": {
         "name": {
-          "description": "The name of product",
+          "description": "Free-text name of the medication",
           "type": "string"
         },
-        "doseMg": {
-          "description": "The dosage in milligrams",
-          "type": "number"
-        },
-        "frequencyHours": {
-          "description": "Frequency in Hours. If non null, 'event.duration' should reflect the full period, otherwise it reflects one intake",
-          "type": "number"
-        },
-        "codes": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "required": [
-              "system",
-              "content"
-            ],
-            "properties": {
-              "system": {
-                "description": "The system code for HDS",
-                "type": "string"
-              },
-              "content": {
-                "description": "Accordingly to the norm, appropriate content for coding",
-                "type": "object"
-              }
+        "intake": {
+          "description": "User-entered intake regimen",
+          "type": "object",
+          "properties": {
+            "doseValue": {
+              "description": "Amount per intake (e.g. 2 for '2 tablets', 5 for '5 mL')",
+              "type": "number"
+            },
+            "doseUnit": {
+              "description": "HDS eventType reference for the dose unit",
+              "type": "string",
+              "enum": [
+                "dose/tablet",
+                "dose/drop",
+                "dose/puff",
+                "dose/application",
+                "dose/suppository",
+                "dose/unit",
+                "volume/ml",
+                "mass/mg",
+                "mass/mcg",
+                "mass/g"
+              ]
+            },
+            "route": {
+              "description": "Route of administration",
+              "type": "string",
+              "enum": [
+                "oral",
+                "sublingual",
+                "parenteral",
+                "intravenous",
+                "intramuscular",
+                "subcutaneous",
+                "inhalation",
+                "nasal",
+                "topical",
+                "transdermal",
+                "ophthalmic",
+                "otic",
+                "rectal",
+                "vaginal"
+              ]
             }
           }
         }
@@ -2323,6 +2354,66 @@
     "contact/display-name": {
       "description": "User display name",
       "type": "string"
+    },
+    "cervix-position/3d-vectors": {
+      "description": "Cervical position observation as three 0–1 vectors: height (low→high), firmness (firm→soft), openness (closed→open). Each dimension follows the fertility direction (0 = least fertile, 1 = most fertile).",
+      "type": "object",
+      "properties": {
+        "height": {
+          "description": "Cervix height: 0 = low, 0.5 = medium, 1 = high",
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "firmness": {
+          "description": "Cervix firmness: 0 = firm, 0.5 = medium, 1 = soft",
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "openness": {
+          "description": "Cervical os openness: 0 = closed, 0.5 = medium, 1 = open",
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      }
+    },
+    "mood/5d-vectors": {
+      "description": "Mood observation as five 0–1 dimensional vectors based on Russell's Circumplex and PAD models. Valence (unpleasant→pleasant), arousal (calm→activated), dominance (powerless→in-control), social orientation (self→other-focused), temporal focus (past→future).",
+      "type": "object",
+      "properties": {
+        "valence": {
+          "description": "Pleasure/displeasure: 0 = very unpleasant, 0.5 = neutral, 1 = very pleasant",
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "arousal": {
+          "description": "Energy/activation: 0 = very calm, 0.5 = moderate, 1 = very activated",
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "dominance": {
+          "description": "Sense of control: 0 = powerless, 0.5 = neutral, 1 = in control",
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "socialOrientation": {
+          "description": "Social focus: 0 = self-focused, 0.5 = balanced, 1 = other-focused",
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "temporalFocus": {
+          "description": "Time orientation: 0 = past-dwelling, 0.5 = present, 1 = future-anticipating",
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      }
     }
   },
   "extras": {

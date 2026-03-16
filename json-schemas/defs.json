@@ -25,7 +25,8 @@
         "text",
         "select",
         "checkbox",
-        "date"
+        "date",
+        "picture"
       ]
     }
   }

@@ -53,16 +53,53 @@
             "parentId": "body-vulva"
           },
           {
+            "id": "body-vulva-cervix-position",
+            "name": "Cervical Position",
+            "parentId": "body-vulva"
+          },
+          {
             "id": "body-vulva-bleeding",
             "name": "Vulva Bleeding",
             "children": [
               {
                 "id": "body-vulva-bleeding-browndark",
-                "name": "Presence of browndark coloration",
+                "name": "Presence of brown/dark coloration",
+                "parentId": "body-vulva-bleeding"
+              },
+              {
+                "id": "body-vulva-bleeding-clots",
+                "name": "Presence of blood clots",
                 "parentId": "body-vulva-bleeding"
               }
             ],
             "parentId": "body-vulva"
+          }
+        ],
+        "parentId": "body"
+      },
+      {
+        "id": "body-skin",
+        "name": "Skin",
+        "children": [
+          {
+            "id": "body-skin-acne",
+            "name": "Acne",
+            "parentId": "body-skin"
+          },
+          {
+            "id": "body-skin-dry",
+            "name": "Dry Skin",
+            "parentId": "body-skin"
+          },
+          {
+            "id": "body-skin-oily",
+            "name": "Oily Skin",
+            "parentId": "body-skin"
+          },
+          {
+            "id": "body-skin-glowing",
+            "name": "Glowing Skin",
+            "parentId": "body-skin"
           }
         ],
         "parentId": "body"
@@ -178,6 +215,16 @@
         "parentId": "fertility"
       },
       {
+        "id": "fertility-test-opk",
+        "name": "Ovulation Test (OPK)",
+        "parentId": "fertility"
+      },
+      {
+        "id": "fertility-test-pregnancy",
+        "name": "Pregnancy Test",
+        "parentId": "fertility"
+      },
+      {
         "id": "fertility-preganancies",
         "name": "Pregancies",
         "children": [
@@ -215,12 +262,22 @@
     "children": [
       {
         "id": "profile-address",
-        "name": "Adress",
+        "name": "Address",
         "parentId": "profile"
       },
       {
         "id": "profile-date-of-birth",
         "name": "Date of Birth",
+        "parentId": "profile"
+      },
+      {
+        "id": "profile-avatar",
+        "name": "Avatar",
+        "parentId": "profile"
+      },
+      {
+        "id": "profile-display-name",
+        "name": "Display Name",
         "parentId": "profile"
       },
       {
@@ -237,6 +294,74 @@
         "id": "profile-sex",
         "name": "Sex",
         "parentId": "profile"
+      }
+    ]
+  },
+  {
+    "id": "symptom",
+    "name": "Symptoms",
+    "parentId": null,
+    "children": [
+      {
+        "id": "symptom-gastrointestinal",
+        "name": "Gastrointestinal",
+        "children": [
+          {
+            "id": "symptom-gastrointestinal-nausea",
+            "name": "Nausea",
+            "parentId": "symptom-gastrointestinal"
+          },
+          {
+            "id": "symptom-gastrointestinal-cramps",
+            "name": "Cramps",
+            "parentId": "symptom-gastrointestinal"
+          },
+          {
+            "id": "symptom-gastrointestinal-gas",
+            "name": "Gas",
+            "parentId": "symptom-gastrointestinal"
+          },
+          {
+            "id": "symptom-gastrointestinal-cravings",
+            "name": "Cravings",
+            "parentId": "symptom-gastrointestinal"
+          }
+        ],
+        "parentId": "symptom"
+      },
+      {
+        "id": "symptom-pain",
+        "name": "Pain",
+        "children": [
+          {
+            "id": "symptom-pain-headache",
+            "name": "Headache",
+            "parentId": "symptom-pain"
+          },
+          {
+            "id": "symptom-pain-migraine",
+            "name": "Migraine",
+            "parentId": "symptom-pain"
+          }
+        ],
+        "parentId": "symptom"
+      }
+    ]
+  },
+  {
+    "id": "wellbeing",
+    "name": "Wellbeing",
+    "parentId": null,
+    "children": [
+      {
+        "id": "wellbeing-mood",
+        "name": "Mood",
+        "parentId": "wellbeing"
+      },
+      {
+        "id": "wellbeing-sex-drive",
+        "name": "Sex Drive",
+        "parentId": "wellbeing"
       }
     ]
   }
