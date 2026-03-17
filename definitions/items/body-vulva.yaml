@@ -123,6 +123,24 @@ body-vulva-bleeding-clots:
   type: checkbox
   repeatable: P1D
 
+body-vulva-bleeding-postpartum:
+  version: v1
+  label: Postpartum Bleeding
+  description: Vaginal bleeding following childbirth (lochia).
+  streamId: body-vulva-bleeding-postpartum
+  eventType: activity/plain
+  type: checkbox
+  repeatable: P1D
+
+body-vulva-bleeding-miscarriage:
+  version: v1
+  label: Miscarriage Bleeding
+  description: Vaginal bleeding associated with pregnancy loss.
+  streamId: body-vulva-bleeding-miscarriage
+  eventType: activity/plain
+  type: checkbox
+  repeatable: P1D
+
 ## Cervical Position
 
 body-vulva-cervix-position:
