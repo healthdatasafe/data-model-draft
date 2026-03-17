@@ -256,6 +256,18 @@
     ]
   },
   {
+    "id": "nutrition",
+    "name": "Nutrition",
+    "parentId": null,
+    "children": [
+      {
+        "id": "nutrition-appetite",
+        "name": "Appetite",
+        "parentId": "nutrition"
+      }
+    ]
+  },
+  {
     "id": "profile",
     "name": "Profile",
     "parentId": null,
@@ -325,6 +337,21 @@
             "id": "symptom-gastrointestinal-cravings",
             "name": "Cravings",
             "parentId": "symptom-gastrointestinal"
+          },
+          {
+            "id": "symptom-gastrointestinal-bloating",
+            "name": "Bloating",
+            "parentId": "symptom-gastrointestinal"
+          },
+          {
+            "id": "symptom-gastrointestinal-diarrhea",
+            "name": "Diarrhea",
+            "parentId": "symptom-gastrointestinal"
+          },
+          {
+            "id": "symptom-gastrointestinal-constipation",
+            "name": "Constipation",
+            "parentId": "symptom-gastrointestinal"
           }
         ],
         "parentId": "symptom"
@@ -342,6 +369,81 @@
             "id": "symptom-pain-migraine",
             "name": "Migraine",
             "parentId": "symptom-pain"
+          },
+          {
+            "id": "symptom-pain-sore-breasts",
+            "name": "Sore Breasts",
+            "parentId": "symptom-pain"
+          },
+          {
+            "id": "symptom-pain-backache",
+            "name": "Backache",
+            "parentId": "symptom-pain"
+          }
+        ],
+        "parentId": "symptom"
+      },
+      {
+        "id": "symptom-neurological",
+        "name": "Neurological",
+        "children": [
+          {
+            "id": "symptom-neurological-dizziness",
+            "name": "Dizziness",
+            "parentId": "symptom-neurological"
+          }
+        ],
+        "parentId": "symptom"
+      },
+      {
+        "id": "symptom-dermatological",
+        "name": "Dermatological",
+        "children": [
+          {
+            "id": "symptom-dermatological-hair-loss",
+            "name": "Hair Loss",
+            "parentId": "symptom-dermatological"
+          },
+          {
+            "id": "symptom-dermatological-hair-growth",
+            "name": "Excess Hair Growth",
+            "parentId": "symptom-dermatological"
+          }
+        ],
+        "parentId": "symptom"
+      },
+      {
+        "id": "symptom-sleep",
+        "name": "Sleep",
+        "children": [
+          {
+            "id": "symptom-sleep-insomnia",
+            "name": "Insomnia",
+            "parentId": "symptom-sleep"
+          }
+        ],
+        "parentId": "symptom"
+      },
+      {
+        "id": "symptom-metabolic",
+        "name": "Metabolic",
+        "children": [
+          {
+            "id": "symptom-metabolic-water-retention",
+            "name": "Water Retention",
+            "parentId": "symptom-metabolic"
+          }
+        ],
+        "parentId": "symptom"
+      },
+      {
+        "id": "symptom-general",
+        "name": "General",
+        "children": [
+          {
+            "id": "symptom-general-fatigue",
+            "name": "Fatigue",
+            "parentId": "symptom-general"
           }
         ],
         "parentId": "symptom"

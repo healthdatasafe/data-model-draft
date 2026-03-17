@@ -1,5 +1,5 @@
 {
-  "publicationDate": "2026-03-16T17:47:20.609Z",
+  "publicationDate": "2026-03-17T12:02:04.280Z",
   "streams": [
     {
       "id": "body",
@@ -258,6 +258,18 @@
       ]
     },
     {
+      "id": "nutrition",
+      "name": "Nutrition",
+      "parentId": null,
+      "children": [
+        {
+          "id": "nutrition-appetite",
+          "name": "Appetite",
+          "parentId": "nutrition"
+        }
+      ]
+    },
+    {
       "id": "profile",
       "name": "Profile",
       "parentId": null,
@@ -327,6 +339,21 @@
               "id": "symptom-gastrointestinal-cravings",
               "name": "Cravings",
               "parentId": "symptom-gastrointestinal"
+            },
+            {
+              "id": "symptom-gastrointestinal-bloating",
+              "name": "Bloating",
+              "parentId": "symptom-gastrointestinal"
+            },
+            {
+              "id": "symptom-gastrointestinal-diarrhea",
+              "name": "Diarrhea",
+              "parentId": "symptom-gastrointestinal"
+            },
+            {
+              "id": "symptom-gastrointestinal-constipation",
+              "name": "Constipation",
+              "parentId": "symptom-gastrointestinal"
             }
           ],
           "parentId": "symptom"
@@ -344,6 +371,81 @@
               "id": "symptom-pain-migraine",
               "name": "Migraine",
               "parentId": "symptom-pain"
+            },
+            {
+              "id": "symptom-pain-sore-breasts",
+              "name": "Sore Breasts",
+              "parentId": "symptom-pain"
+            },
+            {
+              "id": "symptom-pain-backache",
+              "name": "Backache",
+              "parentId": "symptom-pain"
+            }
+          ],
+          "parentId": "symptom"
+        },
+        {
+          "id": "symptom-neurological",
+          "name": "Neurological",
+          "children": [
+            {
+              "id": "symptom-neurological-dizziness",
+              "name": "Dizziness",
+              "parentId": "symptom-neurological"
+            }
+          ],
+          "parentId": "symptom"
+        },
+        {
+          "id": "symptom-dermatological",
+          "name": "Dermatological",
+          "children": [
+            {
+              "id": "symptom-dermatological-hair-loss",
+              "name": "Hair Loss",
+              "parentId": "symptom-dermatological"
+            },
+            {
+              "id": "symptom-dermatological-hair-growth",
+              "name": "Excess Hair Growth",
+              "parentId": "symptom-dermatological"
+            }
+          ],
+          "parentId": "symptom"
+        },
+        {
+          "id": "symptom-sleep",
+          "name": "Sleep",
+          "children": [
+            {
+              "id": "symptom-sleep-insomnia",
+              "name": "Insomnia",
+              "parentId": "symptom-sleep"
+            }
+          ],
+          "parentId": "symptom"
+        },
+        {
+          "id": "symptom-metabolic",
+          "name": "Metabolic",
+          "children": [
+            {
+              "id": "symptom-metabolic-water-retention",
+              "name": "Water Retention",
+              "parentId": "symptom-metabolic"
+            }
+          ],
+          "parentId": "symptom"
+        },
+        {
+          "id": "symptom-general",
+          "name": "General",
+          "children": [
+            {
+              "id": "symptom-general-fatigue",
+              "name": "Fatigue",
+              "parentId": "symptom-general"
             }
           ],
           "parentId": "symptom"
@@ -1320,6 +1422,42 @@
       "datasource": "medication",
       "repeatable": "unlimited"
     },
+    "nutrition-appetite": {
+      "version": "v1",
+      "label": {
+        "en": "Appetite"
+      },
+      "description": {
+        "en": "Self-reported appetite level."
+      },
+      "streamId": "nutrition-appetite",
+      "eventType": "ratio/proportion",
+      "type": "select",
+      "options": [
+        {
+          "value": 0.25,
+          "label": {
+            "en": "Decreased",
+            "fr": "Diminué"
+          }
+        },
+        {
+          "value": 0.5,
+          "label": {
+            "en": "Normal",
+            "fr": "Normal"
+          }
+        },
+        {
+          "value": 0.75,
+          "label": {
+            "en": "Increased",
+            "fr": "Augmenté"
+          }
+        }
+      ],
+      "repeatable": "P1D"
+    },
     "profile-addresscountry": {
       "version": "temporary",
       "label": {
@@ -1506,6 +1644,45 @@
       "type": "checkbox",
       "repeatable": "unlimited"
     },
+    "symptom-gastrointestinal-bloating": {
+      "version": "v1",
+      "label": {
+        "en": "Bloating"
+      },
+      "description": {
+        "en": "Abdominal bloating or distension."
+      },
+      "streamId": "symptom-gastrointestinal-bloating",
+      "eventType": "activity/plain",
+      "type": "checkbox",
+      "repeatable": "unlimited"
+    },
+    "symptom-gastrointestinal-diarrhea": {
+      "version": "v1",
+      "label": {
+        "en": "Diarrhea"
+      },
+      "description": {
+        "en": "Loose or watery stools."
+      },
+      "streamId": "symptom-gastrointestinal-diarrhea",
+      "eventType": "activity/plain",
+      "type": "checkbox",
+      "repeatable": "unlimited"
+    },
+    "symptom-gastrointestinal-constipation": {
+      "version": "v1",
+      "label": {
+        "en": "Constipation"
+      },
+      "description": {
+        "en": "Difficulty with bowel movements or infrequent stools."
+      },
+      "streamId": "symptom-gastrointestinal-constipation",
+      "eventType": "activity/plain",
+      "type": "checkbox",
+      "repeatable": "unlimited"
+    },
     "symptom-pain-headache": {
       "version": "v1",
       "label": {
@@ -1528,6 +1705,110 @@
         "en": "Migraine headache, typically with throbbing pain, may include aura, nausea, or light sensitivity."
       },
       "streamId": "symptom-pain-migraine",
+      "eventType": "activity/plain",
+      "type": "checkbox",
+      "repeatable": "unlimited"
+    },
+    "symptom-pain-sore-breasts": {
+      "version": "v1",
+      "label": {
+        "en": "Sore Breasts"
+      },
+      "description": {
+        "en": "Breast pain or tenderness."
+      },
+      "streamId": "symptom-pain-sore-breasts",
+      "eventType": "activity/plain",
+      "type": "checkbox",
+      "repeatable": "unlimited"
+    },
+    "symptom-pain-backache": {
+      "version": "v1",
+      "label": {
+        "en": "Backache"
+      },
+      "description": {
+        "en": "Back pain, lower or general."
+      },
+      "streamId": "symptom-pain-backache",
+      "eventType": "activity/plain",
+      "type": "checkbox",
+      "repeatable": "unlimited"
+    },
+    "symptom-neurological-dizziness": {
+      "version": "v1",
+      "label": {
+        "en": "Dizziness"
+      },
+      "description": {
+        "en": "Sensation of lightheadedness or unsteadiness."
+      },
+      "streamId": "symptom-neurological-dizziness",
+      "eventType": "activity/plain",
+      "type": "checkbox",
+      "repeatable": "unlimited"
+    },
+    "symptom-dermatological-hair-loss": {
+      "version": "v1",
+      "label": {
+        "en": "Hair Loss"
+      },
+      "description": {
+        "en": "Noticeable hair loss or thinning."
+      },
+      "streamId": "symptom-dermatological-hair-loss",
+      "eventType": "activity/plain",
+      "type": "checkbox",
+      "repeatable": "unlimited"
+    },
+    "symptom-dermatological-hair-growth": {
+      "version": "v1",
+      "label": {
+        "en": "Excess Hair Growth"
+      },
+      "description": {
+        "en": "Unusual body or facial hair growth (hirsutism)."
+      },
+      "streamId": "symptom-dermatological-hair-growth",
+      "eventType": "activity/plain",
+      "type": "checkbox",
+      "repeatable": "unlimited"
+    },
+    "symptom-sleep-insomnia": {
+      "version": "v1",
+      "label": {
+        "en": "Insomnia"
+      },
+      "description": {
+        "en": "Difficulty falling or staying asleep."
+      },
+      "streamId": "symptom-sleep-insomnia",
+      "eventType": "activity/plain",
+      "type": "checkbox",
+      "repeatable": "unlimited"
+    },
+    "symptom-metabolic-water-retention": {
+      "version": "v1",
+      "label": {
+        "en": "Water Retention"
+      },
+      "description": {
+        "en": "Fluid retention, swelling, or edema."
+      },
+      "streamId": "symptom-metabolic-water-retention",
+      "eventType": "activity/plain",
+      "type": "checkbox",
+      "repeatable": "unlimited"
+    },
+    "symptom-general-fatigue": {
+      "version": "v1",
+      "label": {
+        "en": "Fatigue"
+      },
+      "description": {
+        "en": "Low energy, tiredness, or exhaustion."
+      },
+      "streamId": "symptom-general-fatigue",
       "eventType": "activity/plain",
       "type": "checkbox",
       "repeatable": "unlimited"
@@ -1764,6 +2045,13 @@
           "label": {
             "en": "Low",
             "fr": "Faible"
+          }
+        },
+        {
+          "value": 0.5,
+          "label": {
+            "en": "Neutral",
+            "fr": "Neutre"
           }
         },
         {
