@@ -1,0 +1,22 @@
+id: activity
+name: Physical Activity
+parentId: null
+children:
+  - id: activity-yoga
+    name: Yoga
+  - id: activity-stretching
+    name: Stretching
+  - id: activity-pilates
+    name: Pilates
+  - id: activity-hiit
+    name: HIIT
+  - id: activity-weights
+    name: Weights
+  - id: activity-swimming
+    name: Swimming
+  - id: activity-cycling
+    name: Cycling
+  - id: activity-jogging
+    name: Jogging
+  - id: activity-hiking
+    name: Hiking

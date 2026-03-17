@@ -1,0 +1,87 @@
+# Physical activity items — self-reported exercise tracking.
+# See documentation/PHYSICAL-ACTIVITY.md for cross-system compatibility.
+#
+# Event type: activity/plain (presence flag + event duration).
+# Maps to Apple HealthKit HKWorkoutActivityType and SNOMED CT codes.
+# Can evolve to include duration/intensity when richer sources are available.
+
+activity-yoga:
+  version: v1
+  label: Yoga
+  description: Yoga session.
+  streamId: activity-yoga
+  eventType: activity/plain
+  type: checkbox
+  repeatable: unlimited
+
+activity-stretching:
+  version: v1
+  label: Stretching
+  description: Stretching or flexibility exercises.
+  streamId: activity-stretching
+  eventType: activity/plain
+  type: checkbox
+  repeatable: unlimited
+
+activity-pilates:
+  version: v1
+  label: Pilates
+  description: Pilates session.
+  streamId: activity-pilates
+  eventType: activity/plain
+  type: checkbox
+  repeatable: unlimited
+
+activity-hiit:
+  version: v1
+  label: HIIT
+  description: High-intensity interval training session.
+  streamId: activity-hiit
+  eventType: activity/plain
+  type: checkbox
+  repeatable: unlimited
+
+activity-weights:
+  version: v1
+  label: Weights
+  description: Strength or weight training session.
+  streamId: activity-weights
+  eventType: activity/plain
+  type: checkbox
+  repeatable: unlimited
+
+activity-swimming:
+  version: v1
+  label: Swimming
+  description: Swimming session.
+  streamId: activity-swimming
+  eventType: activity/plain
+  type: checkbox
+  repeatable: unlimited
+
+activity-cycling:
+  version: v1
+  label: Cycling
+  description: Cycling or biking session.
+  streamId: activity-cycling
+  eventType: activity/plain
+  type: checkbox
+  repeatable: unlimited
+
+activity-jogging:
+  version: v1
+  label: Jogging
+  description: Jogging or running session.
+  streamId: activity-jogging
+  eventType: activity/plain
+  type: checkbox
+  repeatable: unlimited
+
+activity-hiking:
+  version: v1
+  label: Hiking
+  description: Hiking or trail walking session.
+  streamId: activity-hiking
+  eventType: activity/plain
+  type: checkbox
+  repeatable: unlimited
