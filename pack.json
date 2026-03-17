@@ -1,6 +1,58 @@
 {
-  "publicationDate": "2026-03-17T12:02:04.280Z",
+  "publicationDate": "2026-03-17T17:33:16.648Z",
   "streams": [
+    {
+      "id": "activity",
+      "name": "Physical Activity",
+      "parentId": null,
+      "children": [
+        {
+          "id": "activity-yoga",
+          "name": "Yoga",
+          "parentId": "activity"
+        },
+        {
+          "id": "activity-stretching",
+          "name": "Stretching",
+          "parentId": "activity"
+        },
+        {
+          "id": "activity-pilates",
+          "name": "Pilates",
+          "parentId": "activity"
+        },
+        {
+          "id": "activity-hiit",
+          "name": "HIIT",
+          "parentId": "activity"
+        },
+        {
+          "id": "activity-weights",
+          "name": "Weights",
+          "parentId": "activity"
+        },
+        {
+          "id": "activity-swimming",
+          "name": "Swimming",
+          "parentId": "activity"
+        },
+        {
+          "id": "activity-cycling",
+          "name": "Cycling",
+          "parentId": "activity"
+        },
+        {
+          "id": "activity-jogging",
+          "name": "Jogging",
+          "parentId": "activity"
+        },
+        {
+          "id": "activity-hiking",
+          "name": "Hiking",
+          "parentId": "activity"
+        }
+      ]
+    },
     {
       "id": "body",
       "name": "Body",
@@ -71,6 +123,16 @@
                 {
                   "id": "body-vulva-bleeding-clots",
                   "name": "Presence of blood clots",
+                  "parentId": "body-vulva-bleeding"
+                },
+                {
+                  "id": "body-vulva-bleeding-postpartum",
+                  "name": "Postpartum Bleeding",
+                  "parentId": "body-vulva-bleeding"
+                },
+                {
+                  "id": "body-vulva-bleeding-miscarriage",
+                  "name": "Miscarriage Bleeding",
                   "parentId": "body-vulva-bleeding"
                 }
               ],
@@ -471,6 +533,123 @@
     }
   ],
   "items": {
+    "activity-yoga": {
+      "version": "v1",
+      "label": {
+        "en": "Yoga"
+      },
+      "description": {
+        "en": "Yoga session."
+      },
+      "streamId": "activity-yoga",
+      "eventType": "activity/plain",
+      "type": "checkbox",
+      "repeatable": "unlimited"
+    },
+    "activity-stretching": {
+      "version": "v1",
+      "label": {
+        "en": "Stretching"
+      },
+      "description": {
+        "en": "Stretching or flexibility exercises."
+      },
+      "streamId": "activity-stretching",
+      "eventType": "activity/plain",
+      "type": "checkbox",
+      "repeatable": "unlimited"
+    },
+    "activity-pilates": {
+      "version": "v1",
+      "label": {
+        "en": "Pilates"
+      },
+      "description": {
+        "en": "Pilates session."
+      },
+      "streamId": "activity-pilates",
+      "eventType": "activity/plain",
+      "type": "checkbox",
+      "repeatable": "unlimited"
+    },
+    "activity-hiit": {
+      "version": "v1",
+      "label": {
+        "en": "HIIT"
+      },
+      "description": {
+        "en": "High-intensity interval training session."
+      },
+      "streamId": "activity-hiit",
+      "eventType": "activity/plain",
+      "type": "checkbox",
+      "repeatable": "unlimited"
+    },
+    "activity-weights": {
+      "version": "v1",
+      "label": {
+        "en": "Weights"
+      },
+      "description": {
+        "en": "Strength or weight training session."
+      },
+      "streamId": "activity-weights",
+      "eventType": "activity/plain",
+      "type": "checkbox",
+      "repeatable": "unlimited"
+    },
+    "activity-swimming": {
+      "version": "v1",
+      "label": {
+        "en": "Swimming"
+      },
+      "description": {
+        "en": "Swimming session."
+      },
+      "streamId": "activity-swimming",
+      "eventType": "activity/plain",
+      "type": "checkbox",
+      "repeatable": "unlimited"
+    },
+    "activity-cycling": {
+      "version": "v1",
+      "label": {
+        "en": "Cycling"
+      },
+      "description": {
+        "en": "Cycling or biking session."
+      },
+      "streamId": "activity-cycling",
+      "eventType": "activity/plain",
+      "type": "checkbox",
+      "repeatable": "unlimited"
+    },
+    "activity-jogging": {
+      "version": "v1",
+      "label": {
+        "en": "Jogging"
+      },
+      "description": {
+        "en": "Jogging or running session."
+      },
+      "streamId": "activity-jogging",
+      "eventType": "activity/plain",
+      "type": "checkbox",
+      "repeatable": "unlimited"
+    },
+    "activity-hiking": {
+      "version": "v1",
+      "label": {
+        "en": "Hiking"
+      },
+      "description": {
+        "en": "Hiking or trail walking session."
+      },
+      "streamId": "activity-hiking",
+      "eventType": "activity/plain",
+      "type": "checkbox",
+      "repeatable": "unlimited"
+    },
     "body-skin-acne": {
       "version": "v1",
       "label": {
@@ -751,6 +930,32 @@
         "en": "Presence of blood clots during bleeding. Qualifier for a co-occurring bleeding event."
       },
       "streamId": "body-vulva-bleeding-clots",
+      "eventType": "activity/plain",
+      "type": "checkbox",
+      "repeatable": "P1D"
+    },
+    "body-vulva-bleeding-postpartum": {
+      "version": "v1",
+      "label": {
+        "en": "Postpartum Bleeding"
+      },
+      "description": {
+        "en": "Vaginal bleeding following childbirth (lochia)."
+      },
+      "streamId": "body-vulva-bleeding-postpartum",
+      "eventType": "activity/plain",
+      "type": "checkbox",
+      "repeatable": "P1D"
+    },
+    "body-vulva-bleeding-miscarriage": {
+      "version": "v1",
+      "label": {
+        "en": "Miscarriage Bleeding"
+      },
+      "description": {
+        "en": "Vaginal bleeding associated with pregnancy loss."
+      },
+      "streamId": "body-vulva-bleeding-miscarriage",
       "eventType": "activity/plain",
       "type": "checkbox",
       "repeatable": "P1D"

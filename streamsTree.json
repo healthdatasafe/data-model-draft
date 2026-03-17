@@ -1,5 +1,57 @@
 [
   {
+    "id": "activity",
+    "name": "Physical Activity",
+    "parentId": null,
+    "children": [
+      {
+        "id": "activity-yoga",
+        "name": "Yoga",
+        "parentId": "activity"
+      },
+      {
+        "id": "activity-stretching",
+        "name": "Stretching",
+        "parentId": "activity"
+      },
+      {
+        "id": "activity-pilates",
+        "name": "Pilates",
+        "parentId": "activity"
+      },
+      {
+        "id": "activity-hiit",
+        "name": "HIIT",
+        "parentId": "activity"
+      },
+      {
+        "id": "activity-weights",
+        "name": "Weights",
+        "parentId": "activity"
+      },
+      {
+        "id": "activity-swimming",
+        "name": "Swimming",
+        "parentId": "activity"
+      },
+      {
+        "id": "activity-cycling",
+        "name": "Cycling",
+        "parentId": "activity"
+      },
+      {
+        "id": "activity-jogging",
+        "name": "Jogging",
+        "parentId": "activity"
+      },
+      {
+        "id": "activity-hiking",
+        "name": "Hiking",
+        "parentId": "activity"
+      }
+    ]
+  },
+  {
     "id": "body",
     "name": "Body",
     "parentId": null,
@@ -69,6 +121,16 @@
               {
                 "id": "body-vulva-bleeding-clots",
                 "name": "Presence of blood clots",
+                "parentId": "body-vulva-bleeding"
+              },
+              {
+                "id": "body-vulva-bleeding-postpartum",
+                "name": "Postpartum Bleeding",
+                "parentId": "body-vulva-bleeding"
+              },
+              {
+                "id": "body-vulva-bleeding-miscarriage",
+                "name": "Miscarriage Bleeding",
                 "parentId": "body-vulva-bleeding"
               }
             ],
