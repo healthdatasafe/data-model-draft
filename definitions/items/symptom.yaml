@@ -1,10 +1,13 @@
-# Symptom items — currently covers Mira daily log symptoms only.
+# Symptom items — self-reported symptom observations.
 # See documentation/SYMPTOMS.md for cross-system compatibility research
-# (Apple HealthKit, SNOMED CT, FHIR, Ovia) and future extension plans.
+# (Apple HealthKit, SNOMED CT, FHIR, Ovia, Mira).
 #
 # Event type: activity/plain (presence flag + event duration).
 # Severity extension path: switch to ratio/proportion with
 # 0/0.33/0.66/1.0 (None/Mild/Moderate/Severe) — see SYMPTOMS.md.
+#
+# Categories follow clinical body-system groupings (aligned with
+# Apple HealthKit symptom categories and SNOMED CT finding sites).
 
 ## Gastrointestinal
 symptom-gastrointestinal-nausea:
@@ -43,7 +46,34 @@ symptom-gastrointestinal-cravings:
   type: checkbox
   repeatable: unlimited
 
-## Pain
+symptom-gastrointestinal-bloating:
+  version: v1
+  label: Bloating
+  description: Abdominal bloating or distension.
+  streamId: symptom-gastrointestinal-bloating
+  eventType: activity/plain
+  type: checkbox
+  repeatable: unlimited
+
+symptom-gastrointestinal-diarrhea:
+  version: v1
+  label: Diarrhea
+  description: Loose or watery stools.
+  streamId: symptom-gastrointestinal-diarrhea
+  eventType: activity/plain
+  type: checkbox
+  repeatable: unlimited
+
+symptom-gastrointestinal-constipation:
+  version: v1
+  label: Constipation
+  description: Difficulty with bowel movements or infrequent stools.
+  streamId: symptom-gastrointestinal-constipation
+  eventType: activity/plain
+  type: checkbox
+  repeatable: unlimited
+
+## Pain / Musculoskeletal
 symptom-pain-headache:
   version: v1
   label: Headache
@@ -58,6 +88,83 @@ symptom-pain-migraine:
   label: Migraine
   description: Migraine headache, typically with throbbing pain, may include aura, nausea, or light sensitivity.
   streamId: symptom-pain-migraine
+  eventType: activity/plain
+  type: checkbox
+  repeatable: unlimited
+
+symptom-pain-sore-breasts:
+  version: v1
+  label: Sore Breasts
+  description: Breast pain or tenderness.
+  streamId: symptom-pain-sore-breasts
+  eventType: activity/plain
+  type: checkbox
+  repeatable: unlimited
+
+symptom-pain-backache:
+  version: v1
+  label: Backache
+  description: Back pain, lower or general.
+  streamId: symptom-pain-backache
+  eventType: activity/plain
+  type: checkbox
+  repeatable: unlimited
+
+## Neurological
+symptom-neurological-dizziness:
+  version: v1
+  label: Dizziness
+  description: Sensation of lightheadedness or unsteadiness.
+  streamId: symptom-neurological-dizziness
+  eventType: activity/plain
+  type: checkbox
+  repeatable: unlimited
+
+## Dermatological
+symptom-dermatological-hair-loss:
+  version: v1
+  label: Hair Loss
+  description: Noticeable hair loss or thinning.
+  streamId: symptom-dermatological-hair-loss
+  eventType: activity/plain
+  type: checkbox
+  repeatable: unlimited
+
+symptom-dermatological-hair-growth:
+  version: v1
+  label: Excess Hair Growth
+  description: Unusual body or facial hair growth (hirsutism).
+  streamId: symptom-dermatological-hair-growth
+  eventType: activity/plain
+  type: checkbox
+  repeatable: unlimited
+
+## Sleep
+symptom-sleep-insomnia:
+  version: v1
+  label: Insomnia
+  description: Difficulty falling or staying asleep.
+  streamId: symptom-sleep-insomnia
+  eventType: activity/plain
+  type: checkbox
+  repeatable: unlimited
+
+## Metabolic
+symptom-metabolic-water-retention:
+  version: v1
+  label: Water Retention
+  description: Fluid retention, swelling, or edema.
+  streamId: symptom-metabolic-water-retention
+  eventType: activity/plain
+  type: checkbox
+  repeatable: unlimited
+
+## General / Constitutional
+symptom-general-fatigue:
+  version: v1
+  label: Fatigue
+  description: Low energy, tiredness, or exhaustion.
+  streamId: symptom-general-fatigue
   eventType: activity/plain
   type: checkbox
   repeatable: unlimited

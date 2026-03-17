@@ -86,11 +86,11 @@ Acne confirmed. Full skin vocabulary not publicly documented. Presence flags.
 "skin": "Dry,Glowing"
 ```
 
-**Known values (from sample data):** Dry, Glowing
+**All confirmed values (from real Mira prod API, 2026-03-17):** Dry, Oily, Breaking out, Glowing, Normal
 
-**Likely additional values:** Oily, Acne (matching Natural Cycles pattern — Mira's vocabulary appears very similar).
-
-No severity/intensity. Multiple values comma-separated.
+- "Breaking out" = Acne (maps to `body-skin-acne`)
+- "Normal" = no event needed (skip, like "No symptoms")
+- No severity/intensity. Multiple values comma-separated.
 
 ---
 
@@ -151,12 +151,12 @@ No severity for now: only Apple HealthKit provides it, and most sources are bina
 
 | HDS Item | Apple HealthKit | SNOMED | Clue | Natural Cycles | Mira |
 |---|---|---|---|---|---|
-| `body-skin-acne` | `acne` | 11381005 | Acne | — | Acne* |
+| `body-skin-acne` | `acne` | 11381005 | Acne | — | Breaking out |
 | `body-skin-dry` | `drySkin` | 52475004 | Dry | Dry | Dry |
-| `body-skin-oily` | — | 42273000 | Oily | Oily | Oily* |
+| `body-skin-oily` | — | 42273000 | Oily | Oily | Oily |
 | `body-skin-glowing` | — | — | Good | Glowing | Glowing |
 
-*Likely values, not confirmed from API docs.
+All Mira values confirmed from real prod API (2026-03-17). "Normal" = no event.
 
 ### Mira conversion
 

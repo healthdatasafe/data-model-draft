@@ -13,6 +13,12 @@ children:
         name: Gas
       - id: symptom-gastrointestinal-cravings
         name: Cravings
+      - id: symptom-gastrointestinal-bloating
+        name: Bloating
+      - id: symptom-gastrointestinal-diarrhea
+        name: Diarrhea
+      - id: symptom-gastrointestinal-constipation
+        name: Constipation
   - id: symptom-pain
     name: Pain
     children:
@@ -20,3 +26,34 @@ children:
         name: Headache
       - id: symptom-pain-migraine
         name: Migraine
+      - id: symptom-pain-sore-breasts
+        name: Sore Breasts
+      - id: symptom-pain-backache
+        name: Backache
+  - id: symptom-neurological
+    name: Neurological
+    children:
+      - id: symptom-neurological-dizziness
+        name: Dizziness
+  - id: symptom-dermatological
+    name: Dermatological
+    children:
+      - id: symptom-dermatological-hair-loss
+        name: Hair Loss
+      - id: symptom-dermatological-hair-growth
+        name: Excess Hair Growth
+  - id: symptom-sleep
+    name: Sleep
+    children:
+      - id: symptom-sleep-insomnia
+        name: Insomnia
+  - id: symptom-metabolic
+    name: Metabolic
+    children:
+      - id: symptom-metabolic-water-retention
+        name: Water Retention
+  - id: symptom-general
+    name: General
+    children:
+      - id: symptom-general-fatigue
+        name: Fatigue

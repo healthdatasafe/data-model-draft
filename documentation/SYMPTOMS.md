@@ -162,16 +162,41 @@ Source: PMC8631160 — "The real-world applications of the symptom tracking func
 - Flat array, no categorization in the API
 - API is read-only; no schema enumerating valid values
 
-**Confirmed symptom values from API examples:** Headache, Nausea, Cravings, Cramps, Gas
+**All 22 confirmed symptom values (from real Mira prod API, 2026-03-17):**
 
-**Likely additional symptoms** (from app content, not API-confirmed): hot flashes, night sweats, bloating, breast tenderness, back pain, acne, migraines, mood swings, anxiety, depression, joint pain, brain fog, sleep disturbances, vaginal dryness
+| Mira value | Apple HealthKit match | SNOMED CT |
+|---|---|---|
+| Headache | `headache` (Severity) | 25064002 |
+| Migraine | `headache` (Severity) | 37796009 |
+| Nausea | `nausea` (Severity) | 73879007 |
+| Cramps | `abdominalCramps` (Severity) | 21522001 |
+| Gas | — | 271835004 |
+| Cravings | — | — |
+| Sore breasts | `breastPain` (Severity) | 290077003 |
+| Bloating | `bloating` (Severity) | 248490000 |
+| Backache | `lowerBackPain` (Severity) | 161891005 |
+| Dizziness | `dizziness` (Severity) | 404640003 |
+| Acne | `acne` (Severity) | 11381005 |
+| Diarrhea | `diarrhea` (Severity) | 62315008 |
+| Constipation | `constipation` (Severity) | 14760008 |
+| Water retention | — | 43498006 |
+| Body/Facial hair growth | — | 66520009 (hirsutism) |
+| Hair loss | `hairLoss` (Severity) | 278040002 |
+| Insomnia | `sleepChanges` (Presence) | 193462001 |
+| Low energy | `fatigue` (Severity) | 84229001 |
+| Anxiety | `moodChanges` (Presence) | 48694002 |
+| Stress | — | 73595000 |
+| Increased appetite | `appetiteChanges` (AppetiteChanges) | 72405004 |
+| Weight fluctuations | — (quantitative: `bodyMass`) | — (derived) |
 
 **Separate Mira daily log fields** (not in `symptoms` array):
-- `mood` — e.g. "Excited", "Exhausted"
-- `skin` — e.g. "Dry", "Glowing"
-- `sex_drive` — e.g. "High"
+- `mood` — e.g. "Excited", "Exhausted" (see MOOD.md)
+- `skin` — e.g. "Dry", "Glowing" (see SKIN.md)
+- `sex_drive` — e.g. "High", "Neutral", "Low"
 - `cervical_mucous` — object with `description` and `volume`
 - `cervical_position` — object with `height`, `openness`, `texture`
+- `physical_activity` — e.g. "Weights", "Yoga"
+- `bleeding` — e.g. "Postpartum bleeding", "Miscarriage bleeding"
 
 ---
 
@@ -179,17 +204,35 @@ Source: PMC8631160 — "The real-world applications of the symptom tracking func
 
 | HDS Category | Apple HealthKit | SNOMED CT Parent | Mira | Ovia |
 |---|---|---|---|---|
-| Gastrointestinal | 7 symptoms (Severity) | Digestive system (53619000) | Nausea, Gas, Cramps, Cravings | Nausea, bloating, cramps, diarrhea, constipation |
-| Pain | 4 symptoms (Severity) | Finding site-based | Headache, Cramps | Headaches, migraines, cramps, backache, breast tenderness |
-| Neurological | 4 symptoms (Severity) | Nervous system (118940003) | Headache, Migraines | Dizziness |
-| Constitutional | 4 symptoms (Severity) | General symptom (162408000) | — | Fatigue |
-| Skin & Hair | 3 symptoms (Severity) | Finding site-based | `skin` field (separate) | Acne |
+| Gastrointestinal | 7 symptoms (Severity) | Digestive system (53619000) | Nausea, Gas, Cramps, Cravings, Bloating, Diarrhea, Constipation, Increased appetite | Nausea, bloating, cramps, diarrhea, constipation |
+| Pain / Musculoskeletal | 4 symptoms (Severity) | Finding site-based | Headache, Migraine, Sore breasts, Backache | Headaches, migraines, cramps, backache, breast tenderness |
+| Neurological | 4 symptoms (Severity) | Nervous system (118940003) | Dizziness | Dizziness |
+| Constitutional | 4 symptoms (Severity) | General symptom (162408000) | Low energy | Fatigue |
+| Dermatological | 3 symptoms (Severity) | Finding site-based | Acne, Hair loss, Body/Facial hair growth | Acne |
+| Psychological | 3 symptoms (Presence/special) | Finding-based | Anxiety, Stress | Mood (10+ options) |
+| Sleep | `sleepChanges` (Presence) | 193462001 | Insomnia | Sleep patterns |
+| Metabolic | `appetiteChanges` (special) | Various | Water retention, Weight fluctuations | Appetite changes |
 | Respiratory | 6 symptoms (Severity) | Respiratory system (50043002) | — | — |
 | Cardiovascular | 2 symptoms (Severity) | — | — | — |
-| Hormonal/Menopause | 3 symptoms (Severity) | — | Hot flashes, night sweats | Hot flashes, night sweats, vaginal dryness |
-| Behavioral/Mood | 3 symptoms (Presence/special) | — | `mood`, `sex_drive` fields | Mood (10+ options), sleep, appetite |
+| Hormonal/Menopause | 3 symptoms (Severity) | — | — | Hot flashes, night sweats, vaginal dryness |
 | Urological | 1 symptom (Severity) | — | — | — |
 | Sensory | 2 symptoms (Severity) | — | — | — |
+
+---
+
+## Symptom vs Observation vs Condition
+
+Some concepts tracked as "symptoms" in consumer apps are clinically classified differently:
+
+| Concept | SNOMED semantic tag | Apple HealthKit | Clinical note |
+|---|---|---|---|
+| Acne | **disorder** (11381005) | symptom (`acne`) | Self-reported = symptom; diagnosed = condition |
+| Hirsutism | **disorder** (66520009) | — | Endocrine disorder; self-reported = symptom |
+| Insomnia | **disorder** (193462001) | symptom (`sleepChanges`) | Sleep disorder (ICD-10: G47.0); "difficulty sleeping" is a symptom |
+| Anxiety | **finding** (48694002) | symptom (`moodChanges`) | Transient = symptom; persistent = condition (anxiety disorder 197480006) |
+| Weight fluctuations | — (derived measurement) | quantity (`bodyMass`) | Not a symptom — computed from weight tracking |
+
+**HDS approach:** Model these as self-reported symptom observations (FHIR `Observation` category `symptom`), not conditions. The same concept can exist as both a symptom item (self-reported presence) and a condition in a clinical context — the FHIR resource type determines the interpretation.
 
 ---
 
@@ -220,3 +263,17 @@ Symptoms use long descriptive IDs for clarity:
 - `symptom-gastrointestinal-nausea` (verbose, self-documenting)
 - `sym-gi-nausea` (compact, needs legend)
 - Decision: TBD based on existing HDS naming conventions
+
+### Cross-boundary items
+
+Some Mira concepts appear in multiple fields:
+- **Acne**: appears in both `skin` field (as "Breaking out") and `symptoms` field (as "Acne"). In HDS, `body-skin-acne` exists under body/skin stream. When acne comes from the symptom field, should it map to the same item or a separate symptom item? See open questions below.
+- **Anxiety/Stress**: appear in `symptoms` field AND overlap with `mood` field (5D mood vectors capture anxiety/stress as emotional states). These are complementary: symptom = "I have anxiety today", mood = "I feel anxious right now (valence=0.15, arousal=0.80)".
+
+### Design decisions (settled 2026-03-17)
+
+1. **Acne dual-source**: Mira's `symptoms.Acne` maps to existing `body-skin-acne` (reuse). Single item regardless of source — matches Apple HealthKit's single `acne` identifier.
+2. **Anxiety/Stress**: No symptom items — captured only through mood 5D vectors (`wellbeing-mood`). Mira's Anxiety/Stress in symptoms field are skipped silently.
+3. **Increased appetite**: Modeled as `nutrition-appetite` under new top-level `nutrition/` stream with `ratio/proportion` (0.25=decreased, 0.50=normal, 0.75=increased). Matches Apple HealthKit's 3-value `appetiteChanges` enum.
+4. **Weight fluctuations**: Skipped — derived from body-weight measurements, not a symptom.
+5. **Stream hierarchy**: Full clinical sub-categories under `symptom/` (gastrointestinal, pain, neurological, dermatological, sleep, metabolic, general) — ready for future items from HealthKit and other integrations.

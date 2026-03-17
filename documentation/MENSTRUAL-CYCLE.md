@@ -96,10 +96,23 @@ Notes:
 | `spotting` = "Brown" or "Dark" | `body-vulva-bleeding-browndark` = true |
 | `spotting` = "Red" | No extra event (red is default) |
 
+**Confirmed spotting colors (from real Mira prod API, 2026-03-17):** Red, Pink, Brown
+
+**Separate `bleeding` field (not in flow scale):**
+| Mira `bleeding` value | Meaning |
+|---|---|
+| `"Postpartum bleeding"` | Post-delivery bleeding |
+| `"Miscarriage bleeding"` | Bleeding from pregnancy loss |
+
+These are categorical events, not intensity levels. Need separate HDS items (TBD — see Plan 13 Phase D).
+
+**Mira app UI also shows:** Menstrual flow (Light, Medium, Heavy, Blood clots) as a separate section from Spotting.
+
 Notes:
 - Mira `spotting` is the color, `flow_spotting` is the intensity.
 - If `spotting` exists without `flow_spotting`, implies spotting-level intensity (0.08).
-- Exact enum values for both fields not documented — see `bridge-mira/doc/QUESTIONS.md`.
+- "Blood clots" appears as a single toggle in the Mira UI — may map to `flow_spotting` or a separate field. Not yet seen in real API data. HDS already has `body-vulva-bleeding-clots` item ready.
+- Pink spotting triggers a bleeding event but NOT browndark.
 
 ### FHIR / HL7
 

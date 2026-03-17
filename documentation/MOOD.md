@@ -172,9 +172,10 @@ Gold standard for emotion tracking. Based on the circumplex model (RULER framewo
 "mood": "Excited,Exhausted,Anxiety or panic attacks"
 ```
 
-**Known values (from API docs + sample data):** Excited, Exhausted, Anxiety or panic attacks
+**All 15 confirmed values (from real Mira prod API, 2026-03-17):**
+Excited, Happy, Tired, Sad, Irritable, Angry, Exhausted, Hopeless, Poor sleep, Trouble focusing, Anxiety or panic attacks, Loss of motivation, Unhappy or depressed, Tense or nervous, Emotional
 
-**Complete list not publicly documented.** Values are human-readable labels with spaces (not coded enums). No severity/intensity. Multiple moods comma-separated.
+Values are human-readable labels with spaces (not coded enums). No severity/intensity. Single string when one value, comma-separated when multiple (e.g. `"Excited,Happy,Tired"`).
 
 ---
 
@@ -187,7 +188,7 @@ Gold standard for emotion tracking. Based on the circumplex model (RULER framewo
 | **Daylio** | Ordinal valence | Valence only | 5 levels |
 | **Bearable** | Numeric valence + energy | Valence + Arousal (separate) | 10+10 levels + tags |
 | **Clue/Flo/Ovia** | Discrete binary tags | Implicit valence | 4-13 emotions |
-| **Mira** | Discrete comma-separated | None | Unknown count, >=3 known |
+| **Mira** | Discrete comma-separated | None | 15 labels confirmed |
 | **PHQ-9/GAD-7** | Clinical screening score | Depression/Anxiety severity | Validated cutoffs |
 
 ---
@@ -318,6 +319,11 @@ The `model-mood` library is a **conversion tool**, separate from HDS storage. Fo
 
 ---
 
-## Status: DEFERRED
+## Status: IN PROGRESS (Plan 13, Phase B)
 
-Mood modeling is deferred until the `model-cervical-fluid` library is more mature — it will serve as the architectural template. Before finalizing the mood model design, we should prototype and validate the UX by testing mood input/display in `hds-forms-js` in parallel with the model work (e.g. circumplex grid picker, emotion label multi-select, valence slider). This will surface practical constraints that should inform the model dimensions and storage format.
+The `wellbeing-mood` item with `mood/5d-vectors` event type is defined in data-model-draft. Bridge-mira converter implementation is next — mapping Mira's 15 labels to 5D vectors inline (no standalone model-mood library yet).
+
+### Design decisions (settled 2026-03-17)
+- **Library vs inline**: Start with inline `MOOD_VECTORS` map in bridge-mira converter. Extract to a shared library later when more methods (Apple, How We Feel) need conversion.
+- **Anxiety/Stress from symptoms field**: Skipped — only captured through mood vectors. Avoids duplication between symptom presence flags and dimensional mood data.
+- **Mira "Normal"**: Maps to neutral vector (0.50 on all axes) — represents absence of strong emotion, not absence of data.
