@@ -173,16 +173,21 @@
     "repeatable": "P1D"
   },
   "body-vulva-mucus-inspect": {
-    "version": "v1",
+    "version": "v2",
     "label": {
       "en": "Cervical Fluid Inspect"
     },
     "description": {
-      "en": "Visual aspect of cervical fluid inspection"
+      "en": "Cervical fluid observation as a 9-dimensional vector, convertible across charting methods (Apple Health, Creighton, Billings, Mira, etc.)"
     },
     "streamId": "body-vulva-mucus-inspect",
-    "eventType": "vulva-mucus-inspect/v0",
+    "eventType": "vulva-mucus-inspect/9d-vector",
     "type": "select",
+    "converter-engine": {
+      "key": "euclidian-distance",
+      "version": "v0",
+      "models": "cervical-fluid"
+    },
     "options": [
       {
         "value": "clear",
@@ -1485,7 +1490,7 @@
     "repeatable": "unlimited"
   },
   "wellbeing-mood": {
-    "version": "v1",
+    "version": "v2",
     "label": {
       "en": "Mood",
       "fr": "Humeur"
@@ -1497,6 +1502,11 @@
     "streamId": "wellbeing-mood",
     "eventType": "mood/5d-vectors",
     "type": "composite",
+    "converter-engine": {
+      "key": "euclidian-distance",
+      "version": "v0",
+      "models": "mood"
+    },
     "composite": {
       "valence": {
         "label": {

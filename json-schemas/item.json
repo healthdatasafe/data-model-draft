@@ -88,7 +88,8 @@
         {
           "enum": [
             "composite",
-            "datasource-search"
+            "datasource-search",
+            "convertible"
           ]
         }
       ]
@@ -243,6 +244,42 @@
         },
         "required": [
           "datasource"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "convertible"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "converter-engine": {
+            "type": "object",
+            "nullable": false,
+            "properties": {
+              "key": {
+                "type": "string"
+              },
+              "version": {
+                "type": "string"
+              },
+              "models": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "key",
+              "version",
+              "models"
+            ]
+          }
+        },
+        "required": [
+          "converter-engine"
         ]
       }
     }
