@@ -1,5 +1,5 @@
 {
-  "publicationDate": "2026-03-19T11:34:08.653Z",
+  "publicationDate": "2026-03-19T14:55:13.850Z",
   "streams": [
     {
       "id": "activity",
@@ -716,38 +716,12 @@
       },
       "streamId": "body-vulva-mucus-inspect",
       "eventType": "vulva-mucus-inspect/9d-vector",
-      "type": "select",
+      "type": "convertible",
       "converter-engine": {
         "key": "euclidian-distance",
         "version": "v0",
         "models": "cervical-fluid"
       },
-      "options": [
-        {
-          "value": "clear",
-          "label": {
-            "en": "Clear"
-          }
-        },
-        {
-          "value": "creamy",
-          "label": {
-            "en": "Creamy"
-          }
-        },
-        {
-          "value": "dry-sticky",
-          "label": {
-            "en": "Dry & Sticky"
-          }
-        },
-        {
-          "value": "egg-white",
-          "label": {
-            "en": "Egg White"
-          }
-        }
-      ],
       "repeatable": "unlimited"
     },
     "body-vulva-mucus-stretch": {
@@ -2035,7 +2009,7 @@
       },
       "streamId": "wellbeing-mood",
       "eventType": "mood/5d-vectors",
-      "type": "composite",
+      "type": "convertible",
       "converter-engine": {
         "key": "euclidian-distance",
         "version": "v0",
@@ -4156,7 +4130,7 @@
         "symbol": "IU"
       },
       "vulva-mucus-inspect/v0": {
-        "description": "Cervical Fluid Inspect (legacy simple enum)",
+        "description": "DEPRECATED — use vulva-mucus-inspect/9d-vector with converter engine instead. Legacy simple enum kept for backward compatibility with existing data.",
         "type": "string",
         "enum": [
           "clear",
@@ -6693,11 +6667,11 @@
   "converters": {
     "cervical-fluid": {
       "latestVersion": "v0",
-      "updatedAt": "2026-03-19T11:34:08.652Z"
+      "updatedAt": "2026-03-19T14:55:13.848Z"
     },
     "mood": {
       "latestVersion": "v0",
-      "updatedAt": "2026-03-19T11:34:08.653Z"
+      "updatedAt": "2026-03-19T14:55:13.849Z"
     }
   },
   "settings": {

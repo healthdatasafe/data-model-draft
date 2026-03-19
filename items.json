@@ -182,38 +182,12 @@
     },
     "streamId": "body-vulva-mucus-inspect",
     "eventType": "vulva-mucus-inspect/9d-vector",
-    "type": "select",
+    "type": "convertible",
     "converter-engine": {
       "key": "euclidian-distance",
       "version": "v0",
       "models": "cervical-fluid"
     },
-    "options": [
-      {
-        "value": "clear",
-        "label": {
-          "en": "Clear"
-        }
-      },
-      {
-        "value": "creamy",
-        "label": {
-          "en": "Creamy"
-        }
-      },
-      {
-        "value": "dry-sticky",
-        "label": {
-          "en": "Dry & Sticky"
-        }
-      },
-      {
-        "value": "egg-white",
-        "label": {
-          "en": "Egg White"
-        }
-      }
-    ],
     "repeatable": "unlimited"
   },
   "body-vulva-mucus-stretch": {
@@ -1501,7 +1475,7 @@
     },
     "streamId": "wellbeing-mood",
     "eventType": "mood/5d-vectors",
-    "type": "composite",
+    "type": "convertible",
     "converter-engine": {
       "key": "euclidian-distance",
       "version": "v0",
