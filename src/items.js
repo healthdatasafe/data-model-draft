@@ -170,5 +170,9 @@ function checkItemVsEvenType (key, item, eventType) {
   if (item.type === 'picture') {
     return true;
   }
+  if (item.type === 'convertible') {
+    // Convertible items use a converter engine — validation is done by the engine, not by eventType matching
+    return true;
+  }
   throw new Error(`There is no check available for the matching of item content end eventType for ${JSON.stringify({ item, eventType }, null, 2)}`);
 }

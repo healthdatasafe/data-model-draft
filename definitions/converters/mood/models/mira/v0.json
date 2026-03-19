@@ -1,0 +1,104 @@
+{
+  "methodId": "mira",
+  "order": 10,
+  "name": {
+    "en": "Mira",
+    "fr": "Mira"
+  },
+  "description": {
+    "en": "16 mood labels from the Mira fertility tracker, mapped to 5D vectors based on Russell's Circumplex and PAD models.",
+    "fr": "16 étiquettes d'humeur du tracker de fertilité Mira, associées à des vecteurs 5D basés sur les modèles Circumplex de Russell et PAD."
+  },
+  "referenceUrl": "https://www.miracare.com/",
+  "components": [
+    {
+      "field": "observation",
+      "label": {
+        "en": "Mood",
+        "fr": "Humeur"
+      },
+      "options": [
+        {
+          "value": "Excited",
+          "label": { "en": "Excited", "fr": "Excité" },
+          "vector": { "valence": 0.85, "arousal": 0.90, "dominance": 0.65, "socialOrientation": 0.40, "temporalFocus": 0.70 }
+        },
+        {
+          "value": "Happy",
+          "label": { "en": "Happy", "fr": "Heureux" },
+          "vector": { "valence": 0.80, "arousal": 0.60, "dominance": 0.60, "socialOrientation": 0.50, "temporalFocus": 0.50 }
+        },
+        {
+          "value": "Normal",
+          "label": { "en": "Normal", "fr": "Normal" },
+          "vector": { "valence": 0.50, "arousal": 0.50, "dominance": 0.50, "socialOrientation": 0.50, "temporalFocus": 0.50 }
+        },
+        {
+          "value": "Tired",
+          "label": { "en": "Tired", "fr": "Fatigué" },
+          "vector": { "valence": 0.35, "arousal": 0.10, "dominance": 0.30, "socialOrientation": 0.30, "temporalFocus": 0.40 }
+        },
+        {
+          "value": "Sad",
+          "label": { "en": "Sad", "fr": "Triste" },
+          "vector": { "valence": 0.15, "arousal": 0.20, "dominance": 0.25, "socialOrientation": 0.30, "temporalFocus": 0.60 }
+        },
+        {
+          "value": "Irritable",
+          "label": { "en": "Irritable", "fr": "Irritable" },
+          "vector": { "valence": 0.20, "arousal": 0.70, "dominance": 0.55, "socialOrientation": 0.50, "temporalFocus": 0.40 }
+        },
+        {
+          "value": "Angry",
+          "label": { "en": "Angry", "fr": "En colère" },
+          "vector": { "valence": 0.10, "arousal": 0.85, "dominance": 0.75, "socialOrientation": 0.55, "temporalFocus": 0.40 }
+        },
+        {
+          "value": "Exhausted",
+          "label": { "en": "Exhausted", "fr": "Épuisé" },
+          "vector": { "valence": 0.20, "arousal": 0.05, "dominance": 0.15, "socialOrientation": 0.25, "temporalFocus": 0.35 }
+        },
+        {
+          "value": "Hopeless",
+          "label": { "en": "Hopeless", "fr": "Désespéré" },
+          "vector": { "valence": 0.05, "arousal": 0.15, "dominance": 0.10, "socialOrientation": 0.30, "temporalFocus": 0.65 }
+        },
+        {
+          "value": "Poor sleep",
+          "label": { "en": "Poor sleep", "fr": "Mauvais sommeil" },
+          "vector": { "valence": 0.25, "arousal": 0.15, "dominance": 0.25, "socialOrientation": 0.25, "temporalFocus": 0.35 }
+        },
+        {
+          "value": "Trouble focusing",
+          "label": { "en": "Trouble focusing", "fr": "Difficulté à se concentrer" },
+          "vector": { "valence": 0.30, "arousal": 0.35, "dominance": 0.25, "socialOrientation": 0.30, "temporalFocus": 0.45 }
+        },
+        {
+          "value": "Anxiety or panic attacks",
+          "label": { "en": "Anxiety or panic attacks", "fr": "Anxiété ou crises de panique" },
+          "vector": { "valence": 0.10, "arousal": 0.85, "dominance": 0.10, "socialOrientation": 0.30, "temporalFocus": 0.75 }
+        },
+        {
+          "value": "Loss of motivation",
+          "label": { "en": "Loss of motivation", "fr": "Perte de motivation" },
+          "vector": { "valence": 0.15, "arousal": 0.10, "dominance": 0.15, "socialOrientation": 0.25, "temporalFocus": 0.40 }
+        },
+        {
+          "value": "Unhappy or depressed",
+          "label": { "en": "Unhappy or depressed", "fr": "Malheureux ou déprimé" },
+          "vector": { "valence": 0.10, "arousal": 0.15, "dominance": 0.15, "socialOrientation": 0.35, "temporalFocus": 0.55 }
+        },
+        {
+          "value": "Tense or nervous",
+          "label": { "en": "Tense or nervous", "fr": "Tendu ou nerveux" },
+          "vector": { "valence": 0.20, "arousal": 0.75, "dominance": 0.20, "socialOrientation": 0.35, "temporalFocus": 0.70 }
+        },
+        {
+          "value": "Emotional",
+          "label": { "en": "Emotional", "fr": "Émotif" },
+          "vector": { "valence": 0.45, "arousal": 0.70, "dominance": 0.30, "socialOrientation": 0.55, "temporalFocus": 0.50 }
+        }
+      ]
+    }
+  ]
+}

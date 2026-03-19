@@ -14,6 +14,7 @@ const sources = [
   require('./eventTypes').toBePublished,
   require('./datasources').toBePublished,
   require('./conversions').toBePublished,
+  require('./converters').toBePublished,
   require('./settings').toBePublished
 ];
 

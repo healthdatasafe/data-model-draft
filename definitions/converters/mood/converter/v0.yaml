@@ -1,0 +1,82 @@
+# Mood converter configuration — v0
+# Engine: euclidian-distance
+# 5 dimensions based on Russell's Circumplex + PAD model
+
+engine: euclidian-distance
+version: v0
+itemKey: mood
+eventType: mood/5d-vectors
+
+dimensionNames:
+  - valence
+  - arousal
+  - dominance
+  - socialOrientation
+  - temporalFocus
+
+dimensions:
+  valence:
+    label: { en: Valence, fr: Valence }
+    shortLabel: { en: Val, fr: Val }
+    description:
+      en: "Pleasure/displeasure: 0 = very unpleasant, 0.5 = neutral, 1 = very pleasant."
+      fr: "Plaisir/déplaisir : 0 = très désagréable, 0.5 = neutre, 1 = très agréable."
+    weight: 0.30
+    stops:
+      - { value: 0.0, label: { en: Very unpleasant, fr: Très désagréable } }
+      - { value: 0.25, label: { en: Unpleasant, fr: Désagréable } }
+      - { value: 0.50, label: { en: Neutral, fr: Neutre } }
+      - { value: 0.75, label: { en: Pleasant, fr: Agréable } }
+      - { value: 1.0, label: { en: Very pleasant, fr: Très agréable } }
+
+  arousal:
+    label: { en: Energy, fr: Énergie }
+    shortLabel: { en: Energy, fr: Énergie }
+    description:
+      en: "Energy/activation: 0 = very calm, 0.5 = moderate, 1 = very energized."
+      fr: "Énergie/activation : 0 = très calme, 0.5 = modéré, 1 = très énergique."
+    weight: 0.25
+    stops:
+      - { value: 0.0, label: { en: Very calm, fr: Très calme } }
+      - { value: 0.25, label: { en: Calm, fr: Calme } }
+      - { value: 0.50, label: { en: Moderate, fr: Modéré } }
+      - { value: 0.75, label: { en: Energized, fr: Énergique } }
+      - { value: 1.0, label: { en: Very energized, fr: Très énergique } }
+
+  dominance:
+    label: { en: Sense of control, fr: Sentiment de contrôle }
+    shortLabel: { en: Control, fr: Contrôle }
+    description:
+      en: "Sense of control: 0 = powerless, 0.5 = neutral, 1 = in control."
+      fr: "Sentiment de contrôle : 0 = impuissant, 0.5 = neutre, 1 = en contrôle."
+    weight: 0.20
+    stops:
+      - { value: 0.0, label: { en: Powerless, fr: Impuissant } }
+      - { value: 0.25, label: { en: Overwhelmed, fr: Submergé } }
+      - { value: 0.50, label: { en: Neutral, fr: Neutre } }
+      - { value: 0.75, label: { en: In control, fr: En contrôle } }
+      - { value: 1.0, label: { en: Very in control, fr: Très en contrôle } }
+
+  socialOrientation:
+    label: { en: Social focus, fr: Focus social }
+    shortLabel: { en: Social, fr: Social }
+    description:
+      en: "Social focus: 0 = self-focused, 0.5 = balanced, 1 = other-focused."
+      fr: "Focus social : 0 = centré sur soi, 0.5 = équilibré, 1 = centré sur les autres."
+    weight: 0.15
+    stops:
+      - { value: 0.0, label: { en: Self-focused, fr: Centré sur soi } }
+      - { value: 0.50, label: { en: Balanced, fr: Équilibré } }
+      - { value: 1.0, label: { en: Other-focused, fr: Centré sur les autres } }
+
+  temporalFocus:
+    label: { en: Time focus, fr: Focus temporel }
+    shortLabel: { en: Time, fr: Temps }
+    description:
+      en: "Time orientation: 0 = past-dwelling, 0.5 = present, 1 = future-anticipating."
+      fr: "Orientation temporelle : 0 = tourné vers le passé, 0.5 = présent, 1 = tourné vers le futur."
+    weight: 0.10
+    stops:
+      - { value: 0.0, label: { en: Past-dwelling, fr: Tourné vers le passé } }
+      - { value: 0.50, label: { en: Present, fr: Présent } }
+      - { value: 1.0, label: { en: Future-anticipating, fr: Tourné vers le futur } }

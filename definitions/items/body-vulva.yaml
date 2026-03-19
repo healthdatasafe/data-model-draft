@@ -1,21 +1,16 @@
 ## MUCUS
 
 body-vulva-mucus-inspect:
-  version: v1
+  version: v2
   label: Cervical Fluid Inspect
-  description: Visual aspect of cervical fluid inspection
+  description: Cervical fluid observation as a 9-dimensional vector, convertible across charting methods (Apple Health, Creighton, Billings, Mira, etc.)
   streamId: body-vulva-mucus-inspect
-  eventType: vulva-mucus-inspect/v0
-  type: select
-  options:
-    - value: clear
-      label: Clear
-    - value: creamy
-      label: Creamy
-    - value: dry-sticky
-      label: Dry & Sticky
-    - value: egg-white
-      label: Egg White
+  eventType: vulva-mucus-inspect/9d-vector
+  type: convertible
+  converter-engine:
+    key: euclidian-distance
+    version: v0
+    models: cervical-fluid
   repeatable: unlimited
 body-vulva-mucus-stretch:
   version: v1

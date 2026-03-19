@@ -2,7 +2,7 @@
   "version": "1.0.0",
   "types": {
     "vulva-mucus-inspect/v0": {
-      "description": "Cervical Fluid Inspect",
+      "description": "Cervical Fluid Inspect (legacy simple enum)",
       "type": "string",
       "enum": [
         "clear",
@@ -10,6 +10,21 @@
         "dry-sticky",
         "egg-white"
       ]
+    },
+    "vulva-mucus-inspect/9d-vector": {
+      "description": "Cervical fluid observation as a 9-dimensional vector (threadiness, stretchability, lubricative, transparency, wetness, densityFluidity, sensation, mucusVolume, color). Each dimension is 0.0–1.0. Used with the euclidian-distance converter engine.",
+      "type": "object",
+      "properties": {
+        "threadiness": { "type": "number", "minimum": 0, "maximum": 1 },
+        "stretchability": { "type": "number", "minimum": 0, "maximum": 1 },
+        "lubricative": { "type": "number", "minimum": 0, "maximum": 1 },
+        "transparency": { "type": "number", "minimum": 0, "maximum": 1 },
+        "wetness": { "type": "number", "minimum": 0, "maximum": 1 },
+        "densityFluidity": { "type": "number", "minimum": 0, "maximum": 1 },
+        "sensation": { "type": "number", "minimum": 0, "maximum": 1 },
+        "mucusVolume": { "type": "number", "minimum": 0, "maximum": 1 },
+        "color": { "type": "number", "minimum": 0, "maximum": 1 }
+      }
     },
     "contact/country": {
       "description": "Country",

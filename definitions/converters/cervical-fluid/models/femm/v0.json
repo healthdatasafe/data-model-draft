@@ -1,0 +1,84 @@
+{
+  "methodId": "femm",
+  "order": 60,
+  "name": {
+    "en": "FEMM",
+    "fr": "FEMM"
+  },
+  "description": {
+    "en": "Two-axis composite: bleeding intensity and cervical mucus quality from the FEMM app.",
+    "fr": "Composite à deux axes : intensité des saignements et qualité de la glaire cervicale de l'application FEMM."
+  },
+  "referenceUrl": "https://femmhealth.org/",
+  "components": [
+    {
+      "field": "mucus",
+      "label": {
+        "en": "Cervical Mucus",
+        "fr": "Glaire cervicale"
+      },
+      "options": [
+        {
+          "value": 1,
+          "label": {
+            "en": "Dry",
+            "fr": "Sec"
+          },
+          "vector": {}
+        },
+        {
+          "value": 2,
+          "label": {
+            "en": "Pasty",
+            "fr": "Pâteux"
+          },
+          "vector": {
+            "threadiness": 0.35,
+            "stretchability": 0.2,
+            "lubricative": 0.15,
+            "transparency": 0.15,
+            "wetness": 0.25,
+            "densityFluidity": 0.15,
+            "sensation": 0.2,
+            "mucusVolume": 0.3
+          }
+        },
+        {
+          "value": 3,
+          "label": {
+            "en": "Moist",
+            "fr": "Humide"
+          },
+          "vector": {
+            "threadiness": 0.55,
+            "stretchability": 0.45,
+            "lubricative": 0.45,
+            "transparency": 0.4,
+            "wetness": 0.55,
+            "densityFluidity": 0.4,
+            "sensation": 0.5,
+            "mucusVolume": 0.5
+          }
+        },
+        {
+          "value": 4,
+          "label": {
+            "en": "Slippery",
+            "fr": "Glissant"
+          },
+          "vector": {
+            "threadiness": 0.9,
+            "stretchability": 0.85,
+            "lubricative": 0.85,
+            "transparency": 0.8,
+            "wetness": 0.85,
+            "densityFluidity": 0.7,
+            "color": 0.45,
+            "sensation": 0.85,
+            "mucusVolume": 0.7
+          }
+        }
+      ]
+    }
+  ]
+}

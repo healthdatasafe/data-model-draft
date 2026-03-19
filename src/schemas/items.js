@@ -70,7 +70,7 @@ const itemSchema = {
       type: 'string',
       oneOf: [
         { $ref: 'defs.json#/definitions/entryType' },
-        { enum: ['composite', 'datasource-search'] }
+        { enum: ['composite', 'datasource-search', 'convertible'] }
       ]
     },
     variations: {
@@ -176,6 +176,28 @@ const itemSchema = {
           datasource: { type: 'string' }
         },
         required: ['datasource']
+      }
+    },
+    { // type is convertible
+      if: {
+        properties: {
+          type: { const: 'convertible' }
+        }
+      },
+      then: {
+        properties: {
+          'converter-engine': {
+            type: 'object',
+            nullable: false,
+            properties: {
+              key: { type: 'string' },
+              version: { type: 'string' },
+              models: { type: 'string' }
+            },
+            required: ['key', 'version', 'models']
+          }
+        },
+        required: ['converter-engine']
       }
     }
   ],

@@ -1,0 +1,77 @@
+{
+  "methodId": "bigelow",
+  "order": 140,
+  "name": {
+    "en": "Bigelow Mucus Score",
+    "fr": "Score de glaire Bigelow"
+  },
+  "description": {
+    "en": "Bigelow mucus score (1–4): standardized mucus quality assessment.",
+    "fr": "Score de glaire Bigelow (1–4) : évaluation standardisée de la qualité de la glaire."
+  },
+  "components": [
+    {
+      "field": "mucus",
+      "label": {
+        "en": "Mucus (Bigelow 1–4)",
+        "fr": "Glaire (Bigelow 1–4)"
+      },
+      "options": [
+        {
+          "value": 1,
+          "label": {
+            "en": "1 — Dry / nothing",
+            "fr": "1 — Sec / rien"
+          },
+          "vector": {}
+        },
+        {
+          "value": 2,
+          "label": {
+            "en": "2 — Damp / nothing seen",
+            "fr": "2 — Moite / rien observé"
+          },
+          "vector": {
+            "wetness": 0.3,
+            "sensation": 0.25,
+            "mucusVolume": 0.05
+          }
+        },
+        {
+          "value": 3,
+          "label": {
+            "en": "3 — Damp / thick-creamy",
+            "fr": "3 — Moite / épais-crémeux"
+          },
+          "vector": {
+            "threadiness": 0.35,
+            "stretchability": 0.2,
+            "lubricative": 0.15,
+            "transparency": 0.1,
+            "wetness": 0.35,
+            "densityFluidity": 0.15,
+            "sensation": 0.25,
+            "mucusVolume": 0.35
+          }
+        },
+        {
+          "value": 4,
+          "label": {
+            "en": "4 — Wet-slippery / eggwhite",
+            "fr": "4 — Mouillé-glissant / blanc d'œuf"
+          },
+          "vector": {
+            "threadiness": 0.9,
+            "stretchability": 0.9,
+            "lubricative": 0.9,
+            "transparency": 0.85,
+            "wetness": 1,
+            "densityFluidity": 0.8,
+            "sensation": 0.9,
+            "mucusVolume": 0.7
+          }
+        }
+      ]
+    }
+  ]
+}

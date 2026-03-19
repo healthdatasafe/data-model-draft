@@ -1,0 +1,122 @@
+{
+  "methodId": "justisse",
+  "order": 70,
+  "name": {
+    "en": "Justisse",
+    "fr": "Justisse"
+  },
+  "description": {
+    "en": "Six categories from dry to eggwhite and watery, emphasizing tactile quality.",
+    "fr": "Six catégories allant de sec à blanc d'œuf et aqueux, mettant l'accent sur la qualité tactile."
+  },
+  "referenceUrl": "https://justisse.ca/",
+  "components": [
+    {
+      "field": "observation",
+      "label": {
+        "en": "Observation",
+        "fr": "Observation"
+      },
+      "options": [
+        {
+          "value": "dry",
+          "label": {
+            "en": "Dry",
+            "fr": "Sec"
+          },
+          "vector": {}
+        },
+        {
+          "value": "sticky",
+          "label": {
+            "en": "Sticky",
+            "fr": "Collant"
+          },
+          "vector": {
+            "threadiness": 0.3,
+            "stretchability": 0.15,
+            "lubricative": 0.1,
+            "transparency": 0.15,
+            "wetness": 0.2,
+            "densityFluidity": 0.1,
+            "color": 0.05,
+            "sensation": 0.15,
+            "mucusVolume": 0.25
+          }
+        },
+        {
+          "value": "tacky",
+          "label": {
+            "en": "Tacky",
+            "fr": "Poisseux"
+          },
+          "vector": {
+            "threadiness": 0.45,
+            "stretchability": 0.25,
+            "lubricative": 0.12,
+            "transparency": 0.2,
+            "wetness": 0.3,
+            "densityFluidity": 0.12,
+            "color": 0.1,
+            "sensation": 0.25,
+            "mucusVolume": 0.3
+          }
+        },
+        {
+          "value": "creamy",
+          "label": {
+            "en": "Creamy",
+            "fr": "Crémeux"
+          },
+          "vector": {
+            "threadiness": 0.35,
+            "stretchability": 0.3,
+            "lubricative": 0.38,
+            "transparency": 0.3,
+            "wetness": 0.4,
+            "densityFluidity": 0.38,
+            "color": 0.2,
+            "sensation": 0.35,
+            "mucusVolume": 0.4
+          }
+        },
+        {
+          "value": "eggWhite",
+          "label": {
+            "en": "Egg White",
+            "fr": "Blanc d'œuf"
+          },
+          "vector": {
+            "threadiness": 1,
+            "stretchability": 1,
+            "lubricative": 1,
+            "transparency": 0.85,
+            "wetness": 1,
+            "densityFluidity": 0.85,
+            "color": 0.5,
+            "sensation": 1,
+            "mucusVolume": 0.85
+          }
+        },
+        {
+          "value": "watery",
+          "label": {
+            "en": "Watery",
+            "fr": "Aqueux"
+          },
+          "vector": {
+            "threadiness": 0.2,
+            "stretchability": 0.15,
+            "lubricative": 0.8,
+            "transparency": 0.9,
+            "wetness": 1,
+            "densityFluidity": 0.95,
+            "color": 0.5,
+            "sensation": 0.8,
+            "mucusVolume": 0.8
+          }
+        }
+      ]
+    }
+  ]
+}

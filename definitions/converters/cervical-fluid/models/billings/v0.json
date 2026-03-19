@@ -1,0 +1,119 @@
+{
+  "methodId": "billings",
+  "order": 10,
+  "referenceUrl": "https://www.billings-ovulation-method.org/",
+  "name": {
+    "en": "Billings (BOM)",
+    "fr": "Billings (MOB)"
+  },
+  "description": {
+    "en": "Tracks mucus sensation and appearance from dry through peak, with bleeding recorded per BillingsMentor structured vocabulary.",
+    "fr": "Suit la sensation et l'apparence de la glaire, de sec jusqu'au sommet, avec saignement enregistré selon le vocabulaire structuré BillingsMentor."
+  },
+  "components": [
+    {
+      "field": "mucus",
+      "label": {
+        "en": "Mucus observation",
+        "fr": "Observation de la glaire"
+      },
+      "options": [
+        {
+          "value": "dry",
+          "label": {
+            "en": "Dry",
+            "fr": "Sec"
+          },
+          "vector": {}
+        },
+        {
+          "value": "unchanged",
+          "label": {
+            "en": "Unchanging sticky/thick",
+            "fr": "Constant collant/épais"
+          },
+          "vector": {
+            "threadiness": 0.1,
+            "stretchability": 0.05,
+            "lubricative": 0.05,
+            "transparency": 0.05,
+            "wetness": 0.05,
+            "densityFluidity": 0.1,
+            "sensation": 0.1,
+            "mucusVolume": 0.1
+          }
+        },
+        {
+          "value": "sticky",
+          "label": {
+            "en": "Sticky",
+            "fr": "Collant"
+          },
+          "vector": {
+            "threadiness": 0.3,
+            "stretchability": 0.15,
+            "lubricative": 0.1,
+            "transparency": 0.1,
+            "wetness": 0.2,
+            "densityFluidity": 0.1,
+            "sensation": 0.15,
+            "mucusVolume": 0.25
+          }
+        },
+        {
+          "value": "cloudyWhite",
+          "label": {
+            "en": "Cloudy/White",
+            "fr": "Trouble/Blanc"
+          },
+          "vector": {
+            "threadiness": 0.4,
+            "stretchability": 0.3,
+            "lubricative": 0.25,
+            "transparency": 0.2,
+            "wetness": 0.4,
+            "densityFluidity": 0.25,
+            "sensation": 0.35,
+            "mucusVolume": 0.4
+          }
+        },
+        {
+          "value": "wetSlippery",
+          "label": {
+            "en": "Wet/Slippery",
+            "fr": "Mouillé/Glissant"
+          },
+          "vector": {
+            "threadiness": 0.5,
+            "stretchability": 0.5,
+            "lubricative": 0.7,
+            "transparency": 0.7,
+            "wetness": 0.8,
+            "densityFluidity": 0.7,
+            "color": 0.4,
+            "sensation": 0.8,
+            "mucusVolume": 0.6
+          }
+        },
+        {
+          "value": "peak",
+          "label": {
+            "en": "Peak",
+            "fr": "Sommet"
+          },
+          "vector": {
+            "threadiness": 1,
+            "stretchability": 1,
+            "lubricative": 1,
+            "transparency": 0.9,
+            "wetness": 1,
+            "densityFluidity": 0.85,
+            "color": 0.5,
+            "sensation": 1,
+            "mucusVolume": 0.85
+          }
+        }
+      ]
+    }
+  ]
+}

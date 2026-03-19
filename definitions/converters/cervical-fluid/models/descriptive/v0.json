@@ -1,0 +1,568 @@
+{
+  "methodId": "descriptive",
+  "order": 150,
+  "name": {
+    "en": "Descriptive (English)",
+    "fr": "Descriptif"
+  },
+  "description": {
+    "en": "Free-form vocabulary across 5 descriptors: consistency, stretch, sensation, appearance, and color.",
+    "fr": "Vocabulaire libre selon 5 descripteurs : consistance, étirement, sensation, apparence et couleur."
+  },
+  "components": [
+    {
+      "field": "consistency",
+      "label": {
+        "en": "Consistency",
+        "fr": "Consistance"
+      },
+      "options": [
+        {
+          "value": "dry",
+          "label": {
+            "en": "Dry",
+            "fr": "Sec"
+          },
+          "vector": {}
+        },
+        {
+          "value": "flaky",
+          "label": {
+            "en": "Flaky",
+            "fr": "Floconneux"
+          },
+          "vector": {
+            "threadiness": 0.05,
+            "densityFluidity": 0.02
+          }
+        },
+        {
+          "value": "crumbly",
+          "label": {
+            "en": "Crumbly",
+            "fr": "Friable"
+          },
+          "vector": {
+            "threadiness": 0.1,
+            "densityFluidity": 0.05
+          }
+        },
+        {
+          "value": "pasty",
+          "label": {
+            "en": "Pasty",
+            "fr": "Pâteux"
+          },
+          "vector": {
+            "threadiness": 0.2,
+            "densityFluidity": 0.1
+          }
+        },
+        {
+          "value": "sticky",
+          "label": {
+            "en": "Sticky",
+            "fr": "Collant"
+          },
+          "vector": {
+            "threadiness": 0.3,
+            "densityFluidity": 0.15
+          }
+        },
+        {
+          "value": "rubbery",
+          "label": {
+            "en": "Rubbery",
+            "fr": "Caoutchouteux"
+          },
+          "vector": {
+            "threadiness": 0.35,
+            "densityFluidity": 0.15
+          }
+        },
+        {
+          "value": "gluey",
+          "label": {
+            "en": "Gluey",
+            "fr": "Gluant"
+          },
+          "vector": {
+            "threadiness": 0.4,
+            "densityFluidity": 0.1
+          }
+        },
+        {
+          "value": "lotiony",
+          "label": {
+            "en": "Lotiony",
+            "fr": "Comme une lotion"
+          },
+          "vector": {
+            "threadiness": 0.35,
+            "densityFluidity": 0.4
+          }
+        },
+        {
+          "value": "smooth",
+          "label": {
+            "en": "Smooth",
+            "fr": "Lisse"
+          },
+          "vector": {
+            "threadiness": 0.3,
+            "densityFluidity": 0.35
+          }
+        },
+        {
+          "value": "creamy",
+          "label": {
+            "en": "Creamy",
+            "fr": "Crémeux"
+          },
+          "vector": {
+            "threadiness": 0.4,
+            "densityFluidity": 0.3
+          }
+        },
+        {
+          "value": "gummy",
+          "label": {
+            "en": "Gummy",
+            "fr": "Gommeux"
+          },
+          "vector": {
+            "threadiness": 0.5,
+            "densityFluidity": 0.2
+          }
+        },
+        {
+          "value": "slimy",
+          "label": {
+            "en": "Slimy",
+            "fr": "Visqueux"
+          },
+          "vector": {
+            "threadiness": 0.7,
+            "densityFluidity": 0.7
+          }
+        },
+        {
+          "value": "watery",
+          "label": {
+            "en": "Watery",
+            "fr": "Aqueux"
+          },
+          "vector": {
+            "threadiness": 0.2,
+            "densityFluidity": 0.95
+          }
+        }
+      ]
+    },
+    {
+      "field": "stretch",
+      "label": {
+        "en": "Stretch",
+        "fr": "Étirement"
+      },
+      "options": [
+        {
+          "value": "none",
+          "label": {
+            "en": "None",
+            "fr": "Aucun"
+          },
+          "vector": {}
+        },
+        {
+          "value": "brittle",
+          "label": {
+            "en": "Brittle",
+            "fr": "Cassant"
+          },
+          "vector": {
+            "stretchability": 0.05
+          }
+        },
+        {
+          "value": "short",
+          "label": {
+            "en": "Short",
+            "fr": "Court"
+          },
+          "vector": {
+            "stretchability": 0.2
+          }
+        },
+        {
+          "value": "stringy",
+          "label": {
+            "en": "Stringy",
+            "fr": "Filant"
+          },
+          "vector": {
+            "stretchability": 0.45
+          }
+        },
+        {
+          "value": "ropy",
+          "label": {
+            "en": "Ropy",
+            "fr": "Cordé"
+          },
+          "vector": {
+            "stretchability": 0.6
+          }
+        },
+        {
+          "value": "long",
+          "label": {
+            "en": "Long",
+            "fr": "Long"
+          },
+          "vector": {
+            "stretchability": 0.7
+          }
+        },
+        {
+          "value": "elastic",
+          "label": {
+            "en": "Elastic",
+            "fr": "Élastique"
+          },
+          "vector": {
+            "stretchability": 0.85
+          }
+        },
+        {
+          "value": "stretchy",
+          "label": {
+            "en": "Stretchy",
+            "fr": "Étirable"
+          },
+          "vector": {
+            "stretchability": 0.95
+          }
+        },
+        {
+          "value": "spinnbar",
+          "label": {
+            "en": "Spinnbar",
+            "fr": "Spinnbar"
+          },
+          "vector": {
+            "stretchability": 1
+          }
+        }
+      ]
+    },
+    {
+      "field": "sensation",
+      "label": {
+        "en": "Sensation",
+        "fr": "Sensation"
+      },
+      "options": [
+        {
+          "value": "dry",
+          "label": {
+            "en": "Dry",
+            "fr": "Sec"
+          },
+          "vector": {}
+        },
+        {
+          "value": "damp",
+          "label": {
+            "en": "Damp",
+            "fr": "Moite"
+          },
+          "vector": {
+            "sensation": 0.25,
+            "wetness": 0.3,
+            "lubricative": 0.05
+          }
+        },
+        {
+          "value": "moist",
+          "label": {
+            "en": "Moist",
+            "fr": "Humide"
+          },
+          "vector": {
+            "sensation": 0.35,
+            "wetness": 0.4,
+            "lubricative": 0.1
+          }
+        },
+        {
+          "value": "wet",
+          "label": {
+            "en": "Wet",
+            "fr": "Mouillé"
+          },
+          "vector": {
+            "sensation": 0.5,
+            "wetness": 0.7,
+            "lubricative": 0.3
+          }
+        },
+        {
+          "value": "slippery",
+          "label": {
+            "en": "Slippery",
+            "fr": "Glissant"
+          },
+          "vector": {
+            "sensation": 0.9,
+            "wetness": 0.9,
+            "lubricative": 0.8
+          }
+        },
+        {
+          "value": "lubricative",
+          "label": {
+            "en": "Lubricative",
+            "fr": "Lubrifiant"
+          },
+          "vector": {
+            "sensation": 1,
+            "wetness": 1,
+            "lubricative": 1
+          }
+        }
+      ]
+    },
+    {
+      "field": "appearance",
+      "label": {
+        "en": "Appearance",
+        "fr": "Apparence"
+      },
+      "options": [
+        {
+          "value": "opaque",
+          "label": {
+            "en": "Opaque",
+            "fr": "Opaque"
+          },
+          "vector": {}
+        },
+        {
+          "value": "milky",
+          "label": {
+            "en": "Milky",
+            "fr": "Laiteux"
+          },
+          "vector": {
+            "transparency": 0.1
+          }
+        },
+        {
+          "value": "cloudy",
+          "label": {
+            "en": "Cloudy",
+            "fr": "Trouble"
+          },
+          "vector": {
+            "transparency": 0.2
+          }
+        },
+        {
+          "value": "hazy",
+          "label": {
+            "en": "Hazy",
+            "fr": "Voilé"
+          },
+          "vector": {
+            "transparency": 0.35
+          }
+        },
+        {
+          "value": "translucent",
+          "label": {
+            "en": "Translucent",
+            "fr": "Translucide"
+          },
+          "vector": {
+            "transparency": 0.5
+          }
+        },
+        {
+          "value": "clear",
+          "label": {
+            "en": "Clear",
+            "fr": "Clair"
+          },
+          "vector": {
+            "transparency": 0.85
+          }
+        },
+        {
+          "value": "transparent",
+          "label": {
+            "en": "Transparent",
+            "fr": "Transparent"
+          },
+          "vector": {
+            "transparency": 1
+          }
+        }
+      ]
+    },
+    {
+      "field": "color",
+      "label": {
+        "en": "Color",
+        "fr": "Couleur"
+      },
+      "options": [
+        {
+          "value": "white",
+          "label": {
+            "en": "White",
+            "fr": "Blanc"
+          },
+          "vector": {}
+        },
+        {
+          "value": "off-white",
+          "label": {
+            "en": "Off-white",
+            "fr": "Blanc cassé"
+          },
+          "vector": {
+            "color": 0.2
+          }
+        },
+        {
+          "value": "cream",
+          "label": {
+            "en": "Cream",
+            "fr": "Crème"
+          },
+          "vector": {
+            "color": 0.25
+          }
+        },
+        {
+          "value": "yellow",
+          "label": {
+            "en": "Yellow",
+            "fr": "Jaune"
+          },
+          "vector": {
+            "color": 0.4
+          }
+        },
+        {
+          "value": "colorless",
+          "label": {
+            "en": "Colorless",
+            "fr": "Incolore"
+          },
+          "vector": {
+            "color": 0.5
+          }
+        },
+        {
+          "value": "pink",
+          "label": {
+            "en": "Pink",
+            "fr": "Rose"
+          },
+          "vector": {
+            "color": 0.6
+          }
+        },
+        {
+          "value": "red",
+          "label": {
+            "en": "Red",
+            "fr": "Rouge"
+          },
+          "vector": {
+            "color": 0.8
+          }
+        },
+        {
+          "value": "brown",
+          "label": {
+            "en": "Brown",
+            "fr": "Brun"
+          },
+          "vector": {
+            "color": 1
+          }
+        }
+      ]
+    },
+    {
+      "field": "volume",
+      "label": {
+        "en": "Volume",
+        "fr": "Volume"
+      },
+      "options": [
+        {
+          "value": "none",
+          "label": {
+            "en": "None",
+            "fr": "Aucun"
+          },
+          "vector": {}
+        },
+        {
+          "value": "scanty",
+          "label": {
+            "en": "Scanty",
+            "fr": "Infime"
+          },
+          "vector": {
+            "mucusVolume": 0.1
+          }
+        },
+        {
+          "value": "light",
+          "label": {
+            "en": "Light",
+            "fr": "Léger"
+          },
+          "vector": {
+            "mucusVolume": 0.25
+          }
+        },
+        {
+          "value": "medium",
+          "label": {
+            "en": "Medium",
+            "fr": "Moyen"
+          },
+          "vector": {
+            "mucusVolume": 0.5
+          }
+        },
+        {
+          "value": "heavy",
+          "label": {
+            "en": "Heavy",
+            "fr": "Abondant"
+          },
+          "vector": {
+            "mucusVolume": 0.75
+          }
+        },
+        {
+          "value": "profuse",
+          "label": {
+            "en": "Profuse",
+            "fr": "Très abondant"
+          },
+          "vector": {
+            "mucusVolume": 1
+          }
+        }
+      ]
+    }
+  ]
+}

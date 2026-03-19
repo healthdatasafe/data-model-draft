@@ -1,7 +1,7 @@
 # Wellbeing items — subjective behavioral / psychological self-reports.
 
 wellbeing-mood:
-  version: v1
+  version: v2
   label:
     en: Mood
     fr: Humeur
@@ -10,7 +10,11 @@ wellbeing-mood:
     fr: Comment vous vous sentez — agrément, énergie, sentiment de contrôle, et plus.
   streamId: wellbeing-mood
   eventType: mood/5d-vectors
-  type: composite
+  type: convertible
+  converter-engine:
+    key: euclidian-distance
+    version: v0
+    models: mood
   composite:
     valence:
       label:

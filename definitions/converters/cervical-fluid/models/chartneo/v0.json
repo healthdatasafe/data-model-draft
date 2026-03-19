@@ -1,0 +1,339 @@
+{
+  "methodId": "chartneo",
+  "order": 100,
+  "name": {
+    "en": "ChartNeo",
+    "fr": "ChartNeo"
+  },
+  "description": {
+    "en": "Multi-axis digital charting with separate walking, wiping, inspect, and finger-test scales.",
+    "fr": "Suivi numérique multi-axes avec échelles distinctes pour la marche, l'essuyage, l'inspection et le test digital."
+  },
+  "referenceUrl": "https://chartneo.com/",
+  "components": [
+    {
+      "field": "walking",
+      "label": {
+        "en": "Walking",
+        "fr": "En marchant"
+      },
+      "options": [
+        {
+          "value": null,
+          "label": {
+            "en": "Not observed",
+            "fr": "Non observé"
+          },
+          "vector": {
+            "sensation": 0,
+            "wetness": 0,
+            "lubricative": 0
+          },
+          "vectorMerge": {
+            "sensation": "max",
+            "wetness": "max",
+            "lubricative": "max"
+          }
+        },
+        {
+          "value": 1,
+          "label": {
+            "en": "1 — Nothing",
+            "fr": "1 — Rien"
+          },
+          "vector": {
+            "sensation": 0,
+            "wetness": 0,
+            "lubricative": 0
+          },
+          "vectorMerge": {
+            "sensation": "max",
+            "wetness": "max",
+            "lubricative": "max"
+          }
+        },
+        {
+          "value": 2,
+          "label": {
+            "en": "2 — Damp",
+            "fr": "2 — Moite"
+          },
+          "vector": {
+            "sensation": 0.5,
+            "wetness": 0.5,
+            "lubricative": 0.1
+          },
+          "vectorMerge": {
+            "sensation": "max",
+            "wetness": "max",
+            "lubricative": "max"
+          }
+        },
+        {
+          "value": 3,
+          "label": {
+            "en": "3 — Wet/Slippery",
+            "fr": "3 — Mouillé/Glissant"
+          },
+          "vector": {
+            "sensation": 1,
+            "wetness": 0.75,
+            "lubricative": 0.7
+          },
+          "vectorMerge": {
+            "sensation": "max",
+            "wetness": "max",
+            "lubricative": "max"
+          }
+        }
+      ]
+    },
+    {
+      "field": "wiping",
+      "label": {
+        "en": "Wiping",
+        "fr": "En s'essuyant"
+      },
+      "options": [
+        {
+          "value": null,
+          "label": {
+            "en": "Not observed",
+            "fr": "Non observé"
+          },
+          "vector": {
+            "sensation": 0,
+            "wetness": 0,
+            "lubricative": 0
+          },
+          "vectorMerge": {
+            "sensation": "max",
+            "wetness": "max",
+            "lubricative": "max"
+          }
+        },
+        {
+          "value": 1,
+          "label": {
+            "en": "1 — Nothing",
+            "fr": "1 — Rien"
+          },
+          "vector": {
+            "sensation": 0,
+            "wetness": 0,
+            "lubricative": 0
+          },
+          "vectorMerge": {
+            "sensation": "max",
+            "wetness": "max",
+            "lubricative": "max"
+          }
+        },
+        {
+          "value": 2,
+          "label": {
+            "en": "2 — Damp",
+            "fr": "2 — Moite"
+          },
+          "vector": {
+            "sensation": 0.5,
+            "wetness": 0.5,
+            "lubricative": 0.1
+          },
+          "vectorMerge": {
+            "sensation": "max",
+            "wetness": "max",
+            "lubricative": "max"
+          }
+        },
+        {
+          "value": 3,
+          "label": {
+            "en": "3 — Wet/Slippery",
+            "fr": "3 — Mouillé/Glissant"
+          },
+          "vector": {
+            "sensation": 1,
+            "wetness": 0.8,
+            "lubricative": 0.8
+          },
+          "vectorMerge": {
+            "sensation": "max",
+            "wetness": "max",
+            "lubricative": "max"
+          }
+        }
+      ]
+    },
+    {
+      "field": "inspect",
+      "label": {
+        "en": "Inspect",
+        "fr": "Inspection"
+      },
+      "options": [
+        {
+          "value": null,
+          "label": {
+            "en": "Not observed",
+            "fr": "Non observé"
+          },
+          "vector": {
+            "threadiness": 0,
+            "stretchability": 0,
+            "densityFluidity": 0,
+            "transparency": 0
+          }
+        },
+        {
+          "value": 1,
+          "label": {
+            "en": "1 — Nothing",
+            "fr": "1 — Rien"
+          },
+          "vector": {
+            "threadiness": 0,
+            "stretchability": 0,
+            "densityFluidity": 0,
+            "transparency": 0,
+            "mucusVolume": 0.25
+          }
+        },
+        {
+          "value": 2,
+          "label": {
+            "en": "2 — Small amount",
+            "fr": "2 — Petite quantité"
+          },
+          "vector": {
+            "threadiness": 0.1,
+            "stretchability": 0.05,
+            "densityFluidity": 0.3,
+            "transparency": 0.15,
+            "mucusVolume": 0.4
+          }
+        },
+        {
+          "value": 3,
+          "label": {
+            "en": "3 — Moderate",
+            "fr": "3 — Modéré"
+          },
+          "vector": {
+            "threadiness": 0.3,
+            "stretchability": 0.15,
+            "densityFluidity": 0.2,
+            "transparency": 0.1,
+            "mucusVolume": 0.55
+          }
+        },
+        {
+          "value": 4,
+          "label": {
+            "en": "4 — Abundant",
+            "fr": "4 — Abondant"
+          },
+          "vector": {
+            "threadiness": 0.6,
+            "stretchability": 0.4,
+            "densityFluidity": 0.5,
+            "transparency": 0.3,
+            "mucusVolume": 0.55
+          }
+        }
+      ]
+    },
+    {
+      "field": "test",
+      "label": {
+        "en": "Finger Test",
+        "fr": "Test digital"
+      },
+      "options": [
+        {
+          "value": null,
+          "label": {
+            "en": "Not observed",
+            "fr": "Non observé"
+          },
+          "vector": {
+            "threadiness": 0,
+            "stretchability": 0
+          }
+        },
+        {
+          "value": 1,
+          "label": {
+            "en": "1 — Pasty",
+            "fr": "1 — Pâteux"
+          },
+          "vector": {
+            "threadiness": 0,
+            "stretchability": 0
+          }
+        },
+        {
+          "value": 2,
+          "label": {
+            "en": "2 — Some stretch",
+            "fr": "2 — Un peu étirable"
+          },
+          "vector": {
+            "threadiness": 0.15,
+            "stretchability": 0.25
+          }
+        },
+        {
+          "value": 3,
+          "label": {
+            "en": "3 — Very stretchy",
+            "fr": "3 — Très étirable"
+          },
+          "vector": {
+            "threadiness": 0.35,
+            "stretchability": 0.55
+          }
+        },
+        {
+          "value": 4,
+          "label": {
+            "en": "4 — Peak",
+            "fr": "4 — Maximum"
+          },
+          "vector": {
+            "threadiness": 0,
+            "stretchability": 0
+          }
+        }
+      ]
+    },
+    {
+      "field": "testClear",
+      "label": {
+        "en": "Clear / Transparent",
+        "fr": "Clair / Transparent"
+      },
+      "options": [
+        {
+          "value": 0,
+          "label": {
+            "en": "No",
+            "fr": "Non"
+          },
+          "vector": {}
+        },
+        {
+          "value": 1,
+          "label": {
+            "en": "Yes",
+            "fr": "Oui"
+          },
+          "vector": {
+            "transparency": 0.5,
+            "color": 0.5
+          }
+        }
+      ]
+    }
+  ]
+}
