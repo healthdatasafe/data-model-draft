@@ -2,6 +2,19 @@
 
 ## [Unreleased]
 
+## [1.1.0] - 2026-03-19
+
+### Added
+- Converter engine definitions for cervical-fluid (11 methods, 9 dimensions) and mood (2 methods, 5 dimensions)
+- Build pipeline for `dist/converters/` output (pack.json, per-item index.json and pack-latest.json)
+- New eventType `vulva-mucus-inspect/9d-vector` for 9D vector observations
+- `convertible` item type support in schema validation
+
+### Changed
+- `body-vulva-mucus-inspect` itemDef: type `convertible` with converter-engine block
+- `wellbeing-mood` itemDef: type `convertible` with converter-engine block
+- Deprecated `vulva-mucus-inspect/v0` eventType
+
 ## [0.5.0] - 2026-03-17
 
 ### Added
