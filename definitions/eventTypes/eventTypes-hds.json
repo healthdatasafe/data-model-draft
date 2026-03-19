@@ -2,7 +2,7 @@
   "version": "1.0.0",
   "types": {
     "vulva-mucus-inspect/v0": {
-      "description": "Cervical Fluid Inspect (legacy simple enum)",
+      "description": "DEPRECATED — use vulva-mucus-inspect/9d-vector with converter engine instead. Legacy simple enum kept for backward compatibility with existing data.",
       "type": "string",
       "enum": [
         "clear",
