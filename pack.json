@@ -1,5 +1,5 @@
 {
-  "publicationDate": "2026-03-20T07:04:59.182Z",
+  "publicationDate": "2026-03-20T15:07:19.944Z",
   "streams": [
     {
       "id": "activity",
@@ -4140,55 +4140,85 @@
         ]
       },
       "vulva-mucus-inspect/9d-vector": {
-        "description": "Cervical fluid observation as a 9-dimensional vector (threadiness, stretchability, lubricative, transparency, wetness, densityFluidity, sensation, mucusVolume, color). Each dimension is 0.0–1.0. Used with the euclidian-distance converter engine.",
+        "description": "Cervical fluid observation as a 9-dimensional vector. Content is { vectors, source? }. Used with the euclidian-distance converter engine.",
         "type": "object",
         "properties": {
-          "threadiness": {
-            "type": "number",
-            "minimum": 0,
-            "maximum": 1
+          "vectors": {
+            "description": "9-dimensional observation vector (each dimension 0.0–1.0)",
+            "type": "object",
+            "properties": {
+              "threadiness": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "stretchability": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "lubricative": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "transparency": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "wetness": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "densityFluidity": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "sensation": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "mucusVolume": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "color": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              }
+            }
           },
-          "stretchability": {
-            "type": "number",
-            "minimum": 0,
-            "maximum": 1
-          },
-          "lubricative": {
-            "type": "number",
-            "minimum": 0,
-            "maximum": 1
-          },
-          "transparency": {
-            "type": "number",
-            "minimum": 0,
-            "maximum": 1
-          },
-          "wetness": {
-            "type": "number",
-            "minimum": 0,
-            "maximum": 1
-          },
-          "densityFluidity": {
-            "type": "number",
-            "minimum": 0,
-            "maximum": 1
-          },
-          "sensation": {
-            "type": "number",
-            "minimum": 0,
-            "maximum": 1
-          },
-          "mucusVolume": {
-            "type": "number",
-            "minimum": 0,
-            "maximum": 1
-          },
-          "color": {
-            "type": "number",
-            "minimum": 0,
-            "maximum": 1
+          "source": {
+            "description": "Provenance: which method produced this vector. Absent = direct vector input.",
+            "type": "object",
+            "properties": {
+              "key": {
+                "type": "string",
+                "description": "Source method identifier (e.g. mira, chartneo, creighton)"
+              },
+              "sourceData": {
+                "description": "Raw observation from the source method"
+              },
+              "engineVersion": {
+                "type": "string",
+                "description": "Converter engine version used"
+              },
+              "modelVersion": {
+                "type": "string",
+                "description": "Model definition version used"
+              }
+            }
           }
-        }
+        },
+        "required": [
+          "vectors"
+        ]
       },
       "contact/country": {
         "description": "Country",
@@ -4687,40 +4717,70 @@
         }
       },
       "mood/5d-vectors": {
-        "description": "Mood observation as five 0–1 dimensional vectors based on Russell's Circumplex and PAD models. Valence (unpleasant→pleasant), arousal (calm→activated), dominance (powerless→in-control), social orientation (self→other-focused), temporal focus (past→future).",
+        "description": "Mood observation as five 0–1 dimensional vectors based on Russell's Circumplex and PAD models. Content is { vectors, source? }. Used with the euclidian-distance converter engine.",
         "type": "object",
         "properties": {
-          "valence": {
-            "description": "Pleasure/displeasure: 0 = very unpleasant, 0.5 = neutral, 1 = very pleasant",
-            "type": "number",
-            "minimum": 0,
-            "maximum": 1
+          "vectors": {
+            "description": "5-dimensional mood vector (each dimension 0.0–1.0)",
+            "type": "object",
+            "properties": {
+              "valence": {
+                "description": "Pleasure/displeasure: 0 = very unpleasant, 0.5 = neutral, 1 = very pleasant",
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "arousal": {
+                "description": "Energy/activation: 0 = very calm, 0.5 = moderate, 1 = very activated",
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "dominance": {
+                "description": "Sense of control: 0 = powerless, 0.5 = neutral, 1 = in control",
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "socialOrientation": {
+                "description": "Social focus: 0 = self-focused, 0.5 = balanced, 1 = other-focused",
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "temporalFocus": {
+                "description": "Time orientation: 0 = past-dwelling, 0.5 = present, 1 = future-anticipating",
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              }
+            }
           },
-          "arousal": {
-            "description": "Energy/activation: 0 = very calm, 0.5 = moderate, 1 = very activated",
-            "type": "number",
-            "minimum": 0,
-            "maximum": 1
-          },
-          "dominance": {
-            "description": "Sense of control: 0 = powerless, 0.5 = neutral, 1 = in control",
-            "type": "number",
-            "minimum": 0,
-            "maximum": 1
-          },
-          "socialOrientation": {
-            "description": "Social focus: 0 = self-focused, 0.5 = balanced, 1 = other-focused",
-            "type": "number",
-            "minimum": 0,
-            "maximum": 1
-          },
-          "temporalFocus": {
-            "description": "Time orientation: 0 = past-dwelling, 0.5 = present, 1 = future-anticipating",
-            "type": "number",
-            "minimum": 0,
-            "maximum": 1
+          "source": {
+            "description": "Provenance: which method produced this vector. Absent = direct vector input.",
+            "type": "object",
+            "properties": {
+              "key": {
+                "type": "string",
+                "description": "Source method identifier (e.g. mira, hds, descriptive)"
+              },
+              "sourceData": {
+                "description": "Raw observation from the source method"
+              },
+              "engineVersion": {
+                "type": "string",
+                "description": "Converter engine version used"
+              },
+              "modelVersion": {
+                "type": "string",
+                "description": "Model definition version used"
+              }
+            }
           }
-        }
+        },
+        "required": [
+          "vectors"
+        ]
       }
     },
     "extras": {
@@ -6667,11 +6727,11 @@
   "converters": {
     "cervical-fluid": {
       "latestVersion": "v0",
-      "updatedAt": "2026-03-20T07:04:59.182Z"
+      "updatedAt": "2026-03-20T15:07:19.942Z"
     },
     "mood": {
       "latestVersion": "v0",
-      "updatedAt": "2026-03-20T07:04:59.182Z"
+      "updatedAt": "2026-03-20T15:07:19.943Z"
     }
   },
   "settings": {
